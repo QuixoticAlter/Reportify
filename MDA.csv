@@ -1,0 +1,188 @@
+Número,Activo,Asignado a,Grupo de asignación,Duración del negocio,Abierto,Cerrado,Descripción corta,Fecha de vencimiento,Fecha de vencimiento del SLA,SLA,SLA creado,Duración,Tiempo de resolución,Ubicación,Descripción,Hora del evento,Notas del trabajo,Notas de cierre,Tiempo de trabajo
+INC000105149965,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,0,2023-03-31 14:41:16,2023-03-31 16:40:01,Impresora HP\ Bloqueada,,,Yes,True,7081,7081,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción :Usuario entra en contacto informando que la impresora HP se encuentra con todo los iconos bloqueados.
+Capture de pantalla:
+IP:MXDCM8J0NC HP32436
+¿Cuantos usuarios afectados?08 personas  
+Localización impresora (dirección, edificio, planta...):Av Miculla Corienta 7279 Chile
+Troubleshooting:
+Estimado equipo puede verificar por favor agradecemos su colaboración.
+==========
+Nombre de usuario afectado:Patricia Soto Astorga
+Teléfono para contacto: 56 988048497
+Disponibilidad horaria:08;30 a 16;30
+Ubicación:
+¿El usuario está en la oficina, en casa o en la planta?Av Miculla Corienta 7279 Chile
+==========
+",,,Se realiza la configuración para que ejecutivos puedan usar los íconos de copiar y escaneo a correo electrónicos liberados. Usuaria conforme.,0
+INC000105149212,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,0,2023-03-31 14:26:59,2023-03-31 16:44:47,Failure on: MULTIFUNCTIONAL COLOR A3 XEROX 7220,,,Yes,True,8250,8250,Chile-CORONEL-AV PEDRO AGUIRRE CERDA 1013,"Tenemos problemas con baja de tinta en impresora. Desconozco como canalizarlo
+
+ Contact People:CL143542157
+ Name:PEDRO REINALDO MUÑOZ SEPULVEDA
+ Email:PEDRO.MUNOZ@ENEL.COM
+ Location:Chile-CORONEL-AV PEDRO AGUIRRE CERDA 1013
+ Business phone:
+ Alternative Telephone: +56 9 9495 7800
+ Time Slot: Anytime
+ Alternative Email: PEDRO.MUNOZ@ENEL.COM",,,"Se verifica que el nivel de cyan se encuentra bajo. Por lo tanto, se procede con solicitud de envío de tóner. Tóner llegará la próxima semana.",0
+INC000103277425,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,4213,2023-03-01 11:12:44,2023-03-01 12:23:10,[Printer]: [No imprime ],,,Yes,True,4213,4213,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción :Usuario entra en contacto informando que la impresora Hp presenta múltiples falla 
+Captura de pantalla:sin éxitos 
+IP:hpDHCH007475
+¿Cuántos usuarios afectados? 6 Personas 
+Localización impresora (dirección, edificio, planta...): Estado 82 piso 1 
+Troubleshooting:
+¿Estimado equipo pueden verificar por favor agradecemos su colaboración? 
+Impresora no imprime. 
+Impresora no escaneo.
+Informa un error usuario desconoce.
+KBA:
+
+
+==========
+Nombre de usuario afectado:Karina García 
+Telefono para contacto:56225897147
+Disponibilidad horaria:08;30 a 16;30
+Ubicación:
+¿El usuario está en la oficina en casa o en la planta? Estado 82 piso 1 
+==========
+",,,"Se verifica congelamiento de impresora debido a orden mal formateada. Se reinicia impresora., y se realizan pruebas básicas. Pruebas Ok.",0
+INC000103780979,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,6292,2023-03-09 12:15:08,2023-03-09 14:13:40,Failure on: PCA4CL0042,,,Yes,True,7085,7085,Chile-COLINA-CL CHACABUCO 031,"Impresora HP 32452 emite mensaje de error de sustitución de unidad de recogida de tóner. Es urgente, no se puede imprimir y esto ralentiza las atenciones.
+
+ Contact People:CL160075465
+ Name:JORGE BERNARDO OSSANDON TREJO
+ Email:JORGE.OSSANDON@ENEL.COM
+ Location:Chile-COLINA-CL CHACABUCO 031
+ Business phone:
+ Alternative Telephone: +56 9 84750143
+ Time Slot: Anytime
+ Alternative Email: colina.oficina@ENEL.COM",,,"se realiza reinicio de impresora 
+
+
+quedando operativa se revisan suministros y se realiza  reconfiguración de los umbrales para la solicitud de suministros 
+quedando operativa se realiza una prueba de impresion con exito ",0
+INC000103700347,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,7575,2023-03-08 10:28:27,2023-03-08 12:35:01,Failure on: MBA4CL0029,,,Yes,True,7575,7575,Chile-SANTIAGO-AV SANTA ROSA 76,"impresora multifuncional no escanea y no saca copias de documentos, tiene un candado en el panel y no permite hacer esas gestiones.
+
+ Contact People:CLSUPPROVIDEN
+ Name:Oficina Providencia CHILECTRA (Externo)
+ Email:providencia@enel.com
+ Location:Chile-SANTIAGO-AV SANTA ROSA 76
+ Business phone:
+ Alternative Telephone: 956710771
+ Time Slot: Anytime
+ Alternative Email: providencia@enel.com",,,"Se deja liberada la opción de copia y escaneo. Usuario enviará los correos para agregar, vía whatsapp. Se procede a cierre de caso.",0
+INC000104699352,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,11538,2023-03-24 09:51:18,2023-03-24 13:04:52,[Plotter]: [Configuración],,,Yes,True,11538,11538,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción : Usuaria solicita configurar el ploter desde su pc.
+Captura de pantalla :no
+Cuantos usuarios afectados ?1
+Localización impresora (dirección, edificio, planta...): Chile-SANTIAGO-AV SANTA ROSA 76. Piso 14
+
+Troubleshooting:
+Se accede en remoto
+Se confirma hostname de equipo
+Se verifica que el plotters no está instalado
+Se solicitan datos de plotters
+Usuaria suministrará los datos, en caso de ser necesarios
+Por favor verificar
+
+KBA:[GLOBAL] IMPRESORAS Y PLOTTERS - SOPORTE
+KB0000000015063 
+
+
+==========
+Nombre de usuario afectado:CL139621638//MARISOL ANDREA BECKER BUSTOS
+Telefono para contacto:+56 9 5840 7152
+Disponibilidad horaria: hasta las 15 hr
+Ubicación: Chile-SANTIAGO-AV SANTA ROSA 76. Piso 14
+¿El usuario está en la oficina en casa o en la planta? Chile-SANTIAGO-AV SANTA ROSA 76. Piso 14
+==========
+",,,Plotter se encontraba sin mantención. Se realiza revisión preventiva y pruebas. Se contacta a usuaria y se deja agregado Plotter en notebook de usuaria. Usuaria conforme.,0
+INC000103769614,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,12432,2023-03-09 10:02:59,2023-03-09 13:46:35,PRINTER- No recibe comando de impresión,,,Yes,True,12432,12432,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción: Usuario entra en contacto solicitando soporte con su impresora HP, informa que no imprime. 
+Captura de pantalla: adjunto
+IP:HP32433
+Cuantos usuarios afectados?:1
+Localización impresora (dirección, edificio, planta...): 
+Troubleshooting:
+Se realiza acceso remoto
+Se intenta realizar instalación del drive  HP GlobalPrint, sin éxito.
+Se valida sincronización de directivas
+Se realizan pruebas sin éxito. 
+Usuaria solicita soporte local
+Se encamina ticket segundo solicitud de usuaria
+Estimados, pueden validar, por favor?
+==========
+Disponibilidad: Lun-Jue 8-18 / Vier 8-15
+==========
+La. Usuario e ID afectados:Patricia Soto Astorga +56988048497
+C. El usuario es:Interno
+D. Disponibilidad horaria:09:00-18:00",,,Usuaria confirma que impresora se encontraría operativa. Volverá a reportar de manera interna si es que impresora vuelve a fallar. Se procede a cierre de caso.,0
+INC000103619822,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,12485,2023-03-07 09:25:21,2023-03-07 12:53:49,PRINTER-,,,Yes,True,12485,12485,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción: Usuaria entra en contacto solicitando soporte con impresora, informa que desea atendimiento presencial. Impresora prende pero no recibe ninguno comando. 
+Captura de pantalla:
+IP: HP32538- HP GLOBAL PRINT
+Cuantos usuarios afectados?: 4
+Localización impresora (dirección, edificio, planta...): Chile-SANTIAGO-AV SANTA ROSA 79, PISO 12°. 
+Troubleshooting:
+Se le orienta a validar referente a los drivea
+Usuaria desea atendimiento presencial. 
+Se le informa que su ticket será encaminado. 
+Estimados, pueden validar, por favor?
+Usuaria solicita se posible que ticket sea atendido en caracter de urgencia. Muchas gracias. 
+
+==========
+Disponibilidad: Lun-Jue 8-18 / Vier 8-15
+==========
+La. Usuario e ID afectados: SANDRA CAROLINA OGAZ GUZMAN +56 9 9074 4196
+C. El usuario es:Interno
+D. Disponibilidad horaria:08:30-18:30",,,se conecta impresora a la red y se conectan 2 computadores via ip ,0
+INC000104212819,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,13797,2023-03-16 10:10:03,2023-03-16 16:44:22,No  puede imprimir ,,,Yes,True,23645,23645,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción :Usuario entra en contacto informando que al colocar sus credenciales le genera  un error la impresora queda trabada 
+Captura de pantalla :
+IP: HP  MXBCM8G46J
+Cuantos usuarios afectados ?UNO 
+Localización impresora (dirección, edificio, planta...): CARLOAS MEDINAS 858 
+Troubleshooting:
+Estimado equipo usuario conforma que solo él le presenta la falla 
+Estimado equipo puede verificar por favor agradecemos su colaboración 
+KBA:
+
+La. Usuario e ID afectados:CL185021173
+B. Información de contacto (nombre y teléfono):+56939479289 Juan De la Cruz Alarcon Alarcon
+C. El usuario es: externo 
+D. Disponibilidad horaria:hasta 15 
+y. Ubicación (dirección, edificio, piso): CARLOAS MEDINAS 858 
+==========
+",,,"Se verifica que usuario está utilizando cuenta de persona desvinculada. Esperará a que le entreguen la cuenta y probará nuevamente. De todas maneras se verifica que impresora no tendría problemas para imprimir ni para el correcto logueo de usuarios mediante Celiveo, de manera remota. De todas maneras, se realizará visita preventiva a la brevedad.",0
+INC000104906106,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,15479,2023-03-28 09:42:01,2023-03-28 15:39:56,No puede imprimir ,,,Yes,True,21450,21450,Chile-SANTIAGO-AV SANTA ROSA 76,"Descripción:Usuario entra en contacto informando que no puede imprimir 
+Captura de pantalla:anexado 
+IP:192.168.56.1 HP32718
+Cuantos usuarios afectados? Uno
+Localización impresora (dirección, edificio, planta...): Chile-SANTIAGO-Centro estado 82 
+Troubleshooting:
+Se ingresa remotamente. 
+Se valida la falla.
+Se realiza la actualización global Printer con éxitos.
+Se realiza la configuración colocar la impresora como predeterminada.
+Se realizan pruebas sin éxitos Estimado equipo puede verificar por favor.
+KBA:
+
+
+==========
+Nombre de usuario afectado: YESENIA AGUILAR
+Teléfono para contacto:56986379602
+Disponibilidad horaria:08;30  a 18;00
+Ubicación:
+¿El usuario está en la oficina en casa o en la planta?Chile-SANTIAGO-Centro estado 82 
+==========
+",,,"Se asistió a la sucursal y se detectó en el módulo 4, el mismo problema que en otra oportunidad. Punto de red asigna IP en un segmento que no corresponde al de la sucursal. PC del módulo 4 al estar en este segmento no tiene conexión al segmento en el cual se encuentran las impresoras.
+
+El segmento en el cual están las impresoras, corresponde al de la sucursal. Caso está siendo revisado en otro ticket (INC000103544328).
+
+Para resolver de manera inmediata el problema se dejó conectada la computadora a la red wifi corporativa (donde sí tiene acceso a las impresoras).
+
+Se procede con el cierre de este caso, para no duplicar los casos.",0
+INC000103647061,False,Soporte Printing,ICT_CL_ESD_Supplier_HP_Printing,23090,2023-03-07 15:06:01,2023-03-08 11:25:08,Failure on: PCA4CL0042,,,Yes,True,73129,73129,Chile-COLINA-CL CHACABUCO 031,"Se solicita Toner para impresora HP32452, negro y cyan
+
+ Contact People:CL169775257
+ Name:Guerra Ramirez Marisel Isabel CHILECTRA
+ Email:colina.oficina@enel.com
+ Location:Chile-COLINA-CL CHACABUCO 031
+ Business phone:
+ Alternative Telephone: +56984750143
+ Time Slot: Anytime
+ Alternative Email: colina.oficina@ENEL.COM",,,"Tóners ya fueron enviados el día 02/03 y 24/01, respectivamente.",0
