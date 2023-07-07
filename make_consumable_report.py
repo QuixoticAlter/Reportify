@@ -10,6 +10,8 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
 from PIL import Image
@@ -65,7 +67,7 @@ def set_supply_order_array():
 
     supply_order_array_pre = []
 
-    with open('supply_order_export.csv', encoding='utf-8') as csvfile:
+    with open(supply_export_csv, encoding='utf-8') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',')
         for row in spamreader:
             supply_order_array_pre.append(row)
@@ -76,9 +78,13 @@ def set_supply_order_array():
 
     supply_order_array = [list(map(lambda a: a.strip(), x)) for x in supply_order_array_pre if isinstance(x, list) and x != []]
 
+    with open('supply_order_array2.txt', 'w') as supply_file:
+        for x in supply_order_array:
+            supply_file.write('%s\n' % str(x))
+
     # print('supply order array: %s' % supply_order_array[1])
 
-    return supply_order_array
+    return supply_order_array[4:]
 
 def get_data_from_inventory(serial, key, inventory_array):
 
@@ -131,24 +137,30 @@ def get_n_guide_from_ingram_web(order_id):
     user.clear()
     user.send_keys('247118')
 
-    password = driver.find_element(By.ID, 'txtPassword')
+    password = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, 'txtPassword')))
     password.clear()
     password.send_keys('1234567')
 
-    submit = driver.find_element(By.ID, 'btnAutentificar')
+    submit = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, 'btnAutentificar')))
     submit.send_keys(Keys.RETURN)
 
-    consultaxordenes = driver.find_element(By.XPATH, '//div[@id="contenido_pnEstados"]/p/a')
+    consultaxordenes = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, '//div[@id="contenido_pnEstados"]/p/a')))
     consultaxordenes.click()
 
-    order_input = driver.find_element(By.ID, 'contenido_orden')
+    order_input = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, 'contenido_orden')))
     order_input.send_keys(order_id)
 
-    input_buscar_pedido = driver.find_element(By.ID, 'contenido_btnVerPedidos')
+    input_buscar_pedido = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, 'contenido_btnVerPedidos')))
     input_buscar_pedido.click()
 
     try:
-        n_guide = driver.find_element(By.XPATH, '//table[@class="table table-hover"]/tbody/tr[2]/td[10]/a')
+        n_guide = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, '//table[@class="table table-hover"]/tbody/tr[2]/td[10]/a')))
         n_guide_text = n_guide.text
         n_guide_link = n_guide.get_attribute('href')
 
@@ -192,7 +204,7 @@ def create_update_the_report(rows):
     ws['S1'] = 'Comentarios'
 
     for i in range(1, len(rows)):
-        ws['A%s' % str(i+1)] = rows[i-1][0]
+        ws['A%s' % str(i+1)] = rows[i-1][0].split(' ')[0]
         ws['B%s' % str(i+1)] = rows[i-1][1]
         ws['C%s' % str(i+1)] = rows[i-1][2]
         ws['D%s' % str(i+1)] = rows[i-1][3]
@@ -230,8 +242,10 @@ def main(startdate):
         # print('type of creation date: %s' % type(row[2]))
 
         datetime_creation_date = datetime.strptime(row[2], '%Y-%m-%d %H:%M:%S')
+        t_delta = datetime_creation_date.timestamp() - datetime_start_date.timestamp()
 
-        if row[29] == "CHILE" and datetime_creation_date >= datetime_start_date:
+        if row[29] == "CHILE" and t_delta >= 0:
+            print(row[2])
             creation_date = row[2]
             device_serial = row[11]
             ip = get_data_from_inventory(device_serial, 'Dirección IP', inventory_array)
