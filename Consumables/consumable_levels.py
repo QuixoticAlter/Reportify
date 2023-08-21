@@ -9,43 +9,30 @@ import selenium
 import requests
 import shutil
 
-from make_consumable_report import set_inventory_array, set_supply_order_array, convert_excel_to_csv, get_data_from_inventory
-from sites import province_sites, RM_sites
+from datetime import datetime as dt
+from datetime import timedelta
+
+from inventory import get_data_from_inventory
+from sites import province_sites, RM_sites, exceptions
 
 create_orders_array = []
 
-def copy_reports():
+def get_supply_order(serial, color, supply_orders, level_date):
 
-    supply_export_excel = shutil.copy("C:\\Users\\clsoportehp\\Downloads\\ENEL Global MS Consumable Levels.xlsx","Files\\consumable_levels.xlsx")
-	
-def set_consumable_levels_array():
+	matches = [x[0] for x in supply_orders if x[4] == serial and color in x[8]]
+	print('Matches: %s' % str(matches))
+	max_t_delta = timedelta(days=60)
+	match = [
+		x for x in matches 
+		if dt.strptime(level_date, '%d/%m/%Y %H:%M:%S')-dt.strptime(x[2], '%d/%m/%Y') >= max_t_delta
+	]
 
-    consumable_levels_pre = []
+	print("Best Match %s" % match[0])
 
-    with open('Files\\consumable_levels.csv', encoding='utf-8') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            consumable_levels_pre.append(row)
-
-    consumable_levels = [list(map(lambda a:a.strip(), x)) for x in consumable_levels_pre[4:] if isinstance(x, list) and x != [] and x[1] == "Chile"]
-
-    with open('Files\\consumable_levels.txt', 'w') as inventory_file:
-        for x in consumable_levels:
-            inventory_file.write('%s\n' % str(x))
-
-    # print('length of consumable levels array: %s' % str(len(consumable_levels)))
-    # print('1th element of consumable leveles: %s' % str(consumable_levels[0]))
-    # print('Lenght of 1th element of consumable levels: %s' % str(len(consumable_levels[0])))
-
-    return consumable_levels
-
-def check_delivery_request(serial, color, supply_order_array):
-
-	for item in supply_order_array:
-		if serial in item and color in item:
-			return None
-
-	return [serial, color]
+	try:
+		return match[0]
+	except:
+		return "Revisar o Crear Orden"
 
 def is_plotter(serial, inventory_array):
 
@@ -58,68 +45,77 @@ def is_plotter(serial, inventory_array):
 
 def get_threshold(site):
 
+	print("Site: %s" % site)
+
 	if site in province_sites: return 15
 	if site in RM_sites: return 10
 
-def check_plotter_levels(serial, site, supply_orders, c_l, m_l, y_l, g_l, p_b, m_b):
-
-	if c_l and c_l <= get_threshold(site):
-		check_delivery_request(serial, 'Cyan', supply_orders)
-	elif m_l and m_l <= get_threshold(site):
-		check_delivery_request(serial, 'Magenta', supply_orders)
-	elif y_l and y_l <= get_threshold(site):
-		check_delivery_request(serial, 'Yellow', supply_orders)
-	elif g_l and g_l <= get_threshold(site):
-		check_delivery_request(serial, 'Gray', supply_orders)
-	elif p_b and p_b <= get_threshold(site):
-		check_delivery_request(serial, 'Photo Black', supply_orders)
-	elif m_b and m_b <= get_threshold(site):
-		check_delivery_request(serial, 'Matte Black', supply_orders)
-
-def check_printer_levels(serial, site, supply_orders, b_l, c_l, m_l, y_l):
+def check_levels(serial, site, supply_orders, b_l, c_l, m_l, y_l, g_l, p_b, m_b):
 
 	if b_l and b_l <= get_threshold(site):
-		check_delivery_request(serial, 'black', supply_orders)
+		b_o = get_supply_order(serial, 'Black', supply_orders)
 	elif c_l and c_l <= get_threshold(site):
-		check_delivery_request(serial, 'cyan', supply_orders)
+		c_o = get_supply_order(serial, 'Cyan', supply_orders)
 	elif m_l and m_l <= get_threshold(site):
-		check_delivery_request(serial, 'magenta', supply_orders)
+		m_o = get_supply_order(serial, 'Magenta', supply_orders)
 	elif y_l and y_l <= get_threshold(site):
-		check_delivery_request(serial, 'yellow', supply_orders)
+		y_o = get_supply_order(serial, 'Yellow', supply_orders)
+	elif g_l and g_l <= get_threshold(site):
+		g_o = get_supply_order(serial, 'Gray', supply_orders)
+	elif p_b and p_b <= get_threshold(site):
+		mb_o = get_supply_order(serial, 'Photo Black', supply_orders)
+	elif m_b and m_b <= get_threshold(site):
+		pb_o = get_supply_order(serial, 'Matte Black', supply_orders)
 
-def get_supply_order_from_supply_order_array(serial, color, supply_orders, level_date):
+	return b_o, b_o, c_o, m_o, y_o, g_o, mb_o, pb_o
 
-	print(serial)
+def get_level_value(data):
 
-	index_map = {
-		"ORDER_ID": 1,
-		"CREATE_DT": 2,
-		"STATUS": 3,
-		"DEV_SERIAL_NO": 4,
-		"DEV_MODEL_NO": 5,
-		"DEV_MODEL_NAME": 6,
-		"ORD_PART_NO": 7,
-		"ORD_PART_DESC": 8,
-		"COUNTRY": 9,
-		"STATUS": 10,
-		"SITE": 11
-	}
+	if data == 'out': return 0
+	try:
+		return int(data)
+	except:
+		return None
 
-	# print('length of inventory array: %s' % str(len(inventory_array)))
-	# print('second element of the array: %s' % str(inventory_array[1]))
-	# print('serial: %s' % str(serial))
-	# print('key: %s' % str(key))
-	# print('field: %s' % str(index_map[key]))
+def generate_levels_report_array(inventory_array, supply_order_array, consumable_levels_array):
 
-	matches = [x[index_map[key]] for x in supply_orders if x[4] == serial and color in x[8]]
-	print('Matches: %s' % str(matches))
-	matches = matches[0]
+	levels_array_report = []
 
-def write_consumable_levels(consumbable_levels_array, create_orders_array, inventory_array, supply_orders):
+	for row in consumable_levels_array:
 
-	wb = openpyxl.Workbook()
+		print("Serial: %s" % row[8])
+
+		serial = row[8]
+		if serial not in exceptions:
+			level_date = row[9]
+			model = row[6]
+			ip_adress = get_data_from_inventory(serial, "Dirección IP", inventory_array)
+			b_l = get_level_value(row[10])
+			c_l = get_level_value(row[11])
+			m_l = get_level_value(row[12])
+			y_l = get_level_value(row[13])
+			g_l = get_level_value(row[34])
+			p_b = get_level_value(row[36])
+			m_b = get_level_value(row[37])
+			site = get_data_from_inventory(row[8], 'Site', inventory_array)
+
+			b_o, c_o, m_o, y_o, g_o, mb_o, pb_o = check_levels(
+				serial, site, supply_order_array, b_l, c_l, m_l, y_l,
+				g_l, p_b, m_b
+			)
+
+		levels_array_report.append([
+			level_date, serial, model, ip_adress, b_l, c_l, m_l,
+			y_l, g_l, p_b, m_b, b_o, c_o, m_o, y_o, g_o, mb_o, pb_o, ''
+		])
+
+	return levels_array_report
+
+def generate_levels_report(levels_array_report, wb):
+
+	wb = openpyxl.Workbook('Files\\Reporte Suministros.xlsx')
+	wb.active = wb['Sheet_B']
 	ws = wb.active
-	ws.title = 'control suministro'
 	print(wb.sheetnames)
 
 	ws['A1'] = 'Fecha de medición'
@@ -142,69 +138,25 @@ def write_consumable_levels(consumbable_levels_array, create_orders_array, inven
 	ws['R1'] = 'Pedido de Negro Matte'
 	ws['S1'] = 'Comentarios'
 
-	for i in range(1, len(consumbable_levels_array)):
-		ws['A%s' % str(i+1)] = consumbable_levels_array[i-1][8]
-		ws['B%s' % str(i+1)] = consumbable_levels_array[i-1][9]
-		ws['C%s' % str(i+1)] = consumbable_levels_array[i-1][6]
-		ws['D%s' % str(i+1)] = get_data_from_inventory[consumbable_levels_array[i-1][8], "Dirección IP", inventory_array]
-		ws['E%s' % str(i+1)] = consumbable_levels_array[i-1][10]
-		ws['F%s' % str(i+1)] = consumbable_levels_array[i-1][11]
-		ws['G%s' % str(i+1)] = consumbable_levels_array[i-1][12]
-		ws['H%s' % str(i+1)] = consumbable_levels_array[i-1][13]
-		ws['I%s' % str(i+1)] = consumbable_levels_array[i-1][34]
-		ws['J%s' % str(i+1)] = consumbable_levels_array[i-1][36]
-		ws['K%s' % str(i+1)] = consumbable_levels_array[i-1][37]
+	for i in range(1, len(levels_array_report)):
+		ws['A%s' % str(i+1)] = levels_array_report[i-1][0]
+		ws['B%s' % str(i+1)] = levels_array_report[i-1][1]
+		ws['C%s' % str(i+1)] = levels_array_report[i-1][2]
+		ws['D%s' % str(i+1)] = levels_array_report[i-1][3]
+		ws['E%s' % str(i+1)] = levels_array_report[i-1][4]
+		ws['F%s' % str(i+1)] = levels_array_report[i-1][5]
+		ws['G%s' % str(i+1)] = levels_array_report[i-1][6]
+		ws['H%s' % str(i+1)] = levels_array_report[i-1][7]
+		ws['I%s' % str(i+1)] = levels_array_report[i-1][8]
+		ws['J%s' % str(i+1)] = levels_array_report[i-1][9]
+		ws['K%s' % str(i+1)] = levels_array_report[i-1][10]
+		ws['L%s' % str(i+1)] = levels_array_report[i-1][11]
+		ws['M%s' % str(i+1)] = levels_array_report[i-1][12]
+		ws['N%s' % str(i+1)] = levels_array_report[i-1][13]
+		ws['O%s' % str(i+1)] = levels_array_report[i-1][14]
+		ws['P%s' % str(i+1)] = levels_array_report[i-1][15]
+		ws['Q%s' % str(i+1)] = levels_array_report[i-1][16]
+		ws['R%s' % str(i+1)] = levels_array_report[i-1][17]
+		ws['S%s' % str(i+1)] = levels_array_report[i-1][18]
 
-		serial = consumbable_levels_array[i-1][8]
-		level_date = consumbable_levels_array[i-1][9]
-
-		ws['L%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Black', supply_orders, level_date)
-		ws['M%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Cyan', supply_orders, level_date)
-		ws['N%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Magenta', supply_orders, level_date)
-		ws['O%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Yellow', supply_orders, level_date)
-		ws['P%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Grey', supply_orders, level_date)
-		ws['Q%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Photo black', supply_orders, level_date)
-		ws['R%s' % str(i+1)] = get_supply_order_from_supply_order_array(serial, 'Matte black', supply_orders, level_date)
-
-	wb.save('Niveles de Consumibles.xlsx')
-
-def check_levels():
-
-	copy_reports()
-	convert_excel_to_csv('Files\\consumable_levels.xlsx', 'Files\\consumable_levels.csv')
-	convert_excel_to_csv('Files\\inventario.xlsx', 'Files\\inventario.csv')
-	consumable_levels_array = set_consumable_levels_array()
-	inventory_array = set_inventory_array()
-	supply_orders = set_supply_order_array()
-
-	create_orders_array = []
-
-	for row in consumable_levels_array:
-
-		print(row[8])
-		site = get_data_from_inventory(row[8], 'Site', inventory_array)
-
-		serial = row[8]
-		black_level = int(row[10]) if row[10] else None
-		cyan_level = int(row[11]) if row[11] else None
-		magenta_level = int(row[12]) if row[12] else None
-		yellow_level = int(row[13]) if row[13] else None
-		grey_level = int(row[34]) if row[34] else None
-		photo_black = int(row[36]) if row[36] else None
-		matte_black = int(row[37]) if row[37] else None
-
-		if is_plotter(serial, inventory_array): 
-			create_orders_array.append(check_plotter_levels(
-				serial, site, supply_orders, cyan_level, magenta_level, yellow_level,
-				grey_level, photo_black, matte_black
-			))
-		else:
-			create_orders_array.append(check_printer_levels(
-				serial, site, supply_orders, black_level, cyan_level, magenta_level, yellow_level
-			))
-
-	write_consumable_levels(consumable_levels_array, create_orders_array)
-
-if __name__ == "__main__":
-
-	check_levels()
+	wb.save('Files\\Reporte Suministros.xlsx')

@@ -5,8 +5,10 @@
 
 # Instructions:
 # 1. Download the supply order history report from DCC (Select a day previous to the last day in the report).
-# 2. Check if there is another file called "ENEL Global MS Supply Order History.xlsx", if it's the case remove it.
-# 3. Excute this script through the command python make_consumable_report.py
+# 2. Download the consumable levels report from DCC.
+# 3. Check if there is another file called "ENEL Global MS Supply Order History.xlsx", if it's the case remove it.
+# 4. Check if there is another file called "ENEL Global MS Consumable Levels.xlsx", if it's the case remove it.
+# 3. Excute this program through the command python make_consumable_report.py
 # 4. Enjoy It!
 
 import csv
@@ -27,17 +29,23 @@ from pytesseract import pytesseract
 from time import sleep
 from datetime import datetime
 
+from consumable_levels import generate_levels_report_array, generate_levels_report
+from inventory import get_data_from_inventory
+
 import argparse
 
 supply_export_csv = "Files\\supply_order_history.csv"
 supply_export_excel = "Files\\supply_order_history.xlsx"
 inventory_excel = "Files\\inventario.xlsx"
 inventory_csv = "Files\\inventario.csv"
+consumable_levels_export_excel = "Files\\consumable_levels.xlsx"
+consumable_levels_export_csv = "Files\\consumable_levels.csv"
 
 def copy_reports():
 
-    supply_export_excel = shutil.copy("C:\\Users\\clsoportehp\\Downloads\\ENEL Global MS Supply Order History.xlsx","Files\\supply_order_history.xlsx")
-    inventory_excel = shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "Files\\inventario.xlsx")
+    shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Supply Order History.xlsx","Files\\supply_order_history.xlsx")
+    shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "Files\\inventario.xlsx")
+    shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Consumable Levels.xlsx", "Files\\consumable_levels.xlsx")
 
 def get_conditional(value):
 
@@ -98,44 +106,26 @@ def set_supply_order_array():
 
     return supply_order_array[4:]
 
-def get_data_from_inventory(serial, key, inventory_array):
+def set_consumable_levels_array():
 
-    print(serial)
+    consumable_levels_pre = []
 
-    index_map = {
-        'Serial': 0,
-        'Etiqueta': 1,
-        'SKU': 2,
-        'Modelo': 3,
-        'Dirección IP': 4,
-        'Host Name': 5,
-        'MAC Adress': 6,
-        'Site': 7,
-        'Building': 8,
-        'Level': 9,
-        'Referencia en el piso': 10,
-        'Punto de red': 11,
-        'Grid': 12,
-        'Device Status': 13,
-        'Contacto': 14,
-        'Teléfono': 15,
-        'Correo': 16,
-        'Checkeada': 17,
-        'En Movimiento': 18,
-        'Observaciones': 19
-    }
+    with open('Files\\consumable_levels.csv', encoding='utf-8') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',')
+        for row in spamreader:
+            consumable_levels_pre.append(row)
 
-    # print('length of inventory array: %s' % str(len(inventory_array)))
-    # print('second element of the array: %s' % str(inventory_array[1]))
-    # print('serial: %s' % str(serial))
-    # print('key: %s' % str(key))
-    # print('field: %s' % str(index_map[key]))
+    consumable_levels = [list(map(lambda a:a.strip(), x)) for x in consumable_levels_pre[4:] if isinstance(x, list) and x != [] and x[1] == "Chile"]
 
-    data_pre = [x[index_map[key]] for x in inventory_array if x[0] == serial]
-    print('Data Pre: %s' % str(data_pre))
-    data = data_pre[0]
+    with open('Files\\consumable_levels.txt', 'w') as inventory_file:
+        for x in consumable_levels:
+            inventory_file.write('%s\n' % str(x))
 
-    return data
+    # print('length of consumable levels array: %s' % str(len(consumable_levels)))
+    # print('1th element of consumable leveles: %s' % str(consumable_levels[0]))
+    # print('Lenght of 1th element of consumable levels: %s' % str(len(consumable_levels[0])))
+
+    return consumable_levels
 
 def get_n_guide_from_ingram_web(order_id):
 
@@ -188,12 +178,18 @@ def get_n_guide_from_ingram_web(order_id):
         print(e)
         return None
 
-def create_update_the_report(rows):
+def generate_orders_report(rows):
 
     wb = openpyxl.Workbook()
-    ws = wb.active
-    ws.title = 'control suministro'
+    ws1 = wb.create_sheet("Sheet_A", 0)
+    ws2 = wb.create_sheet("Sheet_B", 1)
+    ws1.title = 'órdenes suministros'
+    ws2.title = 'niveles recientes'
+
     print(wb.sheetnames)
+
+    wb.active = wb["Sheet_A"]
+    ws = wb.active
 
     ws['A1'] = 'Fecha de solicitud'
     ws['B1'] = 'N° de Serie'
@@ -235,17 +231,11 @@ def create_update_the_report(rows):
         ws['Q%s' % str(i+1)] = rows[i-1][16]
         ws['R%s' % str(i+1)] = rows[i-1][17]
 
-    wb.save('Reporte Suministros Histórico.xlsx')
+    wb.save('Files\\Reporte Suministros.xlsx')
 
-def main(startdate):
+    return wb
 
-    copy_reports()
-    convert_excel_to_csv(inventory_excel, inventory_csv)
-    convert_excel_to_csv(supply_export_excel, supply_export_csv)
-    inventory_array = set_inventory_array()
-    supply_order_array = set_supply_order_array()
-    # print('length of inventory array: %s' % str(len(inventory_array)))
-    # print('length of supply order array: %s' % str(len(supply_order_array)))
+def main(startdate, inventory_array, supply_order_array):
 
     datetime_start_date = datetime.strptime(startdate, '%d/%m/%Y')
     supply_report_rows = []
@@ -326,9 +316,26 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--startdate', help='The date from which the program will start to generate the final row/array to export. Format Accepted: DD-MM-YYYY')
     args = parser.parse_args()
 
-    print(args.startdate)
+    print("Start Date: %s" % args.startdate)
 
-    rows = main(args.startdate)
+    copy_reports()
+    convert_excel_to_csv(inventory_excel, inventory_csv)
+    convert_excel_to_csv(supply_export_excel, supply_export_csv)
+    convert_excel_to_csv(consumable_levels_export_excel, consumable_levels_export_csv)
+    inventory_array = set_inventory_array()
+    supply_order_array = set_supply_order_array()
+    consumable_levels_array = set_consumable_levels_array()
+
+    # print('length of inventory array: %s' % str(len(inventory_array)))
+    # print('length of supply order array: %s' % str(len(supply_order_array)))
+
+    rows = main(args.startdate, inventory_array, supply_order_array)
+
     print('Length of rows: %s' % str(len(rows)))
-    print(rows[0])
-    create_update_the_report(rows)
+    wb = generate_orders_report(rows)
+
+    levels_array = generate_levels_report_array(
+        inventory_array, supply_order_array, consumable_levels_array
+    )
+
+    generate_levels_report(levels_array, wb)

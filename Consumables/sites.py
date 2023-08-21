@@ -51,5 +51,11 @@ RM_sites = [
     "Santa Rosa 79",
     "SCH Providencia",
     "SCH Plaza Norte",
-    "SCH La Florida"
+    "SCH La Florida",
+    "Edificio Corporativo",
+    "Marcoleta 634",
+    "Estadio Enel"
 ]
+
+# Printers that were associated to Domínica site which still appears in DCC!!!
+exceptions = ['MYBCM6J16Z', 'MYBCM6J191', 'BRBSM7YW8Y']
