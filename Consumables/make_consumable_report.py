@@ -31,21 +31,34 @@ from datetime import datetime
 
 from consumable_levels import generate_levels_report_array, generate_levels_report
 from inventory import get_data_from_inventory
+from get_levels import get_consumable_levels
 
 import argparse
 
-supply_export_csv = "Files\\supply_order_history.csv"
-supply_export_excel = "Files\\supply_order_history.xlsx"
-inventory_excel = "Files\\inventario.xlsx"
-inventory_csv = "Files\\inventario.csv"
-consumable_levels_export_excel = "Files\\consumable_levels.xlsx"
-consumable_levels_export_csv = "Files\\consumable_levels.csv"
+supply_export_csv = "files\\supply_order_history.csv"
+supply_export_excel = "files\\supply_order_history.xlsx"
+inventory_excel = "files\\inventario.xlsx"
+inventory_csv = "files\\inventario.csv"
+consumable_levels_export_excel = "files\\consumable_levels.xlsx"
+consumable_levels_export_csv = "files\\consumable_levels.csv"
 
-def copy_reports():
+def copy_reports(consumable_levels_web):
 
-    shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Supply Order History.xlsx","Files\\supply_order_history.xlsx")
-    shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "Files\\inventario.xlsx")
-    shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Consumable Levels.xlsx", "Files\\consumable_levels.xlsx")
+    try:
+        shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Supply Order History.xlsx","files\\supply_order_history.xlsx")
+    except Exception as e:
+        if type(e) == FileNotFoundError: print("El export de órdenes de suministros histórico no se encuentra!")
+    
+    try:
+        shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "files\\inventario.xlsx")
+    except:
+        if type(e) == FileNotFoundError: print("El reporte de inventario no se encuentra!")
+    
+    if not consumable_levels_web:
+        try:
+            shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Consumable Levels.xlsx", "files\\consumable_levels.xlsx")
+        except:
+            if type(e) == FileNotFoundError: print("El export de niveles de consumibles no se encuentra!")
 
 def get_conditional(value):
 
@@ -110,14 +123,14 @@ def set_consumable_levels_array():
 
     consumable_levels_pre = []
 
-    with open('Files\\consumable_levels.csv', encoding='utf-8') as csvfile:
+    with open('files\\consumable_levels.csv', encoding='utf-8') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',')
         for row in spamreader:
             consumable_levels_pre.append(row)
 
     consumable_levels = [list(map(lambda a:a.strip(), x)) for x in consumable_levels_pre[4:] if isinstance(x, list) and x != [] and x[1] == "Chile"]
 
-    with open('Files\\consumable_levels.txt', 'w') as inventory_file:
+    with open('files\\consumable_levels.txt', 'w') as inventory_file:
         for x in consumable_levels:
             inventory_file.write('%s\n' % str(x))
 
@@ -167,7 +180,7 @@ def get_n_guide_from_ingram_web(order_id):
         n_guide_link = n_guide.get_attribute('href')
 
         r = requests.get(n_guide_link, allow_redirects=True)
-        open('delivery_guides/%s.jpg' % n_guide_text, 'wb').write(r.content)
+        open('files/delivery_guides/%s.jpg' % n_guide_text, 'wb').write(r.content)
 
         driver.close()
 
@@ -188,7 +201,7 @@ def generate_orders_report(rows):
 
     print(wb.sheetnames)
 
-    wb.active = wb["Sheet_A"]
+    wb.active = wb["órdenes suministros"]
     ws = wb.active
 
     ws['A1'] = 'Fecha de solicitud'
@@ -231,7 +244,7 @@ def generate_orders_report(rows):
         ws['Q%s' % str(i+1)] = rows[i-1][16]
         ws['R%s' % str(i+1)] = rows[i-1][17]
 
-    wb.save('Files\\Reporte Suministros.xlsx')
+    wb.save('files\\Reporte Suministros.xlsx')
 
     return wb
 
@@ -314,17 +327,22 @@ if __name__ == "__main__":
     )
 
     parser.add_argument('-d', '--startdate', help='The date from which the program will start to generate the final row/array to export. Format Accepted: DD-MM-YYYY')
+    parser.add_argument('-c', '--consumable-web', action="store_true", help='Get consumable levels through web scraping')
     args = parser.parse_args()
 
     print("Start Date: %s" % args.startdate)
 
-    copy_reports()
+    copy_reports(args.consumable_web)
     convert_excel_to_csv(inventory_excel, inventory_csv)
     convert_excel_to_csv(supply_export_excel, supply_export_csv)
     convert_excel_to_csv(consumable_levels_export_excel, consumable_levels_export_csv)
     inventory_array = set_inventory_array()
     supply_order_array = set_supply_order_array()
-    consumable_levels_array = set_consumable_levels_array()
+
+    if not args.consumable_web:
+        consumable_levels_array = set_consumable_levels_array()
+    else:
+        consumable_levels_array = get_consumable_levels(inventory_array)
 
     # print('length of inventory array: %s' % str(len(inventory_array)))
     # print('length of supply order array: %s' % str(len(supply_order_array)))

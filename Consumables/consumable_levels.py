@@ -34,15 +34,6 @@ def get_supply_order(serial, color, supply_orders, level_date):
 	except:
 		return "Revisar o Crear Orden"
 
-def is_plotter(serial, inventory_array):
-
-	model = get_data_from_inventory(serial, "Modelo", inventory_array)
-	plotter_models = ["HP DesignJet T2600dr 36-in PS MFP", "HP DesignJetT1600 36-in PS Printer"]
-
-	if model in plotter_models: return True
-
-	return False
-
 def get_threshold(site):
 
 	print("Site: %s" % site)
@@ -77,7 +68,7 @@ def get_level_value(data):
 	except:
 		return None
 
-def generate_levels_report_array(inventory_array, supply_order_array, consumable_levels_array):
+def generate_levels_report_array(inventory_array, supply_order_array, consumable_levels_array, consumables_web):
 
 	levels_array_report = []
 
@@ -85,24 +76,39 @@ def generate_levels_report_array(inventory_array, supply_order_array, consumable
 
 		print("Serial: %s" % row[8])
 
-		serial = row[8]
-		if serial not in exceptions:
-			level_date = row[9]
-			model = row[6]
-			ip_adress = get_data_from_inventory(serial, "Dirección IP", inventory_array)
-			b_l = get_level_value(row[10])
-			c_l = get_level_value(row[11])
-			m_l = get_level_value(row[12])
-			y_l = get_level_value(row[13])
-			g_l = get_level_value(row[34])
-			p_b = get_level_value(row[36])
-			m_b = get_level_value(row[37])
-			site = get_data_from_inventory(row[8], 'Site', inventory_array)
+		if not consumables_web:
+			serial = row[8]
+			if serial not in exceptions:
+				level_date = row[9]
+				model = row[6]
+				ip_adress = get_data_from_inventory(serial, "Dirección IP", inventory_array)
+				b_l = get_level_value(row[10])
+				c_l = get_level_value(row[11])
+				m_l = get_level_value(row[12])
+				y_l = get_level_value(row[13])
+				g_l = get_level_value(row[34])
+				p_b = get_level_value(row[36])
+				m_b = get_level_value(row[37])
+				site = get_data_from_inventory(row[8], 'Site', inventory_array)
+		else:
+			serial = row[0]
+			if serial not in exceptions:
+				level_date = row[3]
+				model = row[2]
+				ip_adress = row[1]
+				b_l = row[4]
+				y_l = row[5]
+				m_l = row[6]
+				c_l = row[7]
+				g_l = row[8]
+				m_b = row[9]
+				p_b = row[10]
+				site = get_data_from_inventory(serial, 'Site', inventory_array)
 
-			b_o, c_o, m_o, y_o, g_o, mb_o, pb_o = check_levels(
-				serial, site, supply_order_array, b_l, c_l, m_l, y_l,
-				g_l, p_b, m_b
-			)
+		b_o, c_o, m_o, y_o, g_o, mb_o, pb_o = check_levels(
+			serial, site, supply_order_array, b_l, c_l, m_l, y_l,
+			g_l, p_b, m_b
+		)
 
 		levels_array_report.append([
 			level_date, serial, model, ip_adress, b_l, c_l, m_l,
@@ -113,7 +119,7 @@ def generate_levels_report_array(inventory_array, supply_order_array, consumable
 
 def generate_levels_report(levels_array_report, wb):
 
-	wb = openpyxl.Workbook('Files\\Reporte Suministros.xlsx')
+	wb = openpyxl.Workbook('files\\Reporte Suministros.xlsx')
 	wb.active = wb['Sheet_B']
 	ws = wb.active
 	print(wb.sheetnames)
@@ -159,4 +165,4 @@ def generate_levels_report(levels_array_report, wb):
 		ws['R%s' % str(i+1)] = levels_array_report[i-1][17]
 		ws['S%s' % str(i+1)] = levels_array_report[i-1][18]
 
-	wb.save('Files\\Reporte Suministros.xlsx')
+	wb.save('files\\Reporte Suministros.xlsx')
