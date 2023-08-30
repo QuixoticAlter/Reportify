@@ -34,6 +34,7 @@ from inventory import get_data_from_inventory
 from get_levels import get_consumable_levels
 
 import argparse
+import traceback
 
 supply_export_csv = "files\\supply_order_history.csv"
 supply_export_excel = "files\\supply_order_history.xlsx"
@@ -51,13 +52,13 @@ def copy_reports(consumable_levels_web):
     
     try:
         shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "files\\inventario.xlsx")
-    except:
+    except Exception as e:
         if type(e) == FileNotFoundError: print("El reporte de inventario no se encuentra!")
     
     if not consumable_levels_web:
         try:
             shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Consumable Levels.xlsx", "files\\consumable_levels.xlsx")
-        except:
+        except Exception as e:
             if type(e) == FileNotFoundError: print("El export de niveles de consumibles no se encuentra!")
 
 def get_conditional(value):
@@ -148,33 +149,34 @@ def get_n_guide_from_ingram_web(order_id):
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://hpmps.anovo.cl")
 
-    user = driver.find_element(By.ID, "txtID")
+    user =  WebDriverWait(driver, 60).until(
+        EC.presence_of_element_located((By.ID, 'txtID')))
     user.clear()
     user.send_keys('247118')
 
-    password = WebDriverWait(driver, 10).until(
+    password = WebDriverWait(driver, 60).until(
         EC.presence_of_element_located((By.ID, 'txtPassword')))
     password.clear()
     password.send_keys('1234567')
 
-    submit = WebDriverWait(driver, 10).until(
+    submit = WebDriverWait(driver, 60).until(
         EC.presence_of_element_located((By.ID, 'btnAutentificar')))
     submit.send_keys(Keys.RETURN)
 
-    consultaxordenes = WebDriverWait(driver, 10).until(
+    consultaxordenes = WebDriverWait(driver, 60).until(
         EC.presence_of_element_located((By.XPATH, '//div[@id="contenido_pnEstados"]/p/a')))
     consultaxordenes.click()
 
-    order_input = WebDriverWait(driver, 10).until(
+    order_input = WebDriverWait(driver, 60).until(
         EC.presence_of_element_located((By.ID, 'contenido_orden')))
     order_input.send_keys(order_id)
 
-    input_buscar_pedido = WebDriverWait(driver, 10).until(
+    input_buscar_pedido = WebDriverWait(driver, 60).until(
         EC.presence_of_element_located((By.ID, 'contenido_btnVerPedidos')))
     input_buscar_pedido.click()
 
     try:
-        n_guide = WebDriverWait(driver, 10).until(
+        n_guide = WebDriverWait(driver, 60).until(
             EC.presence_of_element_located((By.XPATH, '//table[@class="table table-hover"]/tbody/tr[2]/td[10]/a')))
         n_guide_text = n_guide.text
         n_guide_link = n_guide.get_attribute('href')
@@ -189,17 +191,16 @@ def get_n_guide_from_ingram_web(order_id):
     except Exception as e:
 
         print(e)
+        print(traceback.format_exc())
         return None
 
 def generate_orders_report(rows):
 
     wb = openpyxl.Workbook()
     ws1 = wb.create_sheet("Sheet_A", 0)
-    ws2 = wb.create_sheet("Sheet_B", 1)
     ws1.title = 'órdenes suministros'
-    ws2.title = 'niveles recientes'
 
-    print(wb.sheetnames)
+    # print(wb.sheetnames)
 
     wb.active = wb["órdenes suministros"]
     ws = wb.active
@@ -244,9 +245,9 @@ def generate_orders_report(rows):
         ws['Q%s' % str(i+1)] = rows[i-1][16]
         ws['R%s' % str(i+1)] = rows[i-1][17]
 
+    ws0 = wb.get_sheet_by_name('Sheet')
+    wb.remove_sheet(ws0)
     wb.save('files\\Reporte Suministros.xlsx')
-
-    return wb
 
 def main(startdate, inventory_array, supply_order_array):
 
@@ -349,11 +350,11 @@ if __name__ == "__main__":
 
     rows = main(args.startdate, inventory_array, supply_order_array)
 
-    print('Length of rows: %s' % str(len(rows)))
-    wb = generate_orders_report(rows)
+    # print('Length of rows: %s' % str(len(rows)))
+    generate_orders_report(rows)
 
     levels_array = generate_levels_report_array(
-        inventory_array, supply_order_array, consumable_levels_array
+        inventory_array, supply_order_array, consumable_levels_array, args.consumable_web
     )
 
-    generate_levels_report(levels_array, wb)
+    generate_levels_report(levels_array)

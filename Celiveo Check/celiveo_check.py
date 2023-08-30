@@ -154,7 +154,7 @@ def check_solution(inventory_array):
     no_celiveo_array = []
     no_connection_array = []
 
-    for row in inventory_array:
+    for row in inventory_array[1:]:
 
         serial = row[0]
         ip = row[4]

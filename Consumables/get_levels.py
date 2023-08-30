@@ -13,6 +13,17 @@ import traceback
 
 from datetime import datetime
 
+def get_event_log(ip):
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--ignore-certificate-errors")
+    chrome_options.add_argument("--window-size=1960,1600")
+    chrome_options.add_argument('log-level=3')
+        
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.get("https://%s" % (ip))
+
 def get_consumable_levels(inventory_array):
 
     chrome_options = Options()
@@ -23,17 +34,17 @@ def get_consumable_levels(inventory_array):
         
     driver = webdriver.Chrome(options=chrome_options)
 
-    for row in inventory_array[1:]:
+    consumable_levels_array = []
 
-        consumable_levels_array = []
+    for row in inventory_array[1:]:
 
         serial = row[0]
         ip = row[4]
         model = row[3]
 
-        print("Serial: %s" % serial)
-        print("Ip Address: %s" % ip)
-        print("Model: %s" % model)
+        # print("Serial: %s" % serial)
+        # print("Ip Address: %s" % ip)
+        # print("Model: %s" % model)
 
         try:
             r = requests.get("https://%s" % (ip))
@@ -130,14 +141,14 @@ def get_consumable_levels(inventory_array):
                 
                 black_level = None
 
-            print('\n------------------------------------------------')
-            print("Black Level: %s" % str(black_level))
-            print("Yellow Level: %s" % str(yellow_level))
-            print("Magenta Level: %s" % str(magenta_level))
-            print("Cyan Level: %s" % str(cyan_level))
-            print("Photo Black Level: %s" % str(photo_black_level))
-            print("Matte Black Level: %s" % str(matte_black_level))
-            print("Grey Level: %s" % str(grey_level))
+            # print('\n------------------------------------------------')
+            # print("Black Level: %s" % str(black_level))
+            # print("Yellow Level: %s" % str(yellow_level))
+            # print("Magenta Level: %s" % str(magenta_level))
+            # print("Cyan Level: %s" % str(cyan_level))
+            # print("Photo Black Level: %s" % str(photo_black_level))
+            # print("Matte Black Level: %s" % str(matte_black_level))
+            # print("Grey Level: %s" % str(grey_level))
 
             measure_date = datetime.now()
 
@@ -155,3 +166,7 @@ def get_consumable_levels(inventory_array):
             continue
 
         print("----------------------------------------------------\n")
+
+    driver.close()
+    
+    return consumable_levels_array
