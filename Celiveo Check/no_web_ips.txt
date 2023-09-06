@@ -1,0 +1,6 @@
+CNC1M4G0KB | HP LaserJet Managed MFP E82560dn Plus | 10.115.4.120 | MCA3CL0102 | Marcoleta 634
+CNC1L7400V | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.31.88 | MCA3CL0143 | Edificio Corporativo
+CNC1M5305P | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.140.69 | MCA3CL0145 | Central San Isidro
+CNC1L7B04D | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.47.11 | MCA3CL0156 | Edificio Corporativo
+JPBCN1Q21H | HP Color LaserJet Managed E55040dn | 10.116.40.39 | PCA4CL0288 | Oficina Concepcion
+MXBCM8S1T1 | HP Color LaserJet Managed MFP E57540dn | 10.115.4.78 | MCA4CL0096 | Edificio Corporativo

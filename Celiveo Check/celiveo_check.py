@@ -2,18 +2,10 @@ import selenium
 import requests
 from requests.exceptions import ConnectTimeout, SSLError
 
-from IPs import Ips
+import requests
+from urllib3.exceptions import InsecureRequestWarning
+from adapter import SSLAdapter
 
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-
-from selenium.common.exceptions import WebDriverException
-
-from time import sleep
 import shutil
 import openpyxl
 import csv
@@ -89,63 +81,29 @@ def get_data_from_inventory(serial, key, inventory_array):
 
 def solution_is_installed(ip):
 
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--ignore-certificate-errors")
-    chrome_options.add_argument("--window-size=1960,1600")
-    chrome_options.add_argument('log-level=3')
-        
-    driver = webdriver.Chrome(options=chrome_options)
+    requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
+    # requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += 'AES256-GCM-SHA384'
+
+    url = "https://%s/hp/device/InternalPages/Index?id=ConfigurationPage" % ip
 
     try:
-
-        driver.get("https://%s" % (ip))
-
-        # more_details = WebDriverWait(driver, 60).until(
-        #     EC.presence_of_element_located((By.ID, "details-button")))
-        # more_details.click()
-        
-        # proceed_link = WebDriverWait(driver, 60).until(
-        #     EC.presence_of_element_located((By.ID, "proceed-link")))
-        # proceed_link.click()
-
-        login = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.ID, "EwsLogin")))
-        login.click()
-
-        password = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.ID, "PasswordTextBox")))
-        password.send_keys("I10veR0ckNR011!!")
-
-        submit = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.ID, "signInOk")))
-        submit.click()
-
-        general_menu_option = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.ID, "SettingsPages")))
-        general_menu_option.click()
-
-        solutions_installer_menu_option = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.ID, "SolutionInstaller")))
-        solutions_installer_menu_option.click()
-
-    except Exception as e:
-
-        if type(e) == selenium.common.exceptions.WebDriverException:
-            print(e)
-            return None
-
-    try:
-        solutions_installed_div = WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.ID, "SolutionsTable")))
-        
-        print("Solution installed")
-        return True
-
+        r = requests.get(url, verify=False)
     except:
-        print("No solution")
+        try:
+            s = requests.Session()
+            s.mount('https://', SSLAdapter())
+            r = s.get(url, verify=False)
+        except requests.exceptions.ConnectionError:
+            return "SSLv1 Connection Error"
 
-    driver.close()
+    if r.text == "" or r.text == None:
+        return None
+
+    if "Celiveo Enabled" in r.text:
+        return True
+    
+    if len(r.text) < 1000:
+        return "No guest EWS"
 
     return False
 
@@ -153,11 +111,17 @@ def check_solution(inventory_array):
 
     no_celiveo_array = []
     no_connection_array = []
+    no_web_array = []
+    no_connection_array_sslv1 = []
+    no_guest_ews_array = []
 
     for row in inventory_array[1:]:
 
         serial = row[0]
         ip = row[4]
+        site = row[7]
+        model = row[3]
+        hostname = row[5]
 
         print("\n\n-------------------------------------------------------------")
         print("IP: %s" % str(ip))
@@ -169,19 +133,31 @@ def check_solution(inventory_array):
             if type(e) == requests.exceptions.SSLError:
                 pass
             elif type(e) == requests.exceptions.ConnectTimeout:
-                no_connection_array.append([serial, ip])
+                no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
                 continue
             elif type(e) == requests.exceptions.ConnectionError:
-                no_connection_array.append([serial, ip])
+                no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
                 continue
 
-        if not solution_is_installed(ip): no_celiveo_array.append([serial, ip])
+        if solution_is_installed(ip) == None: no_web_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        if solution_is_installed(ip) == "No guest EWS": no_guest_ews_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        if solution_is_installed(ip) == "SSLv1 Connection Error": no_connection_array_sslv1.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        if not solution_is_installed(ip): no_celiveo_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
 
     with open('no_celiveo_ips.txt', "w") as f:
         f.write('\n'.join(no_celiveo_array))
     
     with open("no_connection_ips.txt", "w") as f:
         f.write('\n'.join(no_connection_array))
+
+    with open("no_web_ips.txt", "w") as f:
+        f.write('\n'.join(no_web_array))
+
+    with open("no_connection_sslv1.txt", "w") as f:
+        f.write('\n'.join(no_connection_array_sslv1))
+
+    with open("no_guest_EWS.txt", "w") as f:
+        f.write('\n'.join(no_guest_ews_array))
 
 if __name__ == "__main__":
 
