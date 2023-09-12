@@ -4,7 +4,7 @@ from adapter import SSLAdapter
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-ip = "10.115.132.21"
+ip = "10.115.31.88"
 url = "https://%s/hp/device/InternalPages/Index?id=ConfigurationPage" % ip
 
 try:
@@ -17,8 +17,11 @@ except:
 if "Celiveo Enabled" in r.text:
     print("Celiveo Found!")
 
-if "Registro" in r.text:
-    print("No EWS!!!")
+if r.text == "":
+    print("Blank!")
+
+print(type(r.text))
+print(len(r.text))
 
 with open("test.html", 'w', encoding="utf-8") as f:
     f.write(r.text)

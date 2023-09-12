@@ -261,7 +261,7 @@ def main(startdate, inventory_array, supply_order_array):
         datetime_creation_date = datetime.strptime(row[2], '%Y-%m-%d %H:%M:%S')
         t_delta = datetime_creation_date.timestamp() - datetime_start_date.timestamp()
 
-        if row[29] == "CHILE" and t_delta >= 0:
+        if row[29] == "CHILE" and t_delta >= 0 and row[15] != "Maintenence":
 
             datetime_ct = datetime.strptime(row[2], "%Y-%m-%d %H:%M:%S")
             str_ct = datetime_ct.strftime("%d/%m/%Y")
@@ -284,6 +284,12 @@ def main(startdate, inventory_array, supply_order_array):
                 order_method = 'Manual'
             elif row[6] == 'FFN':
                 order_method = 'Automático'
+
+            # print("N° of order: %s" % n_request)
+            # print("Method: %s" % row[6])
+
+            # if isinstance(row[6], type(None)): print("Method is None!")
+            # if isinstance(row[6], type("")): print("Method is str!")
 
             # print('Fecha de creación: %s' % str(creation_date))
             # print('Serie: %s' % str(device_serial))

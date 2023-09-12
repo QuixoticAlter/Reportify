@@ -17,7 +17,7 @@ from sites import province_sites, RM_sites, exceptions
 
 create_orders_array = []
 
-def get_supply_order(serial, color, supply_orders, level_date):
+def get_supply_order(serial, color, supply_orders, level_date, status):
 
 	matches = [[x[0],x[2]] for x in supply_orders if x[11] == serial and color in x[15]]
 	print('Matches: %s' % str(matches))
@@ -31,6 +31,7 @@ def get_supply_order(serial, color, supply_orders, level_date):
 		print("Best Match %s" % match[0])
 		return match[0][0]
 	except:
+		if status == "Off-Line": return "No Aplica"
 		return "Revisar o Crear Orden"
 
 def get_threshold(site):
@@ -40,7 +41,7 @@ def get_threshold(site):
 	if site in province_sites: return 15
 	if site in RM_sites: return 10
 
-def check_levels(serial, site, supply_orders, b_l, c_l, m_l, y_l, g_l, p_b, m_b, level_date):
+def check_levels(serial, site, supply_orders, b_l, c_l, m_l, y_l, g_l, p_b, m_b, level_date, status):
 
 	b_o = None
 	c_o = None
@@ -51,19 +52,19 @@ def check_levels(serial, site, supply_orders, b_l, c_l, m_l, y_l, g_l, p_b, m_b,
 	pb_o = None
 
 	if b_l != "No Aplica" and b_l <= get_threshold(site):
-		b_o = get_supply_order(serial, 'Black', supply_orders, level_date)
+		b_o = get_supply_order(serial, 'Black', supply_orders, level_date, status)
 	elif c_l != "No Aplica" and c_l <= get_threshold(site):
-		c_o = get_supply_order(serial, 'Cyan', supply_orders, level_date)
+		c_o = get_supply_order(serial, 'Cyan', supply_orders, level_date, status)
 	elif m_l != "No Aplica" and m_l <= get_threshold(site):
-		m_o = get_supply_order(serial, 'Magenta', supply_orders, level_date)
+		m_o = get_supply_order(serial, 'Magenta', supply_orders, level_date, status)
 	elif y_l != "No Aplica" and y_l <= get_threshold(site):
-		y_o = get_supply_order(serial, 'Yellow', supply_orders, level_date)
+		y_o = get_supply_order(serial, 'Yellow', supply_orders, level_date, status)
 	elif g_l != "No Aplica" and g_l <= get_threshold(site):
-		g_o = get_supply_order(serial, 'Gray', supply_orders, level_date)
+		g_o = get_supply_order(serial, 'Gray', supply_orders, level_date, status)
 	elif p_b != "No Aplica" and p_b <= get_threshold(site):
-		pb_o = get_supply_order(serial, 'Photo Black', supply_orders, level_date)
+		pb_o = get_supply_order(serial, 'Photo Black', supply_orders, level_date, status)
 	elif m_b != "No Aplica" and m_b <= get_threshold(site):
-		mb_o = get_supply_order(serial, 'Matte Black', supply_orders, level_date)
+		mb_o = get_supply_order(serial, 'Matte Black', supply_orders, level_date, status)
 
 	return b_o, c_o, m_o, y_o, g_o, mb_o, pb_o
 
@@ -116,7 +117,7 @@ def generate_levels_report_array(inventory_array, supply_order_array, consumable
 
 		b_o, c_o, m_o, y_o, g_o, mb_o, pb_o = check_levels(
 			serial, site, supply_order_array, b_l, c_l, m_l, y_l,
-			g_l, p_b, m_b, level_date
+			g_l, p_b, m_b, level_date, status
 		)
 
 		levels_array_report.append([

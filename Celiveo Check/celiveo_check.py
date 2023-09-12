@@ -92,18 +92,14 @@ def solution_is_installed(ip):
         try:
             s = requests.Session()
             s.mount('https://', SSLAdapter())
+            print("Fetching through SSLv1")
             r = s.get(url, verify=False)
         except requests.exceptions.ConnectionError:
             return "SSLv1 Connection Error"
 
-    if r.text == "" or r.text == None:
-        return None
-
-    if "Celiveo Enabled" in r.text:
-        return True
-    
-    if len(r.text) < 1000:
-        return "No guest EWS"
+    if r.text == "" or r.text == None: return None
+    elif "Celiveo Enabled" in r.text: return True
+    elif len(r.text) < 15000: return "No guest EWS"
 
     return False
 
@@ -139,10 +135,12 @@ def check_solution(inventory_array):
                 no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
                 continue
 
-        if solution_is_installed(ip) == None: no_web_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
-        if solution_is_installed(ip) == "No guest EWS": no_guest_ews_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
-        if solution_is_installed(ip) == "SSLv1 Connection Error": no_connection_array_sslv1.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
-        if not solution_is_installed(ip): no_celiveo_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        bool_v = solution_is_installed(ip)
+
+        if bool_v == None: no_web_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        elif bool_v == "No guest EWS": no_guest_ews_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        elif bool_v == "SSLv1 Connection Error": no_connection_array_sslv1.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        elif not bool_v: no_celiveo_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
 
     with open('no_celiveo_ips.txt', "w") as f:
         f.write('\n'.join(no_celiveo_array))
