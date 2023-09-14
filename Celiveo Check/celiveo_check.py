@@ -1,6 +1,6 @@
 import selenium
 import requests
-from requests.exceptions import ConnectTimeout, SSLError
+from requests.exceptions import ConnectTimeout, SSLError, ReadTimeout
 
 import requests
 from urllib3.exceptions import InsecureRequestWarning
@@ -123,7 +123,8 @@ def check_solution(inventory_array):
         print("IP: %s" % str(ip))
 
         try:
-            r = requests.get("https://%s" % (ip))
+            r = requests.get("https://%s" % (ip), timeout=5)
+            print("No exception!")
         except Exception as e:
             print(type(e))
             if type(e) == requests.exceptions.SSLError:
@@ -132,6 +133,9 @@ def check_solution(inventory_array):
                 no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
                 continue
             elif type(e) == requests.exceptions.ConnectionError:
+                no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+                continue
+            elif type(e) == requests.exceptions.ReadTimeout:
                 no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
                 continue
 
