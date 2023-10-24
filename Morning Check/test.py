@@ -4,7 +4,7 @@ from adapter import SSLAdapter
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-ip = "10.115.31.88"
+ip = "https://10.115.4.120/"
 url = "https://%s/hp/device/InternalPages/Index?id=ConfigurationPage" % ip
 
 try:

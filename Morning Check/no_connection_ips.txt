@@ -1,0 +1,37 @@
+MXBCM8T00C | HP Color LaserJet Managed MFP E57540dn | 10.116.50.61 | MCA4CL0064 | Oficina Técnica Victoria | Operational
+CNC1M4G0JS | HP LaserJet Managed MFP E82560dn Plus | 10.116.130.31 | MBA3CL0092 | San Isidro 65 | Operational
+MXBCM8H2Q1 | HP LaserJet Managed MFP E52645dn | 10.116.130.116 | MBA4CL0094 | San Isidro 65 | Operational
+MXBCM8G4MQ | HP LaserJet Managed MFP E52645dn | 10.116.130.104 | MBA4CL0095 | San Isidro 65 | Operational
+MXBCM8G4DT | HP LaserJet Managed MFP E52645dn | 10.115.154.29 | MBA4CL0204 | Central Tal Tal | Operational
+MXBCM8H3JC | HP LaserJet Managed MFP E52645dn | 10.115.128.36 | MBA4CL0146 | Central Bocamina 1 | Operational
+CNC1N8502T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.59.112 | MCA3CL0310 | PE Sierra Gorda Este | Operational
+CNC1M5306T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.28.43 | MCA3CL0313 | CENTRAL PULLINQUE | Operational
+CNC1M4B08Z | HP Color LaserJet Managed MFP E87660dn Plus | 192.168.100.110 | MCA3CL0003 | PE Finis Terrae | Operational
+CNC1M3W019 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.19 | MBA3CL0140 | Central Antuco | Operational
+CNC1M3W016 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.87 | MBA3CL0314 | Central Abanico | Operational
+CNC1M3W014 | HP LaserJet Managed MFP E82560dn Plus | 10.115.112.10 | MBA3CL0110 | Central Sauzal | Operational
+CNC1M3W00P | HP LaserJet Managed MFP E82560dn Plus | 10.115.123.120 | MBA3CL0131 | Central Pangue | Operational
+CNC1M3V06L | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.208 | MBA3CL0189 | Central Pehuenche | Operational
+CNC1M2P02P | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.123.127 | MCA3CL0001 | Central Pangue | Operational
+CNC1L7B04C | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.130.48 | MCA3CL0136 | PF Azabache | Operational
+BRBSM7YW72 | HP LaserJetManaged E50145dn | 10.115.36.133 | PBA4CL0212 | Edificio Corporativo | Operational
+BRBSM7YW89 | HP LaserJetManaged E50145dn | 10.115.124.189 | PBA4CL0147 | Central Bocamina 1 | Operational
+JPBCN1Q213 | HP Color LaserJet Managed E55040dn | 10.116.130.30 | PCA4CL0278 | San Isidro 65 | Operational
+BRBSM7YW83 | HP LaserJetManaged E50145dn | 10.106.11.46 | PBA4CL0305 | Central Cerro Pabellón | Operational
+CN99F3H02W | HP DesignJet T2600dr 36-in PS MFP | 10.116.104.18 | PLMACL0222 | Central Gas Atacama | Operational
+CNC1N8502Z | HP Color LaserJet Managed MFP E87660dn Plus | 10.119.0.80 | MCA3CL0309 | PE Finis Terrae | Operational
+CNC1M3W00X | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.64 | MBA3CL0101 | Central Tarapaca | Operational
+CNC1M3W01X | HP LaserJet Managed MFP E82560dn Plus | 10.115.31.24 | MBA3CL0109 | Edificio Corporativo | Operational
+CNC1M5306H | HP Color LaserJet Managed MFP E87660dn Plus | 10.113.194.200 | MCA3CL0060 | Estadio Enel | Operational
+CNC1M3W00Y | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.188 | MBA3CL0193 | Central Pehuenche | Operational
+MXBCM8T009 | HP Color LaserJet Managed MFP E57540dn | 10.116.104.52 | MCA4CL0164 | Central Gas Atacama | Operational
+MXBCM8G44M | HP LaserJet Managed MFP E52645dn | 10.115.155.6 | MBA4CL0087 | Marcoleta 634 | Operational
+MXBCM8J0BG | HP LaserJet Managed MFP E52645dn | 10.115.31.250 | MBA4CL0177 | Edificio Corporativo | Operational
+MXBCM8G4D7 | HP LaserJet Managed MFP E52645dn | 10.115.104.59 | MBA4CL0126 | Central Los Molles | Operational
+JPBCN1Q21J | HP Color LaserJet Managed E55040dn | 10.106.11.46 | PCA4CL0306 | Central Cerro Pabellón | Operational
+MXBCM8G4KJ | HP LaserJet Managed MFP E52645dn | 10.116.50.211 | MBA4CL0199 | Oficina Técnica Victoria | Operational
+MXBCM80310 | HP Color LaserJet Managed MFP E67650dh | 10.106.12.229 | MCA4CL0297 | Parque Eólico Los Buenos Aires | Operational
+MXBCM8030N | HP Color LaserJet Managed MFP E67650dh | 10.115.44.26 | MCA4CL0298 | Edificio Corporativo | Operational
+BRBSM7YW8Z | HP LaserJetManaged E50145dn | 10.119.38.23 | PBA4CL0021 | SCH La Florida | Operational
+JPBCM7Y2SV | HP Color LaserJet Managed E55040dw | 10.116.50.32 | PCA4CL0055 | Oficina Técnica Victoria | Operational
+TH22FF6057 | HP OfficeJet Pro 9020 series | 10.116.64.4 | HP922486 | San Isidro 65 | Operational

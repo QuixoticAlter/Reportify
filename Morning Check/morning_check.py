@@ -12,10 +12,13 @@ import csv
 
 inventory_excel = "files\\inventario.xlsx"
 inventory_csv = "files\\inventario.csv"
+nrd_excel = "files\\export_nrd.xlsx"
+nrd_csv = "files\\export_nrd.csv"
 
 def copy_reports():
 
     shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "files\\inventario.xlsx")
+    shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\Enel Global MS Devices.xlsx", "files\\export_nrd.xlsx")
 
 def convert_excel_to_csv(input_file, output_file):
 
@@ -87,14 +90,20 @@ def solution_is_installed(ip):
     url = "https://%s/hp/device/InternalPages/Index?id=ConfigurationPage" % ip
 
     try:
-        r = requests.get(url, verify=False)
+        r = requests.get(url, verify=False, timeout=20)
     except:
         try:
             s = requests.Session()
             s.mount('https://', SSLAdapter())
             print("Fetching through SSLv1")
-            r = s.get(url, verify=False)
-        except requests.exceptions.ConnectionError:
+            r = s.get(url, verify=False, timeout=5)
+        except Exception as e:
+            print(type(e))
+            if type(e) == requests.exceptions.ConnectionError:
+                print("Conenction Error!")
+            elif type(e) == requests.exceptions.ReadTimeout:
+                print("Read Timeout!")
+
             return "SSLv1 Connection Error"
 
     if r.text == "" or r.text == None: return None
@@ -110,6 +119,7 @@ def check_solution(inventory_array):
     no_web_array = []
     no_connection_array_sslv1 = []
     no_guest_ews_array = []
+    invalid_ip_array = []
 
     for row in inventory_array[1:]:
 
@@ -118,25 +128,33 @@ def check_solution(inventory_array):
         site = row[7]
         model = row[3]
         hostname = row[5]
+        status = row[13]
 
         print("\n\n-------------------------------------------------------------")
         print("IP: %s" % str(ip))
 
+        if ip == "0.0.0.0" or ip == None or ip == "" or  not "." in ip:
+            print("Invalid or Empty IP!")
+            invalid_ip_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+            continue
+
+        if status == "Off-Line": continue
+
         try:
-            r = requests.get("https://%s" % (ip), timeout=5)
+            r = requests.get("https://%s" % (ip), timeout=20)
             print("No exception!")
         except Exception as e:
             print(type(e))
             if type(e) == requests.exceptions.SSLError:
                 pass
             elif type(e) == requests.exceptions.ConnectTimeout:
-                no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
                 continue
             elif type(e) == requests.exceptions.ConnectionError:
-                no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
                 continue
             elif type(e) == requests.exceptions.ReadTimeout:
-                no_connection_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
                 continue
 
         bool_v = solution_is_installed(ip)
@@ -160,6 +178,9 @@ def check_solution(inventory_array):
 
     with open("no_guest_EWS.txt", "w") as f:
         f.write('\n'.join(no_guest_ews_array))
+
+    with open("invalid_ip_array.txt", "w") as f:
+        f.write('\n'.join(invalid_ip_array))
 
 if __name__ == "__main__":
 

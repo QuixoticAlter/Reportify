@@ -1,3 +1,0 @@
-CNC1M5306T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.28.43 | MCA3CL0313 | CENTRAL PULLINQUE
-JPBCN1Q21H | HP Color LaserJet Managed E55040dn | 10.116.40.39 | PCA4CL0288 | Oficina Concepcion
-MXBCM8S1T1 | HP Color LaserJet Managed MFP E57540dn | 10.115.4.78 | MCA4CL0096 | Edificio Corporativo

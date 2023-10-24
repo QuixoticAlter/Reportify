@@ -1,34 +1,17 @@
-MXBCM8T009 | HP Color LaserJet Managed MFP E57540dn | 10.116.104.52 | MCA4CL0164 | Central Gas Atacama
-CNC1M4G0JS | HP LaserJet Managed MFP E82560dn Plus | 10.116.130.31 | MBA3CL0092 | San Isidro 65
+MXBCM8T00B | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | HP32473 | Los Angeles
+MXBCM8S1MP | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA3CL0315 | Bodega SO
 CNC1M4G0JY | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | MBA3CL0106 | Edificio Corporativo
+MXBCM8S176 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0078 | San Isidro 65
 MXBCM8H3H7 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0190 | Central Pehuenche
-MXBCM8H2Q1 | HP LaserJet Managed MFP E52645dn | 10.116.130.116 | MBA4CL0094 | San Isidro 65
-MXBCM8G4MQ | HP LaserJet Managed MFP E52645dn | 10.116.130.104 | MBA4CL0095 | San Isidro 65
-MXBCM8G4DT | HP LaserJet Managed MFP E52645dn | 10.115.154.29 | MBA4CL0204 | Central Tal Tal
 MXBCM8G4CV | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0061 | Estadio Enel
 MXBCM8G3SM | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0158 | Central Tal Tal
-MXBCM80310 | HP Color LaserJet Managed MFP E67650dh | 10.106.12.229 | MCA4CL0297 | Parque Eólico Los Buenos Aires
 MXBCM8H3HT | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0141 | Bodega SO
-MXBCM8H3JC | HP LaserJet Managed MFP E52645dn | 10.115.128.36 | MBA4CL0146 | Central Bocamina 1
 JPBCM7Y325 | HP Color LaserJet Managed E55040dw | 0.0.0.0 |  | Central Gas Atacama
-CNC1N8502T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.59.112 | MCA3CL0310 | PE Sierra Gorda Este
 CNC1N7X01W | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0307 | PE Valle de los Vientos
 CNC1M5304D | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0167 | Central Renaico
-CNC1M4B08Z | HP Color LaserJet Managed MFP E87660dn Plus | 192.168.100.110 | MCA3CL0003 | PE Finis Terrae
-CNC1M3W019 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.19 | MBA3CL0140 | Central Antuco
-CNC1M3W016 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.87 | MBA3CL0314 | Central Abanico
 CNC1M5306L | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0311 | Bodega SO
-CNC1M3W014 | HP LaserJet Managed MFP E82560dn Plus | 10.115.112.10 | MBA3CL0110 | Central Sauzal
-MXBCM8S1MP | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA3CL0315 | Bodega SO
 CNC1M3W00W | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | HP32505 | Central Bocamina 1
-CNC1M3W00P | HP LaserJet Managed MFP E82560dn Plus | 10.115.123.120 | MBA3CL0131 | Central Pangue
-CNC1M3W00H | HP LaserJet Managed MFP E82560dn Plus | 10.115.123.24 | MBA3CL0132 | Central Pangue
-CNC1M3W002 | HP LaserJet Managed MFP E82560dn Plus | 10.115.124.13 | MBA3CL0205 | Central Bocamina 2
-CNC1M3V06L | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.208 | MBA3CL0189 | Central Pehuenche
 CNC1M2P035 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0002 | Central Pangue
-CNC1M2P02P | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.123.127 | MCA3CL0001 | Central Pangue
-CNC1L7B04C | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.130.48 | MCA3CL0136 | PF Azabache
-BRBSM7YW72 | HP LaserJetManaged E50145dn | 10.115.36.133 | PBA4CL0212 | Edificio Corporativo
 BRBSM5X3WJ | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0238 | Central Bocamina 1
 CN9BG3H00R | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0308 | PE Finis Terrae
 CN9B64H00D | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0221 | PE Finis Terrae
@@ -36,18 +19,13 @@ CN9AU4H014 | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0227 | Oficina
 BRBSM7YW8L | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0034 | SCH Maipu
 BRBSM7YW8G | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0018 | SCH Gran Avenida
 BRBSM7YW8F | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0037 | SCH NuNoa
-BRBSM7YW89 | HP LaserJetManaged E50145dn | 10.115.124.189 | PBA4CL0147 | Central Bocamina 1
-JPBCN1Q213 | HP Color LaserJet Managed E55040dn | 10.116.130.30 | PCA4CL0278 | San Isidro 65
-BRBSM7YW83 | HP LaserJetManaged E50145dn | 10.106.11.46 | PBA4CL0305 | Central Cerro Pabellón
 BRBSM7YW7X | HP LaserJetManaged E50145dn | 0.0.0.0 | MBA4CL0292 | SCH Estado
 BRBSM7YW7F | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0031 | SCH Maipu
-MXBCM8S18V | HP Color LaserJet Managed MFP E57540dn | 10.115.108.71 | MCA4CL0077 | Central Rapel
 MYBCM6J18M | HP PageWide Managed Color E75160dn | 0.0.0.0 |  | Bodega SO
 JPBCN1Q201 | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Bodega SO
 JPBCN1Q21B | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Bodega SO
 JPBCN1Q21M | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Bodega SO
 CNC1M4G0KH | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 |  | Central Bocamina 1
-CNC1N8502Z | HP Color LaserJet Managed MFP E87660dn Plus | 10.119.0.80 | MCA3CL0309 | PE Finis Terrae
 BRBSM7YW6W | HP LaserJetManaged E50145dn | 0.0.0.0 |  | Edificio Corporativo
 BRBSM7YW9B | HP LaserJetManaged E50145dn | 0.0.0.0 |  | Edificio Corporativo
 MYBCM6J19B | HP PageWide Managed Color E75160dn | 0.0.0.0 |  | Edificio Corporativo
@@ -59,32 +37,19 @@ JPBCN1Q21V | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporat
 JPBCN1Q21W | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo
 MXBCM802ZB | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | Edificio Corporativo
 MXBCM80315 | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | Edificio Corporativo
-MXBCM8S1T6 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 |  | Edificio Corporativo
+MXBCM8S1LW | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0111 | Edificio Corporativo
 CNC1M3H06L | HP LaserJet Managed MFP E82560dn Plus | 10115132159 | MBA3CL0194 | Central Cipreses
-CNC1M3W00X | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.64 | MBA3CL0101 | Central Tarapaca
-CNC1M3W01X | HP LaserJet Managed MFP E82560dn Plus | 10.115.31.24 | MBA3CL0109 | Edificio Corporativo
 CNC1L7B02Z | HP Color LaserJet Managed MFP E87660dn Plus | 10115123103 | MCA3CL0004 | Central Pangue
-CNC1M5306H | HP Color LaserJet Managed MFP E87660dn Plus | 10.113.194.200 | MCA3CL0060 | Estadio Enel
-MXBCM8T00B | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | HP32473 | Los Angeles
+MXBCM8S1M6 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0129 | Edificio Corporativo
 CN9AU4H00J | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0220 | San Isidro 65
-CNC1M3W00Y | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.188 | MBA3CL0193 | Central Pehuenche
 MXBCM8S1LP | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0135 | Antofagasta
-MXBCM8G44M | HP LaserJet Managed MFP E52645dn | 10.115.155.6 | MBA4CL0087 | Marcoleta 634
 MXBCM8H2PT | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0113 | San Isidro 65
 MXBCM8G47M | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0178 | San Isidro 65
-CNC1L7400V | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.31.88 | MCA3CL0143 | Edificio Corporativo
-CNC1L7400X | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.47.13 | MCA3CL0171 | Edificio Corporativo
-CNC1L7B02Y | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.11.244 | MCA3CL0231 | Antofagasta
-MXBCM8G4D7 | HP LaserJet Managed MFP E52645dn | 10.115.104.59 | MBA4CL0126 | Central Los Molles
-MXBCM8S1RF | HP Color LaserJet Managed MFP E57540dn | 10.115.8.195 | MCA4CL0300 | San Isidro 65
 CNC1M3W00S | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | MBA3CL0082 | Edificio Corporativo
 CNC1M3W01H | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | MBA3CL0190 | San Isidro 65
-MXBCM8G48Y | HP LaserJet Managed MFP E52645dn | 10.116.58.57 | MBA4CL0289 | SCH Estado
-JPBCN1Q21J | HP Color LaserJet Managed E55040dn | 10.106.11.46 | PCA4CL0306 | Central Cerro Pabellón
-MXBCM8J0Q8 | HP LaserJet Managed MFP E52645dn | 10.119.38.22 | MBA4CL0025 | SCH La Florida
+MXBCM8T006 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0214 | Edificio Corporativo
 MXBCM8K03L | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0027 | Edificio Corporativo
 MXBCM8J1P5 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0029 | Edificio Corporativo
-MXBCM8J0S6 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0105 | San Isidro 65
 MXBCM8G49R | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0114 | Edificio Corporativo
 MXBCM8G3RT | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0122 | San Isidro 65
 CNC1M3W00D | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 |  | Guanchoi
@@ -95,17 +60,12 @@ MXBCM8G4C2 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0213 | San Isidr
 MXBCM8J0B9 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0215 | San Isidro 65
 MXBCM8J099 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0277 | San Isidro 65
 CNC1M53053 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0116 | San Isidro 65
-CN9B54H02H | HP DesignJetT1600 36-in PS Printer | 10115133243 | PLMACL0219 | Central Cipreses
 CNC1L74008 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0303 | Bodega SO
-CN9B54H02F | HP DesignJetT1600 36-in PS Printer | 10.116.50.188 | PLMACL0226 | Oficina Técnica Victoria
-MXBCM8S1LW | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0111 | Edificio Corporativo
-MXBCM8S1M6 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0129 | Edificio Corporativo
+MXBCM8S1KD | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0260 | Edificio Corporativo
 BRBSM7YW9M | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0112 | GNL Quintero
 BRBSM7YW8W | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0026 | SCH La Florida
-MXBCM8T006 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0214 | Edificio Corporativo
-MXBCM8S1KD | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0260 | Edificio Corporativo
 MXBCM802ZF | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0280 | San Isidro 65
-MXBCM8030N | HP Color LaserJet Managed MFP E67650dh | 10.115.44.26 | MCA4CL0298 | Edificio Corporativo
+MXBCM8S1T6 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 |  | Edificio Corporativo
 BRBSM7YW90 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0011 | San Isidro 65
 BRBSM7YW78 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0012 | San Isidro 65
 BRBSM7YW8M | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0023 | SCH La Florida
@@ -122,8 +82,7 @@ JPBCM7Y2YQ | HP Color LaserJet Managed E55040dw | 0.0.0.0 | PCA4CL0054 | Oficina
 JPBCMC81KT | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0273 | Edificio Corporativo
 CN9B64H00T | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0229 | San Isidro 65
 CN99B3H002 | HP DesignJet T2600dr 36-in PS MFP | 0.0.0.0 | PLMACL0268 | Edificio Corporativo
-CN9B54H01N | HP DesignJetT1600 36-in PS Printer | 10.116.50.208 | PLMACL0269 | Victoria 612
-MXBCM8S159 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 |  | San Isidro 65
+MXBCM8S159 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0302 | San Isidro 65
 CNC1L74012 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 |  | San Isidro 65
 BRBSM7YW6D | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0007 | SCH Apoquindo
 MXBCM802ZQ | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | San Isidro 65
