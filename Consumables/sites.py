@@ -35,7 +35,8 @@ province_sites = [
     "Colina",
     "Guanchoi",
     "CEO Lampa",
-    "SCH Apoquindo"
+    "SCH Apoquindo",
+    "Oficinas Radales"
 ]
 
 RM_sites = [
@@ -54,7 +55,8 @@ RM_sites = [
     "SCH La Florida",
     "Edificio Corporativo",
     "Marcoleta 634",
-    "Estadio Enel"
+    "Estadio Enel",
+    "Espacio Virtual"
 ]
 
 # Printers that were associated to Domínica site which still appears in DCC!!!

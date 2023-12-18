@@ -1,6 +1,1 @@
-MXBCM8S18V | HP Color LaserJet Managed MFP E57540dn | 10.115.108.71 | MCA4CL0077 | Central Rapel
-CNC1M3W01F | HP LaserJet Managed MFP E82560dn Plus | 10.115.132.21 | MBA3CL0197 | Central Cipreses
-CNC1M4G0KC | HP LaserJet Managed MFP E82560dn Plus | 10.115.4.79 | MBA3CL0100 | Marcoleta 634
-MXBCM8G4F4 | HP LaserJet Managed MFP E52645dn | 10.106.28.45 | MBA4CL0312 | CENTRAL PULLINQUE
-CNC1L74005 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.41.11 | MCA3CL0127 | Edificio Corporativo
-CNC1M5306J | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.45.195 | MCA3CL0182 | Edificio Corporativo
+CNC1M3H068 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.79 | MBA3CL0160 | Central Abanico

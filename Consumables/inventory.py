@@ -1,6 +1,6 @@
 def get_data_from_inventory(serial, key, inventory_array):
 
-    # print(serial)
+    print(serial)
 
     index_map = {
         'Serial': 0,
@@ -32,7 +32,7 @@ def get_data_from_inventory(serial, key, inventory_array):
     # print('field: %s' % str(index_map[key]))
 
     data_pre = [x[index_map[key]] for x in inventory_array if x[0] == serial]
-    # print('Data Pre: %s' % str(data_pre))
+    print('Data Pre: %s' % str(data_pre))
     data = data_pre[0]
 
     return data

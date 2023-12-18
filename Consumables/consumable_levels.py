@@ -36,7 +36,7 @@ def get_supply_order(serial, color, supply_orders, level_date, status):
 
 def get_threshold(site):
 
-	# print("Site: %s" % site)
+	print("Site: %s" % site)
 
 	if site in province_sites: return 15
 	if site in RM_sites: return 10

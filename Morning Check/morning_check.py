@@ -1,4 +1,3 @@
-import selenium
 import requests
 from requests.exceptions import ConnectTimeout, SSLError, ReadTimeout
 
@@ -9,16 +8,22 @@ from adapter import SSLAdapter
 import shutil
 import openpyxl
 import csv
+import subprocess
+
+from nrds import check_nrds, create_nrd_report
 
 inventory_excel = "files\\inventario.xlsx"
 inventory_csv = "files\\inventario.csv"
 nrd_excel = "files\\export_nrd.xlsx"
 nrd_csv = "files\\export_nrd.csv"
+service_request_excel = "files\\service_requests_history.xlsx"
+service_requests_csv = "files\\service_requests_history.csv"
 
 def copy_reports():
 
     shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "files\\inventario.xlsx")
     shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\Enel Global MS Devices.xlsx", "files\\export_nrd.xlsx")
+    shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS - Service Visit History.xlsx", "files\\service_requests_history.xlsx")
 
 def convert_excel_to_csv(input_file, output_file):
 
@@ -43,8 +48,48 @@ def set_inventory_array():
 
     return inventory_array
 
+def set_nrd_array():
+
+    nrd_array_pre = []
+    
+    with open(nrd_csv, encoding="utf-8") as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=",")
+        for row in spamreader:
+            nrd_array_pre.append(row)
+
+    nrd_array = [list(map(lambda a:a.strip(), x)) for x in nrd_array_pre if not x == [] and x[8] == "Chile"]
+
+    print(nrd_array)
+
+    return nrd_array
+
+def set_service_requests_array():
+
+    service_requests_array_pre = []
+
+    with open(nrd_csv, encoding="utf-8") as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=",")
+        for row in spamreader:
+            service_requests_array_pre.append(row)
+
+    service_requests_array = [x for x in service_requests_array_pre[4:] if x[14] == "CL"]
+
+    return service_requests_array
+
+def has_conectivity(ip_address):
+
+    result = subprocess.run("ping %s" % ip_address, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out = result.stdout.decode('ascii')
+
+    print("ping output: %s" % out)
+
+    if "enviados = 4, recibidos = 4" in out: return True
+
+    return False
+
 def get_data_from_inventory(serial, key, inventory_array):
 
+    print("Get data from inventory")
     print(serial)
 
     index_map = {
@@ -129,16 +174,25 @@ def check_solution(inventory_array):
         model = row[3]
         hostname = row[5]
         status = row[13]
+        level = row[10]
 
         print("\n\n-------------------------------------------------------------")
         print("IP: %s" % str(ip))
 
-        if ip == "0.0.0.0" or ip == None or ip == "" or  not "." in ip:
+        invalid_ip_condition = ip == "0.0.0.0" or ip == None or ip == "" or  not "." in ip
+        storage_levels_condition = level == "Bodega Santa Rosa" or level == "Bodega SO Piso 1" or level == "Bodega San Isidro Of. 7"
+
+        if storage_levels_condition: continue
+
+        if invalid_ip_condition:
             print("Invalid or Empty IP!")
             invalid_ip_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
             continue
 
-        if status == "Off-Line": continue
+        if status == "Off-Line": 
+            if not has_conectivity(): 
+                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
+                continue
 
         try:
             r = requests.get("https://%s" % (ip), timeout=20)
@@ -185,6 +239,15 @@ def check_solution(inventory_array):
 if __name__ == "__main__":
 
     copy_reports()
+
     convert_excel_to_csv(inventory_excel, inventory_csv)
+    # convert_excel_to_csv(nrd_excel, nrd_csv)
+    # convert_excel_to_csv(service_request_excel, service_requests_csv)
+
     inventory_array = set_inventory_array()
+    # nrd_array = set_nrd_array()
+
     check_solution(inventory_array)
+
+    # nrd_report_array = check_nrds(nrd_array, service_requests_csv)
+    # create_nrd_report(nrd_report_array)
