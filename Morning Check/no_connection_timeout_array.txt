@@ -1,0 +1,3 @@
+MXBCM8T009 | HP Color LaserJet Managed MFP E57540dn | 10.116.104.52 | MCA4CL0164 | Central Gas Atacama | Off-Line
+BRBSM7YW5D | HP LaserJetManaged E50145dn | 10.115.31.168 | PBA4CL0091 | Edificio Corporativo | Operational
+CN9B54H01N | HP DesignJetT1600 36-in PS Printer | 10.116.50.219 | PLMACL0269 | Victoria 612 | Off-Line

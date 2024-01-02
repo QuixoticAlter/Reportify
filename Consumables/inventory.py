@@ -12,17 +12,18 @@ def get_data_from_inventory(serial, key, inventory_array):
         'MAC Adress': 6,
         'Site': 7,
         'Building': 8,
-        'Level': 9,
-        'Referencia en el piso': 10,
-        'Punto de red': 11,
-        'Grid': 12,
-        'Device Status': 13,
-        'Contacto': 14,
-        'Teléfono': 15,
-        'Correo': 16,
-        'Checkeada': 17,
-        'En Movimiento': 18,
-        'Observaciones': 19
+        'Coordenadas': 9,
+        'Level': 10,
+        'Referencia en el piso': 11,
+        'Punto de red': 12,
+        'Grid': 13,
+        'Device Status': 14,
+        'Contacto': 15,
+        'Teléfono': 16,
+        'Correo': 17,
+        'Checkeada': 18,
+        'En Movimiento': 19,
+        'Observaciones': 20
     }
 
     # print('length of inventory array: %s' % str(len(inventory_array)))

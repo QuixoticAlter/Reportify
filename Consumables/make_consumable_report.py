@@ -333,7 +333,7 @@ if __name__ == "__main__":
         description='This program generates a supply report automatically.'
     )
 
-    parser.add_argument('-d', '--startdate', help='The date from which the program will start to generate the final row/array to export. Format Accepted: DD-MM-YYYY')
+    parser.add_argument('-d', '--startdate', help='The date from which the program will start to generate the final row/array to export. Format Accepted: DD/MM/YYYY')
     parser.add_argument('-c', '--consumable-web', action="store_true", help='Get consumable levels through web scraping')
     args = parser.parse_args()
 

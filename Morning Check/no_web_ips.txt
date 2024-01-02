@@ -1,1 +1,1 @@
-MXBCM8S18V | HP Color LaserJet Managed MFP E57540dn | 10.115.108.71 | MCA4CL0077 | Central Rapel
+CNC1M5306J | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.45.195 | MCA3CL0182 | Edificio Corporativo

@@ -35,6 +35,11 @@ def convert_excel_to_csv(input_file, output_file):
         row = [cell.value for cell in eachrow]
         outputCsvFile.writerow(row)
 
+def write_larrays(lfile, larray): # lfile -> Log File; larray -> Log Array
+
+    with open(lfile, "w") as f:
+        f.write('\n'.join(larray))
+
 def set_inventory_array():
 
     inventory_array_pre = []
@@ -79,9 +84,10 @@ def set_service_requests_array():
 def has_conectivity(ip_address):
 
     result = subprocess.run("ping %s" % ip_address, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out = result.stdout.decode('ascii')
+    out = result.stdout.decode('latin-1')
 
-    print("ping output: %s" % out)
+    # print(type(out))
+    # print("ping output: %s" % out)
 
     if "enviados = 4, recibidos = 4" in out: return True
 
@@ -102,17 +108,18 @@ def get_data_from_inventory(serial, key, inventory_array):
         'MAC Adress': 6,
         'Site': 7,
         'Building': 8,
-        'Level': 9,
-        'Referencia en el piso': 10,
-        'Punto de red': 11,
-        'Grid': 12,
-        'Device Status': 13,
-        'Contacto': 14,
-        'Teléfono': 15,
-        'Correo': 16,
-        'Checkeada': 17,
-        'En Movimiento': 18,
-        'Observaciones': 19
+        'Coordenadas': 9,
+        'Level': 10,
+        'Referencia en el piso': 11,
+        'Punto de red': 12,
+        'Grid': 13,
+        'Device Status': 14,
+        'Contacto': 15,
+        'Teléfono': 16,
+        'Correo': 17,
+        'Checkeada': 18,
+        'En Movimiento': 19,
+        'Observaciones': 20
     }
 
     # print('length of inventory array: %s' % str(len(inventory_array)))
@@ -159,12 +166,17 @@ def solution_is_installed(ip):
 
 def check_solution(inventory_array):
 
-    no_celiveo_array = []
-    no_connection_array = []
-    no_web_array = []
-    no_connection_array_sslv1 = []
-    no_guest_ews_array = []
+    connectivity_array = []
     invalid_ip_array = []
+    no_connectivity_array = []
+    no_connection_timeout_array = []
+    no_connection_error_array = []
+    no_connection_read_timeout_array = []
+    no_connection_array_sslv1 = []
+    operationals_no_conectivity = []
+    no_celiveo_array = []
+    no_web_array = []
+    no_guest_ews_array = []
 
     for row in inventory_array[1:]:
 
@@ -173,8 +185,10 @@ def check_solution(inventory_array):
         site = row[7]
         model = row[3]
         hostname = row[5]
-        status = row[13]
+        status = row[14]
         level = row[10]
+
+        ip = ip.strip()
 
         print("\n\n-------------------------------------------------------------")
         print("IP: %s" % str(ip))
@@ -182,17 +196,24 @@ def check_solution(inventory_array):
         invalid_ip_condition = ip == "0.0.0.0" or ip == None or ip == "" or  not "." in ip
         storage_levels_condition = level == "Bodega Santa Rosa" or level == "Bodega SO Piso 1" or level == "Bodega San Isidro Of. 7"
 
-        if storage_levels_condition: continue
+        if storage_levels_condition: 
+            print("In Storage!")
+            continue
 
         if invalid_ip_condition:
             print("Invalid or Empty IP!")
-            invalid_ip_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+            invalid_ip_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
             continue
 
-        if status == "Off-Line": 
-            if not has_conectivity(): 
-                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
-                continue
+        if not has_conectivity(ip):
+            print('has connectivity!')
+            no_connectivity_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
+            if status == "Operational":
+                operationals_no_conectivity.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
+            continue
+        else:
+            print('Has no conectivity!')
+            connectivity_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
 
         try:
             r = requests.get("https://%s" % (ip), timeout=20)
@@ -202,13 +223,13 @@ def check_solution(inventory_array):
             if type(e) == requests.exceptions.SSLError:
                 pass
             elif type(e) == requests.exceptions.ConnectTimeout:
-                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
+                no_connection_timeout_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
                 continue
             elif type(e) == requests.exceptions.ConnectionError:
-                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
+                no_connection_error_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
                 continue
             elif type(e) == requests.exceptions.ReadTimeout:
-                no_connection_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
+                no_connection_read_timeout_array.append("%s | %s | %s | %s | %s | %s" % (serial, model, ip, hostname, site, status))
                 continue
 
         bool_v = solution_is_installed(ip)
@@ -218,23 +239,17 @@ def check_solution(inventory_array):
         elif bool_v == "SSLv1 Connection Error": no_connection_array_sslv1.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
         elif not bool_v: no_celiveo_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
 
-    with open('no_celiveo_ips.txt', "w") as f:
-        f.write('\n'.join(no_celiveo_array))
-    
-    with open("no_connection_ips.txt", "w") as f:
-        f.write('\n'.join(no_connection_array))
-
-    with open("no_web_ips.txt", "w") as f:
-        f.write('\n'.join(no_web_array))
-
-    with open("no_connection_sslv1.txt", "w") as f:
-        f.write('\n'.join(no_connection_array_sslv1))
-
-    with open("no_guest_EWS.txt", "w") as f:
-        f.write('\n'.join(no_guest_ews_array))
-
-    with open("invalid_ip_array.txt", "w") as f:
-        f.write('\n'.join(invalid_ip_array))
+    write_larrays('connectivity_ips.txt', connectivity_array)
+    write_larrays('invalid_ip_array.txt', invalid_ip_array)
+    write_larrays('no_connectivity_ips.txt', no_connectivity_array)
+    write_larrays('no_connection_timeout_array.txt', no_connection_timeout_array)
+    write_larrays('no_connection_timeout_array.txt', no_connection_error_array)
+    write_larrays('no_connection_read_timeout.txt', no_connection_read_timeout_array)
+    write_larrays('no_connection_array_sslv1.txt', no_connection_array_sslv1)
+    write_larrays('operationals_no_conectivity.txt', operationals_no_conectivity)
+    write_larrays('no_celiveo_ips.txt', no_celiveo_array)
+    write_larrays('no_web_ips.txt', no_web_array)
+    write_larrays('no_guest_ews_array.txt', no_guest_ews_array)
 
 if __name__ == "__main__":
 
