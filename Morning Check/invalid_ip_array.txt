@@ -31,7 +31,7 @@ BRBSM7YW6D | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0007 | SCH Apoquindo 
 BRBSM7YW6K | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0083 | Edificio Corporativo | Operational
 BRBSM7YW6Q | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0086 | Edificio Corporativo | Operational
 BRBSM7YW70 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0099 | Marcoleta 634 | Operational
-BRBSM7YW8B | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0239 | Central Bocamina 1 | Operational
+BRBSM7YW8B | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0239 | Central Bocamina 1 | Off-Line
 BRBSM7YW8D | HP LaserJetManaged E50145dn | 0.0.0.0 |  | San Isidro 65 | Off-Line
 BRBSM7YW8M | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0023 | SCH La Florida | Off-Line
 BRBSM7YW8W | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0026 | SCH La Florida | Off-Line

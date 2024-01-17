@@ -36,7 +36,8 @@ province_sites = [
     "Guanchoi",
     "CEO Lampa",
     "SCH Apoquindo",
-    "Oficinas Radales"
+    "Oficinas Radales",
+    "Chañares"
 ]
 
 RM_sites = [

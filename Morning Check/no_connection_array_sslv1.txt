@@ -1,2 +1,4 @@
-CNC1L7B03M | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.35.55 | MCA3CL0256 | Edificio Corporativo
-JPBCN1Q21H | HP Color LaserJet Managed E55040dn | 10.116.40.39 | PCA4CL0288 | Oficina Concepcion
+CNC1M3H068 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.79 | MBA3CL0160 | Central Abanico
+CNC1M3H06L | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.83 | MBA3CL0194 | Central Cipreses
+MXBCM8H3J3 | HP LaserJet Managed MFP E52645dn | 10.115.123.23 | MBA4CL0134 | Central Ralco
+MXBCM8K03J | HP LaserJet Managed MFP E52645dn | 10.116.100.6 | MBA4CL0035 | SCH Maipu

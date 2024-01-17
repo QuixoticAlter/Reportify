@@ -8,7 +8,7 @@
 # 2. Download the consumable levels report from DCC.
 # 3. Check if there is another file called "ENEL Global MS Supply Order History.xlsx", if it's the case remove it.
 # 4. Check if there is another file called "ENEL Global MS Consumable Levels.xlsx", if it's the case remove it.
-# 3. Excute this program through the command python make_consumable_report.py
+# 3. Excute this program through the command python make_consumable_report.py -d %d/%m/%Y
 # 4. Enjoy It!
 
 import csv
@@ -226,7 +226,7 @@ def generate_orders_report(rows):
     ws['S1'] = 'Comentarios'
 
     for i in range(1, len(rows)):
-        ws['A%s' % str(i+1)] = rows[i-1][0].split(' ')[0]
+        ws['A%s' % str(i+1)] = rows[i-1][0]
         ws['B%s' % str(i+1)] = rows[i-1][1]
         ws['C%s' % str(i+1)] = rows[i-1][2]
         ws['D%s' % str(i+1)] = rows[i-1][3]
@@ -249,6 +249,9 @@ def generate_orders_report(rows):
     wb.remove_sheet(ws0)
     wb.save('files\\Reporte Suministros.xlsx')
 
+def get_date(row):
+    return row[0]
+
 def main(startdate, inventory_array, supply_order_array):
 
     datetime_start_date = datetime.strptime(startdate, '%d/%m/%Y')
@@ -264,9 +267,7 @@ def main(startdate, inventory_array, supply_order_array):
         if row[29] == "CHILE" and t_delta >= 0 and row[15] != "Maintenence":
 
             datetime_ct = datetime.strptime(row[2], "%Y-%m-%d %H:%M:%S")
-            str_ct = datetime_ct.strftime("%d/%m/%Y")
-            creation_date = str_ct
-            print("Creation Date: %s" % creation_date)
+            print("Creation Date: %s" % datetime_ct.strftime("%d/%m/%Y"))
 
             device_serial = row[11]
             ip = get_data_from_inventory(device_serial, 'Dirección IP', inventory_array)
@@ -285,46 +286,21 @@ def main(startdate, inventory_array, supply_order_array):
             elif row[6] == 'FFN':
                 order_method = 'Automático'
 
-            # print("N° of order: %s" % n_request)
-            # print("Method: %s" % row[6])
-
-            # if isinstance(row[6], type(None)): print("Method is None!")
-            # if isinstance(row[6], type("")): print("Method is str!")
-
-            # print('Fecha de creación: %s' % str(creation_date))
-            # print('Serie: %s' % str(device_serial))
-            # print('Dirección IP: %s' % str(ip))
-            # print('Modelo: %s' % str(model))
-            # print('Suministro: %s' % str(supply))
-            # print('Estado: %s' % str(status))
-            # print('Oficina Destino: %s' % str(destiny))
-            # print('N° Solicitud: %s' % str(n_request))
-            # print('N° Tracking Ingram %s' % str(n_ingram))
-            # print('Guía de Despacho: %s' % str(n_guide))
-
             supply_report_rows.append([
-                creation_date,
-                device_serial,
-                ip,
-                model,
-                sku,
-                supply,
-                status,
-                destiny,
-                n_request,
-                n_ingram,
-                n_guide,
-                '',
-                '',
-                '',
-                '',
-                '',
-                order_method,
-                '',
-                ''
+                datetime_ct, device_serial, ip, model,
+                sku, supply, status, destiny, n_request,
+                n_ingram, n_guide, '', '', '', '', '',
+                order_method, '', ''
             ])
 
-    return supply_report_rows
+    ordered_supply_report_rows = sorted(supply_report_rows)
+    formatted_suply_report_rows = [[
+        x[0].strftime("%d/%m/%Y"), x[1], x[2], x[3],
+        x[4], x[5], x[6], x[7], x[8], x[9], x[10],
+        x[11], x[12], x[13], x[14], x[15], x[16], x[17]]
+        for x in ordered_supply_report_rows]
+    print('First element of total rows: %s' % formatted_suply_report_rows[0])
+    return formatted_suply_report_rows
 
 if __name__ == "__main__":
 
