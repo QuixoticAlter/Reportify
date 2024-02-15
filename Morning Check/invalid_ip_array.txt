@@ -23,8 +23,6 @@ JPBCN1Q21K | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporat
 JPBCN1Q21S | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 JPBCN1Q21V | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 JPBCN1Q21W | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-MXBCM802ZB | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-MXBCM80315 | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 MXBCM8S1T6 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 MYBCM6J19B | HP PageWide Managed Color E75160dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 BRBSM7YW6D | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0007 | SCH Apoquindo | Operational
@@ -43,6 +41,8 @@ CNC1M3W00D | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 |  | Guanchoi | Off
 CNC1M3W016 | HP LaserJet Managed MFP E82560dn Plus | 10115116130 | MBA3CL0314 | Oficinas Radales | Operational
 CNC1M5306H | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0060 | Oficina Técnica Victoria | Off-Line
 JPBCM7Y2YQ | HP Color LaserJet Managed E55040dw | 0.0.0.0 | PCA4CL0054 | Oficina Técnica Victoria | Off-Line
+MXBCM802ZB | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | Edificio Corporativo | Off-Line
+MXBCM80315 | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 MXBCM8G49R | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0114 | Edificio Corporativo | Operational
 MXBCM8G4CV | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0061 | Estadio Enel | Off-Line
 MXBCM8G4KG | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0198 | Oficina Técnica Victoria | Off-Line

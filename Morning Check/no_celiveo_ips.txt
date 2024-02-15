@@ -1,2 +1,1 @@
-MXBCM8G4C8 | HP LaserJet Managed MFP E52645dn | 10.116.43.217 | MBA4CL0013 | SCH NuNoa
-MXBCM8J0NW | HP LaserJet Managed MFP E52645dn | 10.119.37.88 | MBA4CL0009 | SCH Gran Avenida
+MXBCM8S18V | HP Color LaserJet Managed MFP E57540dn | 10.115.108.71 | MCA4CL0077 | Central Rapel

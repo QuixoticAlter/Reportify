@@ -1,9 +1,8 @@
 CN9AP3H00Y | HP DesignJet T2600dr 36-in PS MFP | 10.113.194.141 | PLMACL0209 | Estadio Enel
-CN9AU4H00Y | HP DesignJetT1600 36-in PS Printer | 10.115.140.200 | PLMACL0225 | Central San Isidro
 CN9B54H02F | HP DesignJetT1600 36-in PS Printer | 10.116.50.188 | PLMACL0226 | Oficina Técnica Victoria
-CN9B54H02H | HP DesignJetT1600 36-in PS Printer | 10.115.133.16 | PLMACL0219 | Central Cipreses
 CN9B54H03S | HP DesignJetT1600 36-in PS Printer | 10.115.44.130 | PLMACL0237 | Edificio Corporativo
 CN9B54H03X | HP DesignJetT1600 36-in PS Printer | 10.115.33.197 | PLMACL0218 | Edificio Corporativo
 CN9BC3H005 | HP DesignJetT1600 36-in PS Printer | 10.116.130.54 | PLMACL0286 | San Isidro 65
-MXBCM8S18V | HP Color LaserJet Managed MFP E57540dn | 10.115.108.71 | MCA4CL0077 | Central Rapel
+MXBCM8G4C8 | HP LaserJet Managed MFP E52645dn | 10.116.43.217 | MBA4CL0013 | SCH NuNoa
+MXBCM8G4HP | HP LaserJet Managed MFP E52645dn | 10.116.58.30 | MBA4CL0271 | SCH Estado
 TH22FF6057 | HP OfficeJet Pro 9020 series | 10.116.64.34 | HP922486 | San Isidro 65
