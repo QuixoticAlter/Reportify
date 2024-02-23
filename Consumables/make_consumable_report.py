@@ -270,6 +270,7 @@ def main(startdate, inventory_array, supply_order_array):
             print("Creation Date: %s" % datetime_ct.strftime("%d/%m/%Y"))
 
             device_serial = row[11]
+            if device_serial in ['MYBCM6J16Z', 'MYBCM6J191', 'BRBSM7YW8Y']: continue
             ip = get_data_from_inventory(device_serial, 'Dirección IP', inventory_array)
             model = row[13]
             sku = row[14]

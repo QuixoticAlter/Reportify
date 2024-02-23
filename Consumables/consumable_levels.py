@@ -84,36 +84,36 @@ def generate_levels_report_array(inventory_array, supply_order_array, consumable
 
 		print("Serial: %s" % row[8])
 
+		if row[8] in exceptions: continue
+
 		if not consumables_web:
 			serial = row[8]
-			if serial not in exceptions:
-				level_date = row[9]
-				model = row[6]
-				ip_adress = get_data_from_inventory(serial, "Dirección IP", inventory_array)
-				b_l = get_level_value(row[10])
-				c_l = get_level_value(row[11])
-				m_l = get_level_value(row[12])
-				y_l = get_level_value(row[13])
-				g_l = get_level_value(row[34])
-				p_b = get_level_value(row[36])
-				m_b = get_level_value(row[37])
-				site = get_data_from_inventory(serial, 'Site', inventory_array)
-				status = get_data_from_inventory(serial, 'Device Status', inventory_array)
+			level_date = row[9]
+			model = row[6]
+			ip_adress = get_data_from_inventory(serial, "Dirección IP", inventory_array)
+			b_l = get_level_value(row[10])
+			c_l = get_level_value(row[11])
+			m_l = get_level_value(row[12])
+			y_l = get_level_value(row[13])
+			g_l = get_level_value(row[34])
+			p_b = get_level_value(row[36])
+			m_b = get_level_value(row[37])
+			site = get_data_from_inventory(serial, 'Site', inventory_array)
+			status = get_data_from_inventory(serial, 'Device Status', inventory_array)
 		else:
-			serial = row[0]
-			if serial not in exceptions:
-				level_date = row[3]
-				model = row[2]
-				ip_adress = row[1]
-				b_l = get_level_value(row[4])
-				y_l = get_level_value(row[5])
-				m_l = get_level_value(row[6])
-				c_l = get_level_value(row[7])
-				g_l = get_level_value(row[8])
-				m_b = get_level_value(row[9])
-				p_b = get_level_value(row[10])
-				site = get_data_from_inventory(serial, 'Site', inventory_array)
-				status = get_data_from_inventory(serial, 'Device Status', inventory_array)
+			serial = row[8]
+			level_date = row[3]
+			model = row[2]
+			ip_adress = row[1]
+			b_l = get_level_value(row[4])
+			y_l = get_level_value(row[5])
+			m_l = get_level_value(row[6])
+			c_l = get_level_value(row[7])
+			g_l = get_level_value(row[8])
+			m_b = get_level_value(row[9])
+			p_b = get_level_value(row[10])
+			site = get_data_from_inventory(serial, 'Site', inventory_array)
+			status = get_data_from_inventory(serial, 'Device Status', inventory_array)
 
 		b_o, c_o, m_o, y_o, g_o, mb_o, pb_o = check_levels(
 			serial, site, supply_order_array, b_l, c_l, m_l, y_l,
@@ -124,7 +124,6 @@ def generate_levels_report_array(inventory_array, supply_order_array, consumable
 			level_date, serial, model, ip_adress, status, b_l, c_l, m_l,
 			y_l, g_l, p_b, m_b, b_o, c_o, m_o, y_o, g_o, mb_o, pb_o, ''
 		])
-
 	return levels_array_report
 
 def generate_levels_report(levels_array_report):
