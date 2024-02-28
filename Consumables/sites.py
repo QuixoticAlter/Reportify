@@ -62,3 +62,4 @@ RM_sites = [
 
 # Printers that were associated to Domínica site which still appears in DCC!!!
 exceptions = ['MYBCM6J16Z', 'MYBCM6J191', 'BRBSM7YW8Y']
+exceptions = exceptions + ['CN9B64H00T'] # -> This machine doesn't belong to the account
