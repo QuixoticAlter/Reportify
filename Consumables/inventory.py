@@ -1,3 +1,5 @@
+from sites import exceptions
+
 def get_data_from_inventory(serial, key, inventory_array):
 
     print(serial)
@@ -32,7 +34,7 @@ def get_data_from_inventory(serial, key, inventory_array):
     # print('key: %s' % str(key))
     # print('field: %s' % str(index_map[key]))
 
-    data_pre = [x[index_map[key]] for x in inventory_array if x[0] == serial]
+    data_pre = [x[index_map[key]] for x in inventory_array if x[0] == serial and x[0] not in exceptions]
     print('Data Pre: %s' % str(data_pre))
     data = data_pre[0]
 

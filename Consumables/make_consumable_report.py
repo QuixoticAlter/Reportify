@@ -32,6 +32,7 @@ from datetime import datetime
 from consumable_levels import generate_levels_report_array, generate_levels_report
 from inventory import get_data_from_inventory
 from get_levels import get_consumable_levels
+from sites import exceptions
 
 import argparse
 import traceback
@@ -270,7 +271,7 @@ def main(startdate, inventory_array, supply_order_array):
             print("Creation Date: %s" % datetime_ct.strftime("%d/%m/%Y"))
 
             device_serial = row[11]
-            if device_serial in ['MYBCM6J16Z', 'MYBCM6J191', 'BRBSM7YW8Y']: continue
+            if device_serial in exceptions: continue
             ip = get_data_from_inventory(device_serial, 'Dirección IP', inventory_array)
             model = row[13]
             sku = row[14]
