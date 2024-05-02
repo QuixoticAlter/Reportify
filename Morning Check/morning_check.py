@@ -9,6 +9,16 @@ import shutil
 import openpyxl
 import csv
 import subprocess
+import pyodbc
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+
+from PIL import Image
 
 from nrds import check_nrds, create_nrd_report
 
@@ -18,12 +28,27 @@ nrd_excel = "files\\export_nrd.xlsx"
 nrd_csv = "files\\export_nrd.csv"
 service_request_excel = "files\\service_requests_history.xlsx"
 service_requests_csv = "files\\service_requests_history.csv"
+access_db = "C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Respaldo\\Respaldo Inventario.accdb"
 
 def copy_reports():
 
-    shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "files\\inventario.xlsx")
     shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\Enel Global MS Devices.xlsx", "files\\export_nrd.xlsx")
     shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS - Service Visit History.xlsx", "files\\service_requests_history.xlsx")
+
+def get_data_from_access():
+
+    conn = pyodbc.connect(
+       r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\clsoportehp\OneDrive - Enel Spa\Respaldo\inventario.accdb;'
+    )
+
+    cursor = conn.cursor()
+    cursor.execute('''
+        select Serial, Etiqueta, Modelo, [Dirección IP], [Host Name], [MAC Address], 
+        Site, [Level], [Device Status] from [Inventario Completo]
+    ''')
+    rows = cursor.fetchall()
+
+    return rows
 
 def convert_excel_to_csv(input_file, output_file):
 
@@ -42,15 +67,7 @@ def write_larrays(lfile, larray): # lfile -> Log File; larray -> Log Array
 
 def set_inventory_array():
 
-    inventory_array_pre = []
-
-    with open(inventory_csv, encoding='utf-8') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            inventory_array_pre.append(row)
-
-    inventory_array = [list(map(lambda a:a.strip(), x))[0:20] for x in inventory_array_pre if isinstance(x, list) and x != []]
-
+    inventory_array = get_data_from_access()
     return inventory_array
 
 def set_nrd_array():
@@ -99,27 +116,15 @@ def get_data_from_inventory(serial, key, inventory_array):
     print(serial)
 
     index_map = {
-        'Serial': 0,
-        'Etiqueta': 1,
-        'SKU': 2,
-        'Modelo': 3,
-        'Dirección IP': 4,
-        'Host Name': 5,
-        'MAC Adress': 6,
-        'Site': 7,
-        'Building': 8,
-        'Coordenadas': 9,
-        'Level': 10,
-        'Referencia en el piso': 11,
-        'Punto de red': 12,
-        'Grid': 13,
-        'Device Status': 14,
-        'Contacto': 15,
-        'Teléfono': 16,
-        'Correo': 17,
-        'Checkeada': 18,
-        'En Movimiento': 19,
-        'Observaciones': 20
+        'Serial': 0, 
+        'Etiqueta': 1, 
+        'Modelo': 2, 
+        'Dirección IP': 3, 
+        'Host Name': 4, 
+        'MAC Address': 5, 
+        'Site': 6, 
+        'Level': 7, 
+        'Device Status': 8
     }
 
     # print('length of inventory array: %s' % str(len(inventory_array)))
@@ -164,6 +169,54 @@ def solution_is_installed(ip):
 
     return False
 
+def has_corporative_background(ip):
+
+    # Control Panel snapshot url
+    url = "https://%s/hp/device/ControlPanelSnapshot/Index" % ip
+
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--ignore-certificate-errors")
+    chrome_options.add_argument("--window-size=1960,1600")
+    chrome_options.add_argument('log-level=3')
+
+    driver = webdriver.Chrome(options=chrome_options)
+    try:
+        driver.get(url)
+    except:
+        return None
+
+    try:
+        img = WebDriverWait(driver, 120).until(
+            EC.presence_of_element_located((By.ID, 'ControlPanelSnapshotImage'))
+        )
+    except:
+        return 'Timeout'
+
+    # coordinates = img.rect
+    # x = coordinates['x']
+    # y = coordinates['y']
+    # width = coordinates['width']
+    # height = coordinates['height']
+
+    img.screenshot('./control_panel_snapshot.png')
+
+    driver.close()
+
+    im = Image.open('./control_panel_snapshot.png')
+    pixel_list = list(im.getdata())
+    n_white_pixels = pixel_list.count((255, 255, 255, 255))
+    n_pixels = len(pixel_list)
+    white_pixels_ratio = n_white_pixels/n_pixels
+
+    print('White pixels ratio: %s' % white_pixels_ratio)
+
+    if white_pixels_ratio > 0.3:
+        print("No corporative background!")
+        return False
+
+    return True
+
 def check_solution(inventory_array):
 
     connectivity_array = []
@@ -177,26 +230,26 @@ def check_solution(inventory_array):
     no_celiveo_array = []
     no_web_array = []
     no_guest_ews_array = []
+    no_corporative_background_array = []
+    web_timeout_array = []
 
-    for row in inventory_array[1:]:
+    for row in inventory_array:
 
         serial = row[0]
-        ip = row[4]
-        site = row[7]
-        model = row[3]
-        hostname = row[5]
-        status = row[14]
-        level = row[10]
-
-        ip = ip.strip()
+        ip = row[3]
+        site = row[6]
+        model = row[2]
+        hostname = row[4]
+        status = row[8]
+        level = row[7]
 
         print("\n\n-------------------------------------------------------------")
         print("IP: %s" % str(ip))
 
         invalid_ip_condition = ip == "0.0.0.0" or ip == None or ip == "" or  not "." in ip
-        storage_levels_condition = level == "Bodega Santa Rosa" or level == "Bodega SO Piso 1" or level == "Bodega San Isidro Of. 7"
+        storage_site_condition = level == "Bodega SO"
 
-        if storage_levels_condition: 
+        if storage_site_condition: 
             print("In Storage!")
             continue
 
@@ -239,6 +292,15 @@ def check_solution(inventory_array):
         elif bool_v == "SSLv1 Connection Error": no_connection_array_sslv1.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
         elif not bool_v: no_celiveo_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
 
+        bool_c = has_corporative_background(ip)
+        if not bool_c:
+            print('No corporative background!')
+            no_corporative_background_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        elif bool_c == 'Timeout':
+            web_timeout_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+        elif bool_c == None:
+            no_web_array.append("%s | %s | %s | %s | %s" % (serial, model, ip, hostname, site))
+
     write_larrays('connectivity_ips.txt', connectivity_array)
     write_larrays('invalid_ip_array.txt', invalid_ip_array)
     write_larrays('no_connectivity_ips.txt', no_connectivity_array)
@@ -250,6 +312,8 @@ def check_solution(inventory_array):
     write_larrays('no_celiveo_ips.txt', no_celiveo_array)
     write_larrays('no_web_ips.txt', no_web_array)
     write_larrays('no_guest_ews_array.txt', no_guest_ews_array)
+    write_larrays('no_corporative_background_array.txt', no_corporative_background_array)
+    write_larrays('web_timeout_array.txt', web_timeout_array)
 
 if __name__ == "__main__":
 

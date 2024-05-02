@@ -148,7 +148,7 @@ def get_n_guide_from_ingram_web(order_id):
     chrome_options.add_argument("--headless")
 
     driver = webdriver.Chrome(options=chrome_options)
-    driver.get("https://hpmps.anovo.cl")
+    driver.get("https://hpmps.ingrammicro.com")
 
     user =  WebDriverWait(driver, 60).until(
         EC.presence_of_element_located((By.ID, 'txtID')))

@@ -1,9 +1,7 @@
-MXBCM8T009 | HP Color LaserJet Managed MFP E57540dn | 10.116.104.184 | MCA4CL0164 | Central Gas Atacama
-CNC1L74022 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.39.66 | MCA3CL0138 | Edificio Corporativo
-CNC1L7B03M | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.35.55 | MCA3CL0256 | Edificio Corporativo
+CNC1M5306T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.28.41 | MCA3CL0313 | CENTRAL PULLINQUE
+CNC1L7B03M | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.195.18 | MCA3CL0256 | Edificio MUT
 CNC1M3H068 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.79 | MBA3CL0160 | Central Abanico
-CNC1M4C01V | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.4.90 | MCA3CL0124 | Marcoleta 634
-MXBCM80300 | HP Color LaserJet Managed MFP E67650dh | 10.115.35.84 | MCA4CL0263 | Edificio Corporativo
-MXBCM802YT | HP Color LaserJet Managed MFP E67650dh | 10.115.36.132 | MCA4CL0255 | Edificio Corporativo
-MXBCM8G4G8 | HP LaserJet Managed MFP E52645dn | 10.115.87.29 | MBA4CL0006 | SCH Providencia
-MXBCM8H3J3 | HP LaserJet Managed MFP E52645dn | 10.115.123.23 | MBA4CL0134 | Central Ralco
+CNC1M3W00B | HP LaserJet Managed MFP E82560dn Plus | 10.115.128.15 | MBA3CL0152 | Central Bocamina 1
+CNC1M4C01V | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.130 | MCA3CL0124 | Edificio MUT
+MXBCM8J0N8 | HP LaserJet Managed MFP E52645dn | 10.116.100.58 | MBA4CL0010 | SCH Maipu
+MXBCM8T005 | HP Color LaserJet Managed MFP E57540dn | 10.115.112.65 | MCA4CL0285 | Central Sauzal

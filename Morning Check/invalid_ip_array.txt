@@ -4,45 +4,87 @@ CN9B64H00D | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0221 | PE Fini
 CN9BG3H00R | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0308 | PE Finis Terrae | Off-Line
 CNC1M2P035 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0002 | Central Pangue | Off-Line
 CNC1M3W00W | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | HP32505 | Central Bocamina 1 | Off-Line
-CNC1M4G0KH | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 |  | Central Bocamina 1 | Off-Line
+CNC1M4G0KH | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | None | Central Bocamina 1 | Off-Line
 CNC1M5304D | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0167 | Central Renaico | Off-Line
 CNC1N7X01W | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0307 | PE Valle de los Vientos | Off-Line
-JPBCM7Y325 | HP Color LaserJet Managed E55040dw | 0.0.0.0 |  | Central Gas Atacama | Off-Line
+JPBCM7Y325 | HP Color LaserJet Managed E55040dw | 0.0.0.0 | None | Central Gas Atacama | Off-Line
 MXBCM8G3SM | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0158 | Central Tal Tal | Off-Line
 MXBCM8H3H7 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0190 | Central Pehuenche | Off-Line
 BRBSM7YW8F | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0037 | SCH NuNoa | Off-Line
-BRBSM7YW6W | HP LaserJetManaged E50145dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
 BRBSM7YW7F | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0031 | SCH Maipu | Off-Line
 BRBSM7YW8G | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0018 | SCH Gran Avenida | Off-Line
 BRBSM7YW8L | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0034 | SCH Maipu | Off-Line
-BRBSM7YW9B | HP LaserJetManaged E50145dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-JPBCN1Q1ZJ | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-JPBCN1Q217 | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-JPBCN1Q21K | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-JPBCN1Q21S | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-JPBCN1Q21V | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-JPBCN1Q21W | HP Color LaserJet Managed E55040dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-MXBCM8S1T6 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 |  | Edificio Corporativo | Off-Line
-BRBSM7YW6D | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0007 | SCH Apoquindo | Operational
-BRBSM7YW6K | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0083 | Edificio Corporativo | Operational
 BRBSM7YW6Q | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0086 | Edificio Corporativo | Operational
-BRBSM7YW70 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0099 | Marcoleta 634 | Operational
 BRBSM7YW8B | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0239 | Central Bocamina 1 | Operational
 BRBSM7YW8M | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0023 | SCH La Florida | Off-Line
 BRBSM7YW8W | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0026 | SCH La Florida | Off-Line
 BRBSM7YW9M | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0112 | GNL Quintero | Operational
-CN9AU4H00J | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0220 | Espacio Virtual | Off-Line
-CNC1L7B02Z | HP Color LaserJet Managed MFP E87660dn Plus | 10115123103 | MCA3CL0004 | Central Pangue | Off-Line
+CN9B54H03X | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0218 | Bodega SO | Off-Line
+CN9BC3H005 | HP DesignJetT1600 36-in PS Printer | 0.0.0.0 | PLMACL0286 | Bodega SO | Off-Line
+CNC1L74008 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0303 | Bodega SO | Off-Line
+CNC1L74012 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | None | Bodega SO | Off-Line
 CNC1M2P02P | HP Color LaserJet Managed MFP E87660dn Plus | 10115123190 | MCA3CL0001 | Central Pangue | Operational
-CNC1M3W00D | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 |  | Guanchoi | Off-Line
+CNC1M3W00D | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | None | Guanchoi | Off-Line
 CNC1M3W016 | HP LaserJet Managed MFP E82560dn Plus | 10115116130 | MBA3CL0314 | Oficinas Radales | Operational
+CNC1M4G0KC | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | MBA3CL0100 | Bodega SO | Off-Line
+CNC1M4G0KG | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | MBA3CL0058 | Bodega SO | Off-Line
 CNC1M5306H | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0060 | Oficina Técnica Victoria | Off-Line
+CNC1M5306N | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0081 | Bodega SO | Off-Line
 JPBCM7Y2YQ | HP Color LaserJet Managed E55040dw | 0.0.0.0 | PCA4CL0054 | Oficina Técnica Victoria | Off-Line
+JPBCMC81Q9 | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0244 | Bodega SO | Off-Line
+JPBCMC81RM | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0241 | Bodega SO | Off-Line
 MXBCM8G49R | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0114 | Edificio Corporativo | Operational
 MXBCM8G4CV | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0061 | Estadio Enel | Off-Line
 MXBCM8G4KG | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0198 | Oficina Técnica Victoria | Off-Line
 MXBCM8G4L0 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0234 | Oficina Técnica Victoria | Off-Line
-MXBCM8H3HT | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0141 | Oficinas Radales | Operational
 MXBCM8S1LP | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0135 | Antofagasta | Off-Line
+MXBCM8S1T1 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0096 | Bodega SO | Off-Line
 MXBCM8T006 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0214 | Edificio Corporativo | Operational
 MXBCM8T00B | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | HP32473 | Los Angeles | Operational
+CNC1M5306L | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0311 | Bodega SO | Off-Line
+BRBSM7YW72 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0212 | Bodega SO | Off-Line
+MXBCM8H2Q1 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0094 | Bodega SO | Off-Line
+MXBCM8030S | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0299 | Bodega SO | Off-Line
+BRBSM7YW6W | HP LaserJetManaged E50145dn | 0.0.0.0 | None | Bodega SO | Off-Line
+BRBSM7YW9B | HP LaserJetManaged E50145dn | 0.0.0.0 | None | Bodega SO | Off-Line
+JPBCN1Q1ZJ | HP Color LaserJet Managed E55040dn | 0.0.0.0 | None | Bodega SO | Off-Line
+JPBCN1Q217 | HP Color LaserJet Managed E55040dn | 0.0.0.0 | None | Bodega SO | Off-Line
+JPBCN1Q21K | HP Color LaserJet Managed E55040dn | 0.0.0.0 | None | Bodega SO | Off-Line
+JPBCN1Q21S | HP Color LaserJet Managed E55040dn | 0.0.0.0 | None | Bodega SO | Off-Line
+JPBCN1Q21V | HP Color LaserJet Managed E55040dn | 0.0.0.0 | None | Bodega SO | Off-Line
+JPBCN1Q21W | HP Color LaserJet Managed E55040dn | 0.0.0.0 | None | Bodega SO | Off-Line
+MXBCM8030N | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0298 | Bodega SO | Off-Line
+BRBSM7YW5D | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0091 | Bodega SO | Off-Line
+BRBSM7YW5Y | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0005 | Bodega SO | Off-Line
+BRBSM7YW6D | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0007 | Bodega SO | Off-Line
+BRBSM7YW6K | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0083 | Bodega SO | Off-Line
+BRBSM7YW70 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0099 | Bodega SO | Off-Line
+BRBSM7YW73 | HP LaserJetManaged E50145dn | 0.0.0.0 | PBA4CL0085 | Bodega SO | Off-Line
+BRBSM7YW8D | HP LaserJetManaged E50145dn | 0.0.0.0 | None | Bodega SO | Off-Line
+CNB1KCG0M0 | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0125 | Bodega SO | Off-Line
+CNC1L7B03D  | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0155 | Bodega SO | Off-Line
+CNC1L7B04D | HP Color LaserJet Managed MFP E87660dn Plus | 0.0.0.0 | MCA3CL0156 | Bodega SO | Off-Line
+CNC1M3W01X | HP LaserJet Managed MFP E82560dn Plus | 0.0.0.0 | MBA3CL0109 | Bodega SO | Off-Line
+JPBCM7Y315 | HP Color LaserJet Managed E55040dw | 0.0.0.0 | PCA4CL0056 | Bodega SO | Off-Line
+JPBCMC81QR | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0242 | Bodega SO | Off-Line
+JPBCMC81S6 | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0243 | Bodega SO | Off-Line
+JPBCN1Q213 | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0278 | Bodega SO | Off-Line
+JPBCN1Q21F | HP Color LaserJet Managed E55040dn | 0.0.0.0 | PCA4CL0282 | Bodega SO | Off-Line
+MXBCM8031L | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0281 | Bodega SO | Off-Line
+MXBCM8031F | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0280 | Bodega SO | Off-Line
+MXBCM80300 | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0263 | Bodega SO | Off-Line
+MXBCM802YT | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0255 | Bodega SO | Off-Line
+MXBCM802Z1 | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | MCA4CL0252 | Bodega SO | Off-Line
+MXBCM8G4BX | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0093 | Bodega SO | Off-Line
+MXBCM8G4HP | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0271 | Bodega SO | Off-Line
+MXBCM8H2RJ | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0108 | Bodega SO | Off-Line
+MXBCM8J0R0 | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0192 | Bodega SO | Off-Line
+MXBCM8J0SV | HP LaserJet Managed MFP E52645dn | 0.0.0.0 | MBA4CL0179 | Bodega SO | Off-Line
+MXBCM8S170 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0088 | Bodega SO | Off-Line
+MXBCM8S176 | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0078 | Bodega SO | Off-Line
+MXBCM8S1MB | HP Color LaserJet Managed MFP E57540dn | 0.0.0.0 | MCA4CL0137 | Bodega SO | Off-Line
+MXBCM802ZQ | HP Color LaserJet Managed MFP E67650dh | 0.0.0.0 | None | Bodega SO | Off-Line
+MXBCN6P0BQ | HP Color LaserJet Managed MFP E67650dh  | 0.0.0.0 | None | Bodega SO | Off-Line
+None | None | None | None | None | None
+None | None | None | None | None | None
+None | None | None | None | None | None

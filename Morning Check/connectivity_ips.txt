@@ -1,105 +1,85 @@
-MXBCM80310 | HP Color LaserJet Managed MFP E67650dh | 10.106.12.229 | MCA4CL0297 | Parque Eólico Los Buenos Aires | Off-Line
-MXBCM8030S | HP Color LaserJet Managed MFP E67650dh | 10.115.44.212 | MCA4CL0299 | Edificio Corporativo | Operational
+CN99F3H02W | HP DesignJet T2600dr 36-in PS MFP | 10.116.104.18 | PLMACL0222 | Central Gas Atacama | Off-Line
+CNC1M5306T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.28.41 | MCA3CL0313 | CENTRAL PULLINQUE | Operational
 MXBCM8T009 | HP Color LaserJet Managed MFP E57540dn | 10.116.104.184 | MCA4CL0164 | Central Gas Atacama | Operational
 MXBCM8K033 | HP LaserJet Managed MFP E52645dn | 10.116.40.50 | MBA4CL0117 | Oficina Concepcion | Operational
-MXBCM8030N | HP Color LaserJet Managed MFP E67650dh | 10.115.39.163 | MCA4CL0298 | Edificio Corporativo | Operational
 BRBSM7YW5C | HP LaserJetManaged E50145dn | 10.119.38.25 | PBA4CL0024 | SCH La Florida | Operational
-BRBSM7YW5D | HP LaserJetManaged E50145dn | 10.115.31.168 | PBA4CL0091 | Edificio Corporativo | Operational
-BRBSM7YW5X | HP LaserJetManaged E50145dn | 10.115.31.146 | PBA4CL0084 | Edificio Corporativo | Operational
 BRBSM7YW6H | HP LaserJetManaged E50145dn | 10.115.31.82 | PBA4CL0090 | Edificio Corporativo | Operational
 BRBSM7YW6P | HP LaserJetManaged E50145dn | 10.115.33.32 | PBA4CL0079 | Edificio Corporativo | Operational
 BRBSM7YW6T | HP LaserJetManaged E50145dn | 10.116.200.187 | PBA4CL0118 | Edificio Corporativo | Operational
-BRBSM7YW6X | HP LaserJetManaged E50145dn | 10.115.31.91 | PBA4CL0300 | Edificio Corporativo | Operational
-BRBSM7YW71 | HP LaserJetManaged E50145dn | 10.115.31.152 | PBA4CL0216 | Edificio Corporativo | Operational
-BRBSM7YW73 | HP LaserJetManaged E50145dn | 10.116.130.224 | PBA4CL0085 | San Isidro 65 | Operational
-BRBSM7YW86 | HP LaserJetManaged E50145dn | 10.113.194.202 | PBA4CL0059 | Estadio Enel | Operational
 BRBSM7YW8H | HP LaserJetManaged E50145dn | 10.116.43.213 | MCA4CL0301 | SCH NuNoa | Operational
+BRBSM7YW8K | HP LaserJetManaged E50145dn | 10.116.100.31 | PBA4CL0033 | SCH Maipu | Operational
 BRBSM7YW8N | HP LaserJetManaged E50145dn | 10.119.37.252 | PBA4CL0015 | SCH Gran Avenida | Operational
 BRBSM7YW8Q | HP LaserJetManaged E50145dn | 10.119.37.251 | PBA4CL0017 | SCH Gran Avenida | Operational
 BRBSM7YW8S | HP LaserJetManaged E50145dn | 10.115.87.30 | PBA4CL0028 | SCH Providencia | Operational
 BRBSM7YW8V | HP LaserJetManaged E50145dn | 10.119.38.28 | PBA4CL0019 | SCH La Florida | Operational
 BRBSM7YW8Z | HP LaserJetManaged E50145dn | 10.119.38.23 | PBA4CL0021 | SCH La Florida | Operational
-CN9AP3H00Y | HP DesignJet T2600dr 36-in PS MFP | 10.113.194.141 | PLMACL0209 | Estadio Enel | Operational
-CN9B54H01N | HP DesignJetT1600 36-in PS Printer | 10.116.50.219 | PLMACL0269 | Victoria 612 | Off-Line
+CN99B3H002 | HP DesignJet T2600dr 36-in PS MFP | 10.112.194.148 | PLMACL0268 | Edificio MUT | Operational
+CN9AP3H00Y | HP DesignJet T2600dr 36-in PS MFP | 10.112.194.244 | PLMACL0209 | Edificio MUT | Operational
 CN9B54H02F | HP DesignJetT1600 36-in PS Printer | 10.116.50.188 | PLMACL0226 | Oficina Técnica Victoria | Operational
-CN9B54H03S | HP DesignJetT1600 36-in PS Printer | 10.115.44.130 | PLMACL0237 | Edificio Corporativo | Operational
-CN9B54H03X | HP DesignJetT1600 36-in PS Printer | 10.115.33.197 | PLMACL0218 | Edificio Corporativo | Operational
-CN9BC3H005 | HP DesignJetT1600 36-in PS Printer | 10.116.130.54 | PLMACL0286 | San Isidro 65 | Operational
-CNB1KCG0M0 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.31.15 | MCA3CL0125 | Edificio Corporativo | Operational
-CNC1L74005 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.41.11 | MCA3CL0127 | Edificio Corporativo | Operational
+CN9B54H03S | HP DesignJetT1600 36-in PS Printer | 10.112.194.196 | PLMACL0237 | Edificio MUT | Operational
+CNC1L74005 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.195.34 | MCA3CL0127 | Edificio MUT | Operational
 CNC1L74006 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.170.216 | MCA3CL0230 | PE Canela | Operational
-CNC1L74009 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.33.165 | MCA3CL0155 | Edificio Corporativo | Operational
+CNC1L74009 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.195.35 | MCA3CL0155 | Edificio MUT | Operational
 CNC1L7400V | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.31.176 | MCA3CL0143 | Edificio Corporativo | Operational
-CNC1L7400W | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.45.157 | MCA3CL0183 | Edificio Corporativo | Operational
-CNC1L7400X | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.47.51 | MCA3CL0171 | Edificio Corporativo | Operational
-CNC1L7400Y | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.36.22 | MCA3CL0172 | Edificio Corporativo | Operational
-CNC1L74022 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.39.66 | MCA3CL0138 | Edificio Corporativo | Operational
+CNC1L7400W | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.82 | MCA3CL0183 | Edificio MUT | Operational
+CNC1L7400Y | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.195.2 | MCA3CL0172 | Edificio MUT | Operational
+CNC1L74022 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.162 | MCA3CL0138 | Edificio MUT | Operational
+CNC1L7B02Y | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.11.241 | MCA3CL0231 | Costanera Centro | Operational
+CNC1L7B02Z | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.123.103 | MCA3CL0004 | Central Pangue | Off-Line
 CNC1L7B030 | HP Color LaserJet Managed MFP E87660dn Plus | 10.116.104.12 | MCA3CL0200 | Central Gas Atacama | Operational
-CNC1L7B035 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.44.212 | MCA3CL0142 | Edificio Corporativo | Operational
-CNC1L7B039 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.43.229 | MCA3CL0130 | Edificio Corporativo | Operational
-CNC1L7B03D | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.47.57 | MCA3CL0155 | Edificio Corporativo | Operational
-CNC1L7B03M | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.35.55 | MCA3CL0256 | Edificio Corporativo | Operational
-CNC1L7B03R | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.41.22 | MCA3CL0144 | Edificio Corporativo | Operational
-CNC1L7B043 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.43.65 | MCA3CL0120 | Edificio Corporativo | Operational
-CNC1L7B04D | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.47.40 | MCA3CL0156 | Edificio Corporativo | Operational
+CNC1L7B035 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.242 | MCA3CL0142 | Edificio MUT | Operational
+CNC1L7B039 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.226 | MCA3CL0130 | Edificio MUT | Operational
+CNC1L7B03M | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.195.18 | MCA3CL0256 | Edificio MUT | Operational
+CNC1L7B03R | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.146 | MCA3CL0144 | Edificio MUT | Operational
+CNC1L7B043 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.194 | MCA3CL0120 | Edificio MUT | Operational
 CNC1M3H068 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.79 | MBA3CL0160 | Central Abanico | Operational
 CNC1M3H06L | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.83 | MBA3CL0194 | Central Cipreses | Operational
 CNC1M3H06M | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.84 | MBA3CL0163 | Central Antuco | Operational
 CNC1M3H06N | HP LaserJet Managed MFP E82560dn Plus | 10.116.50.28 | MBA3CL0057 | Oficina Técnica Victoria | Operational
-CNC1M3V06R | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.97 | MBA3CL0098 | Central Tarapaca | Operational
+CNC1M3V06R | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.112 | MBA3CL0098 | Central Tarapaca | Operational
 CNC1M3V06W | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.58 | MBA3CL0233 | Central Tarapaca | Off-Line
 CNC1M3V06X | HP LaserJet Managed MFP E82560dn Plus | 10.115.140.116 | MBA3CL0074 | Central Quintero | Operational
 CNC1M3W001 | HP LaserJet Managed MFP E82560dn Plus | 10.115.108.8 | MBA3CL0076 | Central Rapel | Operational
+CNC1M3W00B | HP LaserJet Managed MFP E82560dn Plus | 10.115.128.15 | MBA3CL0152 | Central Bocamina 1 | Operational
 CNC1M3W00H | HP LaserJet Managed MFP E82560dn Plus | 10.115.123.24 | MBA3CL0132 | Central Pangue | Operational
 CNC1M3W00K | HP LaserJet Managed MFP E82560dn Plus | 10.115.140.23 | MBA3CL0067 | Central San Isidro | Operational
-CNC1M3W00R | HP LaserJet Managed MFP E82560dn Plus | 10.115.140.9 | MBA3CL0070 | Central San Isidro | Operational
+CNC1M3W00X | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.75 | MBA3CL0101 | Central Tarapaca | Operational
+CNC1M3W00Y | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.188 | MBA3CL0193 | Central Pehuenche | Off-Line
 CNC1M3W011 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.101 | MBA3CL0148 | Central Antuco | Operational
 CNC1M3W012 | HP LaserJet Managed MFP E82560dn Plus | 10.115.31.115 | MBA3CL0187 | Edificio Corporativo | Operational
 CNC1M3W01F | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.21 | MBA3CL0197 | Central Cipreses | Operational
-CNC1M4C01V | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.4.90 | MCA3CL0124 | Marcoleta 634 | Operational
+CNC1M3W01M | HP LaserJet Managed MFP E82560dn Plus | 10.115.128.53 | MBA3CL0154 | Central Bocamina 1 | Operational
+CNC1M4C01V | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.130 | MCA3CL0124 | Edificio MUT | Operational
 CNC1M4G0JT | HP LaserJet Managed MFP E82560dn Plus | 10.115.133.58 | MBA3CL0188 | Central Pehuenche | Operational
 CNC1M4G0JW | HP LaserJet Managed MFP E82560dn Plus | 10.115.104.17 | MBA3CL0123 | Central Los Molles | Operational
-CNC1M4G0KB | HP LaserJet Managed MFP E82560dn Plus | 10.115.4.120 | MCA3CL0102 | Marcoleta 634 | Operational
-CNC1M4G0KC | HP LaserJet Managed MFP E82560dn Plus | 10.115.4.79 | MBA3CL0100 | Marcoleta 634 | Operational
-CNC1M4G0KG | HP LaserJet Managed MFP E82560dn Plus | 10.113.194.156 | MBA3CL0058 | Estadio Enel | Operational
+CNC1M53053 | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.210 | MCA3CL0116 | Edificio MUT | Operational
 CNC1M5305P | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.140.69 | MCA3CL0145 | Central San Isidro | Operational
 CNC1M5306D | HP Color LaserJet Managed MFP E87660dn Plus | 10.116.104.16 | MCA3CL0175 | Central Gas Atacama | Operational
-CNC1M5306J | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.45.195 | MCA3CL0182 | Edificio Corporativo | Operational
-CNC1M5306N | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.33.98 | MCA3CL0081 | Edificio Corporativo | Operational
+CNC1M5306J | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.178 | MCA3CL0182 | Edificio MUT | Operational
+CNC1M5B03Y | HP Color LaserJet Managed MFP E87660dn Plus | 10.116.104.17 | MCA3CL0201 | Central Gas Atacama | Operational
 CNC1M5B040 | HP Color LaserJet Managed MFP E87660dn Plus | 10.115.31.194 | MCA3CL0115 | Edificio Corporativo | Operational
 CNC1N8502Z | HP Color LaserJet Managed MFP E87660dn Plus | 10.119.0.72 | MCA3CL0309 | PE Finis Terrae | Operational
-JPBCM7Y2SV | HP Color LaserJet Managed E55040dw | 10.116.50.32 | PCA4CL0055 | Oficina Técnica Victoria | Operational
-JPBCM7Y315 | HP Color LaserJet Managed E55040dw | 10.115.47.34 | PCA4CL0056 | Edificio Corporativo | Off-Line
 JPBCM7Y318 | HP Color LaserJet Managed E55040dw | 10.116.91.21 | PCA4CL0042 | Colina | Operational
 JPBCM7Y31D | HP Color LaserJet Managed E55040dw | 10.116.104.6 | PCA4CL0162 | Central Gas Atacama | Operational
 JPBCM7Y31K | HP Color LaserJet Managed E55040dw | 10.116.104.5 | PCA4CL0161 | Central Gas Atacama | Operational
 JPBCM7Y320 | HP Color LaserJet Managed E55040dw | 10.116.104.98 | PCA4CL0168 | Central Gas Atacama | Operational
+JPBCMC81LT | HP Color LaserJet Managed E55040dn | 10.113.194.160 | PCA4CL0235 | Estadio Enel | Off-Line
 JPBCMC81NW | HP Color LaserJet Managed E55040dn | 10.115.140.48 | PCA4CL0236 | Central San Isidro | Operational
-JPBCMC81Q9 | HP Color LaserJet Managed E55040dn | 10.115.47.26 | PCA4CL0244 | Edificio Corporativo | Operational
-JPBCMC81QR | HP Color LaserJet Managed E55040dn | 10.115.47.49 | PCA4CL0242 | Edificio Corporativo | Operational
-JPBCMC81RM | HP Color LaserJet Managed E55040dn | 10.115.47.19 | PCA4CL0241 | Edificio Corporativo | Operational
-JPBCMC81S6 | HP Color LaserJet Managed E55040dn | 10.115.47.45 | PCA4CL0243 | Edificio Corporativo | Operational
 JPBCN1Q1ZG | HP Color LaserJet Managed E55040dn | 10.106.11.50 | PCA4CL0304 | Central Cerro Pabellón | Operational
-JPBCN1Q21F | HP Color LaserJet Managed E55040dn | 10.115.47.39 | PCA4CL0282 | Edificio Corporativo | Operational
 JPBCN1Q21H | HP Color LaserJet Managed E55040dn | 10.116.40.39 | PCA4CL0288 | Oficina Concepcion | Operational
-JPBCN1Q21P | HP Color LaserJet Managed E55040dn | 10.116.50.213 | PCA4CL0283 | Victoria 612 | Operational
+JPBCN1Q21P | HP Color LaserJet Managed E55040dn | 10.116.50.213 | PCA4CL0283 | Oficina Técnica Victoria | Operational
 JPBCN1Q21R | HP Color LaserJet Managed E55040dn | 10.115.108.38 | PCA4CL0284 | Central Rapel | Operational
-MXBCM8031L | HP Color LaserJet Managed MFP E67650dh | 10.115.38.97 | MCA4CL0281 | Edificio Corporativo | Operational
-MXBCM80300 | HP Color LaserJet Managed MFP E67650dh | 10.115.35.84 | MCA4CL0263 | Edificio Corporativo | Operational
-MXBCM802YT | HP Color LaserJet Managed MFP E67650dh | 10.115.36.132 | MCA4CL0255 | Edificio Corporativo | Operational
-MXBCM802Z1 | HP Color LaserJet Managed MFP E67650dh | 10.115.38.129 | MCA4CL0252 | Edificio Corporativo | Operational
+MXBCM9V04L | HP Color LaserJet Managed MFP E67650dh | 10.106.28.146 | MCA3CL0311 | CENTRAL PILMAIQUEN | Operational
 MXBCM8G3RM | HP LaserJet Managed MFP E52645dn | 10.115.140.191 | MBA4CL0073 | Central Quintero | Operational
 MXBCM8G3S5 | HP LaserJet Managed MFP E52645dn | 10.116.100.66 | MBA4CL0032 | SCH Maipu | Operational
 MXBCM8G3SJ | HP LaserJet Managed MFP E52645dn | 10.115.133.10 | MBA4CL0196 | Central Cipreses | Operational
 MXBCM8G3T2 | HP LaserJet Managed MFP E52645dn | 10.115.123.22 | MBA4CL0133 | Central Pangue | Operational
-MXBCM8G424 | HP LaserJet Managed MFP E52645dn | 10.115.140.113 | MBA4CL0071 | Central San Isidro | Operational
-MXBCM8G43W | HP LaserJet Managed MFP E52645dn | 10.113.194.227 | MBA4CL0063 | Estadio Enel | Operational
 MXBCM8G442 | HP LaserJet Managed MFP E52645dn | 10.115.140.15 | MBA4CL0069 | Central San Isidro | Operational
 MXBCM8G44B | HP LaserJet Managed MFP E52645dn | 10.116.4.128 | MBA4CL0089 | Edificio Corporativo | Operational
+MXBCM8G44J | HP LaserJet Managed MFP E52645dn | 10.115.140.118 | MBA4CL0068 | Central San Isidro | Operational
 MXBCM8G48Y | HP LaserJet Managed MFP E52645dn | 10.116.58.57 | MBA4CL0289 | SCH Estado | Operational
 MXBCM8G49C | HP LaserJet Managed MFP E52645dn | 10.116.91.22 | MBA4CL0044 | Colina | Operational
 MXBCM8G4B8 | HP LaserJet Managed MFP E52645dn | 10.116.91.19 | MBA4CL0043 | Colina | Operational
-MXBCM8G4BX | HP LaserJet Managed MFP E52645dn | 10.116.130.220 | MBA4CL0093 | Edificio Corporativo | Operational
 MXBCM8G4C8 | HP LaserJet Managed MFP E52645dn | 10.116.43.217 | MBA4CL0013 | SCH NuNoa | Operational
 MXBCM8G4DN | HP LaserJet Managed MFP E52645dn | 10.115.154.14 | MBA4CL0202 | Central Tal Tal | Operational
 MXBCM8G4DZ | HP LaserJet Managed MFP E52645dn | 10.116.58.33 | MBA4CL0290 | SCH Estado | Operational
@@ -108,37 +88,29 @@ MXBCM8G4FN | HP LaserJet Managed MFP E52645dn | 10.119.37.250 | MBA4CL0014 | SCH
 MXBCM8G4G8 | HP LaserJet Managed MFP E52645dn | 10.115.87.29 | MBA4CL0006 | SCH Providencia | Operational
 MXBCM8G4K2 | HP LaserJet Managed MFP E52645dn | 10.116.58.34 | MBA4CL0185 | SCH Estado | Operational
 MXBCM8G4KJ | HP LaserJet Managed MFP E52645dn | 10.116.50.211 | MBA4CL0199 | Oficina Técnica Victoria | Operational
-MXBCM8H2RJ | HP LaserJet Managed MFP E52645dn | 10.115.31.122 | MBA4CL0108 | Edificio Corporativo | Operational
-MXBCM8H3J2 | HP LaserJet Managed MFP E52645dn | 10.115.116.187 | MBA4CL0139 | Oficinas Radales | Operational
 MXBCM8H3J3 | HP LaserJet Managed MFP E52645dn | 10.115.123.23 | MBA4CL0134 | Central Ralco | Operational
 MXBCM8H3J8 | HP LaserJet Managed MFP E52645dn | 10.116.91.189 | MBA4CL0041 | SCH Plaza Norte | Operational
 MXBCM8H3JC | HP LaserJet Managed MFP E52645dn | 10.115.128.36 | MBA4CL0146 | Central Bocamina 1 | Off-Line
 MXBCM8J0B1 | HP LaserJet Managed MFP E52645dn | 10.115.87.26 | MBA4CL0178 | SCH Providencia | Operational
+MXBCM8J0BG | HP LaserJet Managed MFP E52645dn | 10.116.58.30 | MBA4CL0177 | SCH Estado | Operational
 MXBCM8J0N8 | HP LaserJet Managed MFP E52645dn | 10.116.100.58 | MBA4CL0010 | SCH Maipu | Operational
 MXBCM8J0NP | HP LaserJet Managed MFP E52645dn | 10.119.38.19 | MBA4CL0022 | SCH La Florida | Operational
 MXBCM8J0NW | HP LaserJet Managed MFP E52645dn | 10.119.37.88 | MBA4CL0009 | SCH Gran Avenida | Operational
 MXBCM8J0PG | HP LaserJet Managed MFP E52645dn | 10.116.43.214 | MBA4CL0038 | SCH NuNoa | Operational
 MXBCM8J0Q4 | HP LaserJet Managed MFP E52645dn | 10.116.91.186 | MBA4CL0020 | SCH Plaza Norte | Operational
 MXBCM8J0Q8 | HP LaserJet Managed MFP E52645dn | 10.119.38.22 | MBA4CL0025 | SCH La Florida | Operational
-MXBCM8J0R0 | HP LaserJet Managed MFP E52645dn | 10.115.4.70 | MBA4CL0192 | Marcoleta 634 | Operational
 MXBCM8J0RT | HP LaserJet Managed MFP E52645dn | 10.116.58.32 | MBA4CL0180 | SCH Estado | Operational
-MXBCM8J0SV | HP LaserJet Managed MFP E52645dn | 10.115.4.66 | MBA4CL0179 | Marcoleta 634 | Operational
 MXBCM8K03J | HP LaserJet Managed MFP E52645dn | 10.116.100.6 | MBA4CL0035 | SCH Maipu | Operational
 MXBCM8K03M | HP LaserJet Managed MFP E52645dn | 10.115.87.20 | MBA4CL0030 | SCH Providencia | Operational
-MXBCM8S16T | HP Color LaserJet Managed MFP E57540dn | 10.113.194.133 | MCA4CL0261 | Edificio Corporativo | Operational
-MXBCM8S170 | HP Color LaserJet Managed MFP E57540dn | 10.116.130.148 | MCA4CL0088 | San Isidro 65 | Operational
+MXBCM8S16T | HP Color LaserJet Managed MFP E57540dn | 10.113.194.133 | MCA4CL0261 | COS | Operational
 MXBCM8S173 | HP Color LaserJet Managed MFP E57540dn | 10.115.112.91 | MCA4CL0107 | Central Sauzal | Operational
 MXBCM8S18V | HP Color LaserJet Managed MFP E57540dn | 10.115.108.71 | MCA4CL0077 | Central Rapel | Operational
 MXBCM8S198 | HP Color LaserJet Managed MFP E57540dn | 10.115.31.70 | MCA4CL0104 | Edificio Corporativo | Operational
-MXBCM8S1RF | HP Color LaserJet Managed MFP E57540dn | 10.115.31.189 | MCA4CL0300 | Edificio Corporativo | Operational
-MXBCM8S1T1 | HP Color LaserJet Managed MFP E57540dn | 10.115.4.62 | MCA4CL0096 | Edificio Corporativo | Operational
-MXBCM8S1T7 | HP Color LaserJet Managed MFP E57540dn | 10.106.12.11 | MCA4CL0097 | PE Finis Terrae | Operational
+MXBCM8S1RF  | HP Color LaserJet Managed MFP E57540dn | 10.112.194.66 | MCA4CL0300 | Edificio MUT | Operational
 MXBCM8T003 | HP Color LaserJet Managed MFP E57540dn | 10.116.104.4 | MCA4CL0170 | Central Gas Atacama | Operational
 MXBCM8T005 | HP Color LaserJet Managed MFP E57540dn | 10.115.112.65 | MCA4CL0285 | Central Sauzal | Operational
-MXBCM8T00D | HP Color LaserJet Managed MFP E57540dn | 10.115.124.135 | MCA4CL0149 | Central Bocamina 1 | Operational
+MXBCM8T00C | HP Color LaserJet Managed MFP E57540dn | 10.116.50.61 | MCA4CL0064 | Oficina Técnica Victoria | Off-Line
 MXBCM8T0HT | HP Color LaserJet Managed MFP E57540dn | 10.116.50.212 | MCA4CL0065 | Oficina Técnica Victoria | Operational
 MYBCM6J17V | HP PageWide Managed Color E75160dn | 10.116.104.7 | PCA3CL0174 | Central Gas Atacama | Operational
 MYBCM6J181 | HP PageWide Managed Color E75160dn | 10.116.50.203 | PCA3CL0075 | Oficina Técnica Victoria | Operational
-MYBCM6J18B | HP PageWide Managed Color E75160dn | 10.115.124.83 | PCA3CL0206 | Central Bocamina 2 | Operational
 MYBCM6J19J | HP PageWide Managed Color E75160dn | 10.116.50.69 | PCA3CL0072 | Oficina Técnica Victoria | Operational
-TH22FF6057 | HP OfficeJet Pro 9020 series | 10.116.64.34 | HP922486 | San Isidro 65 | Operational
