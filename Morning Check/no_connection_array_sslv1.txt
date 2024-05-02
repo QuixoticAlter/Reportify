@@ -1,7 +1,2 @@
-CNC1M5306T | HP Color LaserJet Managed MFP E87660dn Plus | 10.106.28.41 | MCA3CL0313 | CENTRAL PULLINQUE
 CNC1L7B03M | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.195.18 | MCA3CL0256 | Edificio MUT
-CNC1M3H068 | HP LaserJet Managed MFP E82560dn Plus | 10.115.116.79 | MBA3CL0160 | Central Abanico
-CNC1M3W00B | HP LaserJet Managed MFP E82560dn Plus | 10.115.128.15 | MBA3CL0152 | Central Bocamina 1
-CNC1M4C01V | HP Color LaserJet Managed MFP E87660dn Plus | 10.112.194.130 | MCA3CL0124 | Edificio MUT
-MXBCM8J0N8 | HP LaserJet Managed MFP E52645dn | 10.116.100.58 | MBA4CL0010 | SCH Maipu
-MXBCM8T005 | HP Color LaserJet Managed MFP E57540dn | 10.115.112.65 | MCA4CL0285 | Central Sauzal
+CNC1M3V06R | HP LaserJet Managed MFP E82560dn Plus | 10.115.136.112 | MBA3CL0098 | Central Tarapaca
