@@ -59,6 +59,7 @@ RM_sites = [
     "Estadio Enel",
     "Espacio Virtual",
     "Edificio MUT",
+    "COS"
 ]
 
 # Printers that were eliminated from the account in 2023!
