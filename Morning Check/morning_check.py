@@ -317,7 +317,7 @@ def check_solution(inventory_array):
 
 if __name__ == "__main__":
 
-    copy_reports()
+    # copy_reports()
 
     convert_excel_to_csv(inventory_excel, inventory_csv)
     # convert_excel_to_csv(nrd_excel, nrd_csv)
