@@ -15,6 +15,7 @@ import csv
 import openpyxl
 import requests
 import shutil
+import os
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -33,6 +34,7 @@ from consumable_levels import generate_levels_report_array, generate_levels_repo
 from inventory import get_data_from_inventory
 from get_levels import get_consumable_levels
 from sites import exceptions
+from config import DCC_Reports_Route
 
 import argparse
 import traceback
@@ -47,7 +49,7 @@ consumable_levels_export_csv = "files\\consumable_levels.csv"
 def copy_reports(consumable_levels_web):
 
     try:
-        shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Supply Order History.xlsx","files\\supply_order_history.xlsx")
+        shutil.copy(os.path.join(DCC_Reports_Route, "ENEL Global MS Supply Order History.xlsx"), os.path.join("Files", "supply_order_history.xlsx"))
     except Exception as e:
         if type(e) == FileNotFoundError: print("El export de órdenes de suministros histórico no se encuentra!")
     
