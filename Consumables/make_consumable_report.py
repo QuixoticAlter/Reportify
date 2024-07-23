@@ -12,10 +12,12 @@
 # 4. Enjoy It!
 
 import csv
-import openpyxl
 import requests
 import shutil
 import os
+
+import openpyxl
+import pyodbc
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -25,7 +27,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
 from PIL import Image
-from pytesseract import pytesseract
 
 from time import sleep
 from datetime import datetime
@@ -52,17 +53,27 @@ def copy_reports(consumable_levels_web):
         shutil.copy(os.path.join(DCC_Reports_Route, "ENEL Global MS Supply Order History.xlsx"), os.path.join("Files", "supply_order_history.xlsx"))
     except Exception as e:
         if type(e) == FileNotFoundError: print("El export de órdenes de suministros histórico no se encuentra!")
-    
-    try:
-        shutil.copy("C:\\Users\\clsoportehp\\OneDrive - Enel Spa\\Reportes\\Inventario Completo ENEL.xlsx", "files\\inventario.xlsx")
-    except Exception as e:
-        if type(e) == FileNotFoundError: print("El reporte de inventario no se encuentra!")
-    
+
     if not consumable_levels_web:
         try:
-            shutil.copy("C:\\Users\\clsoportehp\\Documents\\Reportes DCC\\ENEL Global MS Consumable Levels.xlsx", "files\\consumable_levels.xlsx")
+            shutil.copy(os.path.join(DCC_Reports_Route, "ENEL Global MS Consumable Levels.xlsx"), os.path.join("Files","consumable_levels.xlsx"))
         except Exception as e:
             if type(e) == FileNotFoundError: print("El export de niveles de consumibles no se encuentra!")
+
+def get_data_from_access():
+
+    conn = pyodbc.connect(
+       r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\clsoportehp\OneDrive - Enel Spa\Respaldo\inventario.accdb;'
+    )
+
+    cursor = conn.cursor()
+    cursor.execute('''
+        select Serial, Etiqueta, Modelo, [Dirección IP], [Host Name], [MAC Address], 
+        Site, [Level], [Device Status] from [Inventario Completo]
+    ''')
+    rows = cursor.fetchall()
+
+    return rows
 
 def get_conditional(value):
 
