@@ -1,15 +1,4 @@
-total number of supplies below threshold: 555
-TH32RF6028 B None None None
-TH22FF604K B None None None
-TH92P261QZ None C None None
-TH92P261C8 None C None None
-TH93D2608V None C None None
-TH93D2608S None C None None
-TH92P2616Z None C None None
-TH92P26176 None None M None
-TH96T4607D None None M None
-TH92P261J8 None None M None
-TH93D260BX None None M None
-TH92P261GM None None M None
-TH93D2603C None None M None
-TH944460TS None None None Y
+total number of supplies below threshold: 118
+TH93D260BZ B None None None
+TH92P261GN None None M None
+TH92P261DS None None None Y
