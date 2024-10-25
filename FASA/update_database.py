@@ -224,8 +224,10 @@ def update_helpdesk_cases():
             helpdeskcase = HelpDeskCase()
             helpdeskcase.ticket = x[0]
             helpdeskcase.description = x[1]
-            start_date = x[5].replace('T', ' ').replace('-04:00', '')
-            end_date = x[6].replace('T', ' ').replace('-04:00', '')
+            if '-03:00' in x[5]: start_date = x[5].replace('T', ' ').replace('-03:00', '')
+            if '-04:00' in x[5]: start_date = x[5].replace('T', ' ').replace('-04:00', '')
+            if '-03:00' in x[6]: end_date = x[6].replace('T', ' ').replace('-03:00', '')
+            if '-04:00' in x[6]: end_date = x[6].replace('T', ' ').replace('-04:00', '')
             helpdeskcase.start_date = datetime.strptime(start_date, '%Y-%m-%d %H:%M:%S')
             helpdeskcase.end_date = datetime.strptime(end_date, '%Y-%m-%d %H:%M:%S')
             try: site_associated = Site.get(Site.name == x[7].replace('Farmacia ', 'Local '))

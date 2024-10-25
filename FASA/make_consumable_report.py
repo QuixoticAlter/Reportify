@@ -30,58 +30,89 @@ from deps.utils import has_conectivity
 import argparse
 import traceback
 
+from playwright.sync_api import sync_playwright
+
 def get_n_guide_from_ingram_web(order_id):
 
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(ignore_https_errors=True)
+        
+        try:
+            page.goto("https://hpmps.ingrammicro.com")
 
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.get("https://hpmps.ingrammicro.com")
+            user = page.locator("//input[@id='txtID']")
+            user.wait_for(timeout=120000)
+            user.type("246985")
 
-    user =  WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.ID, 'txtID')))
-    user.clear()
-    user.send_keys('246985')
+            password = page.locator("//input[@id='txtPassword']")
+            password.wait_for(timeout=120000)
+            password.type("1234567")
 
-    password = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.ID, 'txtPassword')))
-    password.clear()
-    password.send_keys('1234567')
+            submit = page.locator("//input[@id='btnAutentificar']")
+            submit.click()
 
-    submit = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.ID, 'btnAutentificar')))
-    submit.send_keys(Keys.RETURN)
+        except Exception as e:
+            print("Error on login!")
 
-    consultaxordenes = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.XPATH, '//div[@id="contenido_pnEstados"]/p/a')))
-    consultaxordenes.click()
+        try:
+            consultaxordenes = page.locator("//div[@id='contenido_pnEstados']/p/a")
+            consultaxordenes.wait_for(timeout=120000)
+            consultaxordenes.click()
 
-    order_input = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.ID, 'contenido_orden')))
-    order_input.send_keys(order_id)
+            order_input = page.locator("//input[@id='contenido_orden']")
+            order_input.wait_for(timeout=120000)
+            order_input.type(order_id)
 
-    input_buscar_pedido = WebDriverWait(driver, 5).until(
-        EC.presence_of_element_located((By.ID, 'contenido_btnVerPedidos')))
-    input_buscar_pedido.click()
+            input_buscar_pedido = page.locator("//a[@id='contenido_btnVerPedidos']")
+            input_buscar_pedido.wait_for(timeout=120000)
+            input_buscar_pedido.click()
 
-    try:
-        n_guide = WebDriverWait(driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, '//table[@class="table table-hover"]/tbody/tr[2]/td[10]/a')))
-        n_guide_text = n_guide.text
-        n_guide_link = n_guide.get_attribute('href')
+        except:
+            print("Error on searching!")
+
+        try:
+            n_guide_link = page.locator("//table[@class='table table-hover']/tbody/tr[2]/td[10]/a")
+            n_guide_link.wait_for(timeout=120000)
+            n_guide_text = n_guide_link.inner_text()
+        except:
+            print("Error on getting the n guide!")
 
         r = requests.get(n_guide_link, allow_redirects=True)
         open('files/delivery_guides/%s.jpg' % n_guide_text, 'wb').write(r.content)
 
-        driver.close()
-
         return n_guide_text
+    
+def get_cartridges_install_date(ip_addr):
 
-    except Exception as e:
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(ignore_https_errors=True)
 
-        print(e)
-        print(traceback.format_exc())
-        return None
+        try:
+            print("Getting cartridges install date on https://%s/#hId-pgConsumables" % ip_addr)
+            page.goto("https://%s/#hId-pgConsumables" % ip_addr)
+
+            cyan_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[2]')
+            cyan_install_date.wait_for(timeout=120000)
+            cyan_install_date_text = cyan_install_date.inner_text()
+
+            magenta_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[3]')
+            magenta_install_date.wait_for(timeout=120000)
+            magenta_install_date_text = magenta_install_date.inner_text()
+
+            yellow_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[4]')
+            yellow_install_date.wait_for(timeout=120000)
+            yellow_install_date_text = yellow_install_date.inner_text()
+
+            black_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[5]')
+            black_install_date.wait_for(timeout=120000)
+            black_install_date_text = black_install_date.inner_text()
+        
+        except:
+            print("Error getting the cartridges install date!")
+
+    return black_install_date_text, cyan_install_date_text, magenta_install_date_text, yellow_install_date_text
     
 def nth_element_contains(x, l):
 
@@ -100,6 +131,7 @@ if __name__ == "__main__":
     )
 
     parser.add_argument('-c', '--consumable-web', action="store_true", help='Get consumable levels through web scraping')
+    parser.add_argument('-i', '--installation-dates', action="store_true", help="Get installation dates")
     args = parser.parse_args()
 
     if not args.consumable_web:
@@ -121,16 +153,16 @@ if __name__ == "__main__":
         )
 
         last_30_days_black_supply_orders = SupplyOrder.select().where(
-            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30))) & (SupplyOrder.black_cartridge != None) & (SupplyOrder.machine != None)
+            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=20))) & (SupplyOrder.black_cartridge != None) & (SupplyOrder.machine != None)
         )
         last_30_days_cyan_supply_orders = SupplyOrder.select().where(
-            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30))) & (SupplyOrder.cyan_cartridge != None) & (SupplyOrder.machine != None)
+            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=20))) & (SupplyOrder.cyan_cartridge != None) & (SupplyOrder.machine != None)
         )
         last_30_days_magenta_supply_orders = SupplyOrder.select().where(
-            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30))) & (SupplyOrder.magenta_cartridge != None) & (SupplyOrder.machine != None)
+            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=20))) & (SupplyOrder.magenta_cartridge != None) & (SupplyOrder.machine != None)
         )
         last_30_days_yellow_supply_orders = SupplyOrder.select().where(
-            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30))) & (SupplyOrder.yellow_cartridge != None) & (SupplyOrder.machine != None)
+            (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=20))) & (SupplyOrder.yellow_cartridge != None) & (SupplyOrder.machine != None)
         )
 
         print("Lenght of black levels below threshold: %s" % len(black_levels_below_threshold))
@@ -186,11 +218,34 @@ if __name__ == "__main__":
                 order[3] = 'M' if x[1] == 'M' else None
                 order[4] = 'Y' if x[1] == 'Y' else None
                 all_orders_to_create.append(order)
+        
+        if args.installation_dates:
 
-        # for order in all_orders_to_create:
-        #     m = Machine.get(Machine.serial == order[0])
-        #     if has_conectivity(m.ip_addr): order += ['has conectivity']
-        #     else: order += ['has no conectivity']
+            for order in all_orders_to_create:
+                print("order: %s" % order)
+                try:
+                    machine = Machine.get(Machine.serial == order[0])
+                    cartridges_install_date = get_cartridges_install_date(machine.ip_addr)
+                    print(cartridges_install_date)
+                except: continue
+                if 'B' in order:
+                    last_black_supply_orders = SupplyOrder.select().where(SupplyOrder.black_cartridge != None).order_by(SupplyOrder.creation_date.desc())
+                    last_black_supply_order = last_black_supply_orders[0]
+                    if last_black_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[1] = None
+                if 'C' in order:
+                    last_cyan_supply_orders = SupplyOrder.select().where(SupplyOrder.cyan_cartridge != None).order_by(SupplyOrder.creation_date.desc())
+                    last_cyan_supply_order = last_cyan_supply_orders[0]
+                    if last_cyan_supply_order.creation_date > datetime.strptime(cartridges_install_date[1], "%Y-%m-%d"): order[2] = None
+                if 'M' in order:
+                    last_magenta_supply_orders = SupplyOrder.select().where(SupplyOrder.magenta_cartridge != None).order_by(SupplyOrder.creation_date.desc())
+                    last_magenta_supply_order = last_magenta_supply_orders[0]
+                    if last_magenta_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[3] = None
+                if 'Y' in order:
+                    last_yellow_supply_orders = SupplyOrder.select().where(SupplyOrder.yellow_cartridge != None).order_by(SupplyOrder.creation_date.desc())
+                    last_yellow_supply_order = last_yellow_supply_orders[0]
+                    if last_yellow_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[4] = None
+
+            all_orders_to_create = [order for order in all_orders_to_create if not (order[1] == None and order[2] == None and order[3] == None and order[4] == None)]
 
         try: os.remove('all_orders_to_create.txt')
         except: pass

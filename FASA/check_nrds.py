@@ -1,6 +1,7 @@
 # This script check the NRDs and cateogrize them. 
 # It takes the NRDS in the database and test conectivity
 # Also compares serials registered in DCC and the ones installed
+# It generates a lis
 
 from database import NRD, MachineChange
 from conectivity import ping_80_port
@@ -34,11 +35,20 @@ def review_NRDs():
             nrd.is_unknown_reason = True
             nrd.save()
 
-def take_action():
+    # with open("machines_changed.txt") as f:
+    #     f.write()
+
+def make_nrd_report():
 
     nrds = NRD.select()
-    machine_changed_nrds = [nrd for nrd in nrds if nrd.is_machine_changed]
+    
+    machine_changed_nrds = [MachineChange.get(MachineChange.old_serial == nrd.machine_associated.serial) for nrd in nrds if nrd.is_machine_change]
+    machine_changes = ["%s %s" % (mc.old_serial, mc.new_serial) for mc in machine_changed_nrds]
+    with open('machine_changes.txt', 'w') as f: f.write('\n'.join(machine_changes))
+
+    no_conectivity_machines = [MachineChange.get(MachineChange.)]
 
 if __name__ == "__main__":
 
     review_NRDs()
+    make_nrd_report()

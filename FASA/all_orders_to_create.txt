@@ -1,4 +1,6 @@
-total number of supplies below threshold: 118
-TH93D260BZ B None None None
-TH92P261GN None None M None
-TH92P261DS None None None Y
+total number of supplies below threshold: 123
+TH356F6123 B None None None
+TH1BOD6176 None C None Y
+TH92P261Q8 None C None None
+TH92P261QW None None M None
+TH93D26029 None None M Y

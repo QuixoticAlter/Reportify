@@ -3,6 +3,9 @@ import os
 Account_Name = "Fasa Chile"
 Threshold = 10
 Threshold_10 = 10
+exceptional_threshold = 50
+
+high_consume_machines = []
 
 SOH_Report_Name = Account_Name + " Supply Order History.xlsx"
 CL_Report_Name = Account_Name + " Consumable Levels.xlsx"

@@ -20,7 +20,8 @@ import argparse
 
 def set_formatted_dates(start_date, end_date):
 
-    start_date_string = start_date.replace('-04:00', '')
+    if '-03:00' in start_date: start_date_string = start_date.replace('-03:00', '')
+    if '-04:00' in start_date: start_date_string = start_date.replace('-04:00', '')
     start_date_array = start_date_string.split('T')
     # print("Start Date Array: %s" % start_date_array)
     start_date_string_2 = ' '.join(start_date_array)
@@ -28,7 +29,8 @@ def set_formatted_dates(start_date, end_date):
     start_date_from_string = datetime.strptime(start_date_string_2, "%Y-%m-%d %H:%M:%S")
     start_date_formatted = start_date_from_string.strftime("%d-%m-%Y %H:%M:%S")
 
-    end_date_string = end_date.replace('-04:00', '')
+    if '-03:00' in end_date: end_date_string = end_date.replace('-03:00', '')
+    if '-04:00' in end_date: end_date_string = end_date.replace('-04:00', '')
     end_date_array = end_date_string.split('T')
     # print('End Date Array: %s' % end_date_array)
     end_date_string_2 = ' '.join(end_date_array)
