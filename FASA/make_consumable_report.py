@@ -13,6 +13,7 @@
 
 import requests
 import openpyxl
+import re
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -29,6 +30,7 @@ from deps.utils import has_conectivity
 
 import argparse
 import traceback
+import csv
 
 from playwright.sync_api import sync_playwright
 
@@ -111,8 +113,47 @@ def get_cartridges_install_date(ip_addr):
         
         except:
             print("Error getting the cartridges install date!")
+            return None
 
     return black_install_date_text, cyan_install_date_text, magenta_install_date_text, yellow_install_date_text
+
+def get_supply_levels(ip_addr):
+    
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(ignore_https_errors=True)
+
+        black_level = None
+        cyan_level = None
+        yellow_level = None
+        magenta_level = None
+
+        try:
+            print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
+            page.goto("https://%s/#hId-pgConsumables" % ip_addr)
+
+            cyan_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[2]')
+            cyan_level_element.wait_for(timeout=120000)
+            cyan_level_text = cyan_level_element.inner_text()
+
+            magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
+            magenta_level_element.wait_for(timeout=120000)
+            magenta_level_text = magenta_level_element.inner_text()
+
+            yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
+            yellow_level_element.wait_for(timeout=120000)
+            yellow_level_text = yellow_level_element.inner_text()
+
+            black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
+            black_level_element.wait_for(timeout=120000)
+            black_level_text = black_level_element.inner_text()
+        
+        except Exception as e:
+            print (e)
+            print("Error getting the supply levels!")
+            return None
+
+    return black_level_text, cyan_level_text, magenta_level_text, yellow_level_text
     
 def nth_element_contains(x, l):
 
@@ -122,6 +163,58 @@ def nth_element_contains(x, l):
         if x in l[i]: return i
 
     return None
+
+def get_last_arc_order_date(serial, color):
+    
+    arc_orders = []
+
+    with open(arc_orders_csv, encoding='latin-1') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',')
+        for row in spamreader:
+            arc_orders.append(row)
+
+    arc_order_selected = [x for x in arc_orders if x[0] == serial and color in x]
+    if len(arc_order_selected) > 0:
+        arc_order_selected.sort(key=x[2])
+        return datetime.strptime(arc_order_selected[0][2], '%d-%m-%Y')
+    
+    return datetime.strptime('01-01-2000', '%d-%m-%Y')
+
+def get_new_machines_orders():
+
+    orders_to_create = []
+    new_machines = NewMachine.select()
+
+    for m in new_machines:
+
+        order = [m.serial, None, None, None, None]
+
+        supply_levels = get_supply_levels(m.ip_addr)
+        cartridge_install_dates = get_cartridges_install_date(m.ip_addr)
+
+        if supply_levels == None or cartridge_install_dates == None: continue
+
+        try: a = int(supply_levels[0]) <= 500
+        except: a = supply_levels[0] == "Low"
+        try: b = int(supply_levels[1]) <= 500
+        except: b = supply_levels[1] == "Low"
+        try: c = int(supply_levels[2]) <= 500
+        except: c = supply_levels[2] == "Low"
+        try: d = int(supply_levels[3]) <= 500
+        except: d = supply_levels[3] == "Low"
+
+        if a and datetime.strptime(cartridge_install_dates[0], "%Y-%m-%d") >= get_last_arc_order_date(m.serial, "B"): order[1] = "B"
+        if b and datetime.strptime(cartridge_install_dates[1], "%Y-%m-%d") >= get_last_arc_order_date(m.serial, "C"): order[2] = "C"
+        if c and datetime.strptime(cartridge_install_dates[2], "%Y-%m-%d") >= get_last_arc_order_date(m.serial, "M"): order[3] = "M"
+        if d and datetime.strptime(cartridge_install_dates[3], "%Y-%m-%d") >= get_last_arc_order_date(m.serial, "Y"): order[4] = "Y"
+
+        if order[1] == None and order[2] == None and order[3] == None and order[4] == None: continue
+
+        orders_to_create.append(order)
+
+    with open("new_machines_low_levels.txt", "w") as f:
+        for order in orders_to_create:
+            f.write("%s %s %s %s %s\n" % (order[0], order[1], order[2], order[3], order[4]))
 
 if __name__ == "__main__":
 
@@ -223,54 +316,61 @@ if __name__ == "__main__":
 
             for order in all_orders_to_create:
                 print("order: %s" % order)
-                try:
-                    machine = Machine.get(Machine.serial == order[0])
-                    cartridges_install_date = get_cartridges_install_date(machine.ip_addr)
-                    print(cartridges_install_date)
-                except: continue
+                machine = Machine.get(Machine.serial == order[0])
+                cartridges_install_date = get_cartridges_install_date(machine.ip_addr)
+                supply_levels = get_supply_levels(machine.ip_addr)
+                print(cartridges_install_date)
+                print(supply_levels)
+                if cartridges_install_date == None and supply_levels == None: continue
                 if 'B' in order:
-                    last_black_supply_orders = SupplyOrder.select().where(SupplyOrder.black_cartridge != None).order_by(SupplyOrder.creation_date.desc())
-                    last_black_supply_order = last_black_supply_orders[0]
-                    if last_black_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[1] = None
+                    last_black_supply_orders = SupplyOrder.select().where((SupplyOrder.black_cartridge != None) & (SupplyOrder.machine == machine)).order_by(SupplyOrder.creation_date.desc())
+                    if len(last_black_supply_orders) != 0: last_black_supply_order = last_black_supply_orders[0]
+                    try:
+                        print("Last black order date: %s" % last_black_supply_order.creation_date)
+                        if last_black_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[1] = None
+                        if supply_levels[0] != 'Low':
+                            if '>' in supply_levels[0]: order[1] = None
+                            elif int(supply_levels[0]) >= 50 : order[1] = None
+                    except: continue
                 if 'C' in order:
-                    last_cyan_supply_orders = SupplyOrder.select().where(SupplyOrder.cyan_cartridge != None).order_by(SupplyOrder.creation_date.desc())
-                    last_cyan_supply_order = last_cyan_supply_orders[0]
-                    if last_cyan_supply_order.creation_date > datetime.strptime(cartridges_install_date[1], "%Y-%m-%d"): order[2] = None
+                    last_cyan_supply_orders = SupplyOrder.select().where((SupplyOrder.cyan_cartridge != None) & (SupplyOrder.machine == machine)).order_by(SupplyOrder.creation_date.desc())
+                    if len(last_cyan_supply_orders) != 0: last_cyan_supply_order = last_cyan_supply_order = last_cyan_supply_orders[0]
+                    try:
+                        print("Last Cyan order date: %s" % last_cyan_supply_order.creation_date)
+                        if last_cyan_supply_order.creation_date > datetime.strptime(cartridges_install_date[1], "%Y-%m-%d"): order[2] = None
+                        if supply_levels[1] != 'Low':
+                            if '>' in supply_levels[1]: order[2] = None
+                            elif int(supply_levels[1]) >= 50 : order[2] = None
+                    except: pass
                 if 'M' in order:
-                    last_magenta_supply_orders = SupplyOrder.select().where(SupplyOrder.magenta_cartridge != None).order_by(SupplyOrder.creation_date.desc())
-                    last_magenta_supply_order = last_magenta_supply_orders[0]
-                    if last_magenta_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[3] = None
+                    last_magenta_supply_orders = SupplyOrder.select().where((SupplyOrder.magenta_cartridge != None) & (SupplyOrder.machine == machine)).order_by(SupplyOrder.creation_date.desc())
+                    if len(last_magenta_supply_orders) != 0: last_magenta_supply_order = last_magenta_supply_orders[0]
+                    try:
+                        if last_magenta_supply_order.creation_date > datetime.strptime(cartridges_install_date[2], "%Y-%m-%d"): order[3] = None
+                        if supply_levels[2] != 'Low':
+                            if '>' in supply_levels[2]: order[3] = None
+                            elif int(supply_levels[2]) >= 50 : order[3] = None
+                    except: pass
                 if 'Y' in order:
-                    last_yellow_supply_orders = SupplyOrder.select().where(SupplyOrder.yellow_cartridge != None).order_by(SupplyOrder.creation_date.desc())
-                    last_yellow_supply_order = last_yellow_supply_orders[0]
-                    if last_yellow_supply_order.creation_date > datetime.strptime(cartridges_install_date[0], "%Y-%m-%d"): order[4] = None
+                    last_yellow_supply_orders = SupplyOrder.select().where((SupplyOrder.yellow_cartridge != None) & (SupplyOrder.machine == machine)).order_by(SupplyOrder.creation_date.desc())
+                    if len(last_yellow_supply_orders) != 0: last_yellow_supply_order = last_yellow_supply_orders[0]
+                    try:
+                        print("Last yellow order creation date: %s" % last_yellow_supply_order.creation_date)
+                        if last_yellow_supply_order.creation_date > datetime.strptime(cartridges_install_date[3], "%Y-%m-%d"): order[4] = None
+                        if supply_levels[3] != 'Low':
+                            if '>' in supply_levels[3]: order[4] = None
+                            elif int(supply_levels[3]) >= 50 : order[4] = None
+                    except: pass
 
             all_orders_to_create = [order for order in all_orders_to_create if not (order[1] == None and order[2] == None and order[3] == None and order[4] == None)]
 
         try: os.remove('all_orders_to_create.txt')
         except: pass
 
-        try: os.remove('orders_created_bsbt.txt')
-        except: pass
-
-        with open('orders_created_bsbt.txt', 'a') as f:
-            for x in orders_created_bsbt:
-                if x[1] == 'B': so = SupplyOrder.get(
-                    (SupplyOrder.machine.serial == x[0]) and (SupplyOrder.black_cartridge != None) and (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30)))
-                )
-                if x[1] == 'C': so = SupplyOrder.get(
-                    (SupplyOrder.machine.serial == x[0]) and (SupplyOrder.cyan_cartridge != None) and (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30)))
-                )
-                if x[1] == 'M': so = SupplyOrder.get(
-                    (SupplyOrder.machine.serial == x[0]) and (SupplyOrder.magenta_cartridge != None) and (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30)))
-                )
-                if x[1] == 'Y': so = SupplyOrder.get(
-                    (SupplyOrder.machine.serial == x[0]) and (SupplyOrder.yellow_cartridge != None) and (SupplyOrder.creation_date >= (datetime.now() - timedelta(days=30)))
-                )
-
-                f.write("%s %s %s %s\n" % (x[0], x[1], so.n_order, so.creation_date))
-
         with open('all_orders_to_create.txt', 'a') as f:
             f.write('total number of supplies below threshold: %s\n' % n_levels_below_threshold)
             for x in all_orders_to_create:
                 f.write("%s %s %s %s %s\n" % (x[0], x[1], x[2], x[3], x[4]))
+
+    check_high_consume_machines()
+    get_new_machines_orders()

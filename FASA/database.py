@@ -35,6 +35,18 @@ class Machine(Base):
     status = CharField()
     collection_method = CharField()
 
+class NewMachine(Base): # Used for new machines not added to DCC yet
+
+    serial = CharField()
+    asset = CharField(null=True)
+    sku = CharField(null=True)
+    model = CharField(null=True)
+    ip_addr = CharField()
+    site = ForeignKeyField(model=Site, null=True, backref='machines')
+    contact = ForeignKeyField(model=Contact, null=True, backref='machines')
+    status = CharField()
+    collection_method = CharField()
+
 class NRD(Base):
 
     machine_associated = ForeignKeyField(model=Machine)
@@ -123,6 +135,6 @@ class ConsumableLevel(Base):
     
 db.connect()
 db.create_tables([
-    Machine, RemovedMachine, Site, Contact, ChannelCase, MachineChange, 
+    Machine, NewMachine, RemovedMachine, Site, Contact, ChannelCase, MachineChange, 
     HelpDeskCase, OSATASK, OSARR, OSAFOV, SupplyOrder, ConsumableLevel, NRD
 ])

@@ -5,7 +5,7 @@ Threshold = 10
 Threshold_10 = 10
 exceptional_threshold = 50
 
-high_consume_machines = []
+sites_high_consume_machines = ['Local 58']
 
 SOH_Report_Name = Account_Name + " Supply Order History.xlsx"
 CL_Report_Name = Account_Name + " Consumable Levels.xlsx"
@@ -23,8 +23,12 @@ NRD_Report_Route = os.path.join(DCC_Reports_Route, NRD_Report_Name)
 
 supply_export_csv = "files\\supply_order_history.csv"
 supply_export_excel = "files\\supply_order_history.xlsx"
+arc_orders_csv = "files\\arc_orders.csv"
+automatic_orders_csv = "files\\automatic_orders.csv"
+manual_orders_csv = "files\\manual_orders.csv"
 inventory_excel = "files\\inventario.xlsx"
 inventory_csv = "files\\inventario.csv"
+new_machines_csv = "files\\new_machines_not_added_to_dcc.csv"
 consumable_levels_export_excel = "files\\consumable_levels.xlsx"
 consumable_levels_export_csv = "files\\consumable_levels.csv"
 service_requests_export_excel = "files\\service_requests.xlsx"

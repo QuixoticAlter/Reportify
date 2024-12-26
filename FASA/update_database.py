@@ -7,6 +7,12 @@ from datetime import datetime, timedelta
 from config import *
 from database import *
 
+def array_replace_char(x):
+
+    processed_x = [a.replace(" ", "") for a in x]
+
+    return processed_x
+
 def convert_excel_to_csv(input_file, sheet_name, output_file):
 
     wb = openpyxl.load_workbook(input_file)
@@ -90,6 +96,59 @@ def update_inventory():
             ).where(Machine.serial == x[0])
             query.execute()
 
+def update_new_machines():
+
+    inventory_array = []
+
+    with open(new_machines_csv, encoding='latin-1') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',')
+        for row in spamreader:
+            inventory_array.append(row)
+
+    inventory_array = [x for x in inventory_array if x != []]
+
+    for x in inventory_array[1:]:
+
+        rows = Site.select().where(Site.name == x[6])
+        if len(rows) == 0:
+            site = Site()
+            site.name = x[5]
+            site.building = x[7] + " - " + x[5]
+            site.physical_address = x[6]
+            site.city = x[7]
+            site.save()
+        else:
+            query = Site.update(
+                building = x[7],
+                physical_address = x[6],
+                city = x[10]
+            ).where(Site.name == x[7])
+            query.execute()
+
+        rows = NewMachine.select().where(NewMachine.serial == x[0])
+        if len(rows) == 0:
+            machine = NewMachine()
+            machine.serial = x[0]
+            machine.asset = x[1]
+            machine.sku = x[2]
+            machine.model = x[3]
+            machine.ip_addr = x[4]
+            machine.site = Site.get(Site.name == x[5])
+            machine.status = x[9]
+            machine.collection_method = x[10]
+            machine.save()
+        else:
+            query = NewMachine.update(
+                asset = x[1],
+                sku = x[2],
+                model = x[3],
+                ip_addr = x[4],
+                site = Site.get(Site.name == x[5]),
+                status = x[9],
+                collection_method = x[10]
+            ).where(NewMachine.serial == x[0])
+            query.execute()
+
 def update_consumable_levels():
 
     consumable_levels_array = []
@@ -122,6 +181,62 @@ def update_consumable_levels():
             consumable_level.yellow_level = 0 if x[13] == "out" else x[13]
             consumable_level.black_level = 0 if x[10] == "out" else x[10]
             consumable_level.save()
+
+def update_local_supply_orders():
+
+    supply_orders_array = []
+
+    with open(automatic_orders_csv, encoding='latin-1') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',')
+        for row in spamreader:
+            supply_orders_array.append(row)
+
+    with open(manual_orders_csv, encoding='latin-1') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',')
+        for row in spamreader:
+            supply_orders_array.append(row)
+
+    processed_supply_orders = list(map(lambda x: array_replace_char(x), supply_orders_array))
+
+    for x in processed_supply_orders:
+        if x[0] != "n_order":
+            rows = SupplyOrder.select().where(SupplyOrder.n_order == x[0])
+            if len(rows) == 0:
+                supplyorder = SupplyOrder()
+                supplyorder.n_order = x[0]
+                try:
+                    supplyorder.machine = Machine.get(Machine.serial == x[2])
+                except Exception as e:
+                    try:
+                        rmachine = RemovedMachine.get(RemovedMachine.serial == x[2])
+                        supplyorder.removed_machine = rmachine
+                    except:
+                        rmachine = RemovedMachine()
+                        rmachine.serial = x[2]
+                        rmachine.save()
+                        supplyorder.removed_machine = rmachine
+                supplyorder.cyan_cartridge = "3JA54AL" if x[4] == "3JA54AL" else None
+                supplyorder.magenta_cartridge =  "3JA55AL" if x[5] == "3JA55AL" else None
+                supplyorder.yellow_cartridge = "3JA56AL" if x[6] == "3JA56AL" else None
+                supplyorder.black_cartridge = "3JA57AL" if x[3] == "3JA57AL" else None
+                print("Creation Date: %s" % str(x[1]))
+                supplyorder.creation_date = datetime.strptime(x[1], '%d-%m-%Y')
+                supplyorder.arrival_date = None
+                supplyorder.close_date = None
+                supplyorder.save()
+            else:
+                if x[4] == "3JA54AL":
+                    query = SupplyOrder.update(cyan_cartridge = "3JA54AL").where(SupplyOrder.n_order == x[0])
+                    query.execute()
+                elif x[5] == "3JA55AL":
+                    query = SupplyOrder.update(magenta_cartridge = "3JA55AL").where(SupplyOrder.n_order == x[0])
+                    query.execute()
+                elif x[6] == "3JA56AL":
+                    query = SupplyOrder.update(yellow_cartridge = "3JA56AL").where(SupplyOrder.n_order == x[0])
+                    query.execute()
+                elif x[3] == "3JA57AL":
+                    query = SupplyOrder.update(black_cartridge = "3JA57AL").where(SupplyOrder.n_order == x[0])
+                    query.execute()
 
 def update_supply_orders():
 
@@ -290,10 +405,12 @@ if __name__ == "__main__":
     copy_reports()
     convert_excel_exports_to_csv()
     update_inventory()
+    update_new_machines()
     update_consumable_levels()
     update_supply_orders()
-    update_nrd()
-    update_helpdesk_cases()
+    update_local_supply_orders()
+    # update_nrd()
+    # update_helpdesk_cases()
     update_service_requests()
 
     machine_serial = "TH9B46604M"
