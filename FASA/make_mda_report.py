@@ -10,8 +10,9 @@
 # 4. Rename the file to "Fasa Chile Informe MDA.xlsx"
 # 4. Execute this script through the command python make_mda_report.py
 
-from config import MDA_Report_Route, mda_export_excel, mda_export_csv
+from config import MDA_Report_Route, mda_export_excel, mda_export_csv, city_region_dict
 from deps.utils import copy_reports, convert_excel_to_csv, get_array_from_csv
+from database import Site
 from datetime import datetime
 
 import openpyxl
@@ -63,8 +64,9 @@ def make_excel_report(final_mda_array, filename=None):
     ws['F1'] = 'Fecha Inicio'
     ws['G1'] = 'Fecha Solución'
     ws['H1'] = 'Usuario Afectado'
-    ws['I1'] = 'Tipo'
-    ws['J1'] = 'Categorías'
+    ws['I1'] = 'Region'
+    ws['J1'] = 'Tipo'
+    ws['K1'] = 'Categorías'
 
     for i in range(1, len(final_mda_array)):
 
@@ -81,6 +83,7 @@ def make_excel_report(final_mda_array, filename=None):
         ws['H%s' % str(i+1)] = final_mda_array[i-1][7]
         ws['I%s' % str(i+1)] = final_mda_array[i-1][8]
         ws['J%s' % str(i+1)] = final_mda_array[i-1][9]
+        ws['K%s' % str(i+1)] = final_mda_array[i-1][10]
 
     if filename: 
         filename_ext = filename + '.xlsx'
@@ -97,7 +100,7 @@ def set_final_mda_report_array(mda_array):
 
     for x in mda_array[1:]:
 
-        f_start_date, f_end_date = set_formatted_dates(x[5], x[6])
+        f_start_date, f_end_date = set_formatted_dates(x[6], x[7])
 
         ticket = x[0]
         title = x[1]
@@ -106,11 +109,17 @@ def set_final_mda_report_array(mda_array):
         group = x[4]
         start_date = f_start_date
         end_date = f_end_date
-        affected_user = x[7]
-        type = x[8]
-        category = x[9]
+        affected_user = x[8]
+        # print(affected_user)
+        try:
+            site = Site.get(Site.name == affected_user.replace('Farmacia', 'Local').strip())
+            region = city_region_dict[site.city]
+        except:
+            region = None
+        type = x[9]
+        category = x[10]
 
-        final_array.append([ticket, title, status, sla, group, start_date, end_date, affected_user, type, category])
+        final_array.append([ticket, title, status, sla, group, start_date, end_date, affected_user, region, type, category])
 
     return final_array
 

@@ -23,6 +23,19 @@ def convert_excel_to_csv(input_file, sheet_name, output_file):
         row = [cell.value for cell in eachrow]
         outputCsvFile.writerow(row)
 
+def csv_to_array(input_csv):
+
+    array = []
+
+    with open(input_csv, encoding='utf-8') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=',')
+        for row in spamreader:
+            array.append(row)
+
+    array = [x for x in array if x != []]
+
+    return array
+
 def copy_reports():
 
     shutil.copy(Inventory_Route, inventory_excel)
@@ -43,18 +56,11 @@ def convert_excel_exports_to_csv():
 
 def update_inventory():
 
-    inventory_array = []
-
-    with open(inventory_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            inventory_array.append(row)
-
-    inventory_array = [x for x in inventory_array if x != []]
+    inventory_array = csv_to_array(inventory_csv)
 
     for x in inventory_array[1:]:
 
-        rows = Site.select().where(Site.name == x[6])
+        rows = Site.select().where(Site.name == x[7])
         if len(rows) == 0:
             site = Site()
             site.name = x[7]
@@ -98,18 +104,11 @@ def update_inventory():
 
 def update_new_machines():
 
-    inventory_array = []
+    new_machines_array = csv_to_array(new_machines_csv)
 
-    with open(new_machines_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            inventory_array.append(row)
+    for x in new_machines_array[1:]:
 
-    inventory_array = [x for x in inventory_array if x != []]
-
-    for x in inventory_array[1:]:
-
-        rows = Site.select().where(Site.name == x[6])
+        rows = Site.select().where(Site.name == x[5])
         if len(rows) == 0:
             site = Site()
             site.name = x[5]
@@ -119,10 +118,10 @@ def update_new_machines():
             site.save()
         else:
             query = Site.update(
-                building = x[7],
+                building = x[7] + " - " + x[5],
                 physical_address = x[6],
-                city = x[10]
-            ).where(Site.name == x[7])
+                city = x[7]
+            ).where(Site.name == x[5])
             query.execute()
 
         rows = NewMachine.select().where(NewMachine.serial == x[0])
@@ -151,14 +150,7 @@ def update_new_machines():
 
 def update_consumable_levels():
 
-    consumable_levels_array = []
-
-    with open(consumable_levels_export_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            consumable_levels_array.append(row)
-
-    consumable_levels_array = [x for x in consumable_levels_array if x != []]
+    consumable_levels_array = csv_to_array(consumable_levels_export_csv)
 
     for x in consumable_levels_array[3:]:
         rows = ConsumableLevel.select().where(ConsumableLevel.detection_date == datetime.strptime(x[9], '%m/%d/%Y %H:%M:%S'))
@@ -184,17 +176,9 @@ def update_consumable_levels():
 
 def update_local_supply_orders():
 
-    supply_orders_array = []
-
-    with open(automatic_orders_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            supply_orders_array.append(row)
-
-    with open(manual_orders_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            supply_orders_array.append(row)
+    supply_orders_array = csv_to_array(automatic_orders_csv)
+    supply_orders_array += csv_to_array(manual_orders_csv)
+    supply_orders_array += csv_to_array(arc_orders_csv)
 
     processed_supply_orders = list(map(lambda x: array_replace_char(x), supply_orders_array))
 
@@ -240,14 +224,7 @@ def update_local_supply_orders():
 
 def update_supply_orders():
 
-    supply_orders_array = []
-
-    with open(supply_export_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            supply_orders_array.append(row)
-
-    supply_orders_array = [x for x in supply_orders_array if x != []]
+    supply_orders_array = csv_to_array(supply_export_csv)
 
     cartridge_parts = {
         "cyan": "3JA54AL",
@@ -296,14 +273,7 @@ def update_supply_orders():
 
 def update_nrd():
 
-    nrd_array = []
-
-    with open(nrd_export_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            nrd_array.append(row)
-
-    nrd_array = [x for x in nrd_array if x != []]
+    nrd_array = csv_to_array(nrd_export_csv)
 
     for x in nrd_array[1:]:
         print("NRD Serial: %s" % x[2])
@@ -324,14 +294,7 @@ def update_nrd():
 
 def update_helpdesk_cases():
 
-    mda_array = []
-
-    with open(mda_export_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            mda_array.append(row)
-
-    mda_array = [x for x in mda_array if x != []]
+    mda_array = csv_to_array(mda_export_csv)
 
     for x in mda_array[1:]:
         rows = HelpDeskCase.select().where(HelpDeskCase.ticket == x[0])
@@ -364,12 +327,7 @@ def get_helpdesk_associated(machine, creation_date):
 
 def update_service_requests():
 
-    service_requests_array = []
-
-    with open(service_requests_export_csv, encoding='latin-1') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',')
-        for row in spamreader:
-            service_requests_array.append(row)
+    service_requests_array = csv_to_array(service_requests_export_csv)
 
     service_requests_array = [x for x in service_requests_array if x != []]
     chanel_cases = [x for x in service_requests_array if "#SUBK" in x[6]]
