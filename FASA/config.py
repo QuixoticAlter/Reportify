@@ -6,7 +6,21 @@ Threshold_10 = 10
 exceptional_threshold = 50
 
 sites_high_consume_machines = ['Local 58']
-sites_with_no_trigger = ['Local 688', 'Local 58', 'Local 397', 'Local 715', 'TH356F614K', 'Local 701', 'Local 404']
+sites_with_no_trigger = [
+    'Local 688', 
+    'Local 58', 
+    'Local 397', 
+    'Local 715',
+    'TH356F614K',
+    'Local 701', 
+    'Local 404', 
+    'Local 681',
+    'Local 679',
+    'Local 394',
+    'Local 283',
+    'Local 482',
+    'Local 426'
+]
 
 SOH_Report_Name = Account_Name + " Supply Order History.xlsx"
 CL_Report_Name = Account_Name + " Consumable Levels.xlsx"
