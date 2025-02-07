@@ -19,7 +19,9 @@ sites_with_no_trigger = [
     'Local 394',
     'Local 283',
     'Local 482',
-    'Local 426'
+    'Local 426',
+    'Local 686',
+    'Local 387'
 ]
 
 SOH_Report_Name = Account_Name + " Supply Order History.xlsx"

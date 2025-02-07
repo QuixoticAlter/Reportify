@@ -1,12 +1,17 @@
 Ticket,Titulo,Estado,Tiempo Inv (min),SLA,Grupo,Fecha Inicio,Fecha Solucion,Usuario Afectado,Tipo,Categorias
-IM-294119,No hay repuestos de tinta rosada en local,Solucionado,0,Normal,Soporte Impresoras HP,26-01-2025 12:09,27-01-2025 12:21,Farmacia 670,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-294164,Cartucho tinta Magenta,Solucionado,0,Normal,Soporte Impresoras HP,27-01-2025 10:25,27-01-2025 12:27,Farmacia 81,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-294169,Imprsora no genera solicitud de tinta,Solucionado,0,Normal,Soporte Impresoras HP,27-01-2025 10:29,27-01-2025 12:35,Farmacia 81,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-294301,Solicitud de tinta,Solucionado,0,Normal,Soporte Impresoras HP,28-01-2025 10:15,31-01-2025 10:55,Farmacia 681,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-294591,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,29-01-2025 17:38,30-01-2025 11:14,Farmacia 77,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-294626,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,29-01-2025 20:00,30-01-2025 11:19,Farmacia 553,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-RQ-375793,Impresora HP,Solucionado,0,Normal,Soporte Impresoras HP,30-01-2025 08:59,30-01-2025 17:47,Farmacia 737,Requerimiento,Sistemas\Consulta\Instalación/Retiro de Equipos\Fecha instalación de un equipo
-IM-294790,Tinta agotada,Solucionado,0,Normal,Soporte Impresoras HP,31-01-2025 10:15,31-01-2025 11:01,Farmacia 462,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-294397,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,28-01-2025 16:25,28-01-2025 16:25,Farmacia 518,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-294633,HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,29-01-2025 21:17,29-01-2025 21:17,Farmacia 630,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-294086,tinta gastada,Cerrado,0,Normal,Soporte Impresoras HP,25-01-2025 17:23,27-01-2025 12:19,Farmacia 744,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-295012,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,01-02-2025 18:36,03-02-2025 12:47,Farmacia 358,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-295033,Impresora hp sin conexion,Solucionado,0,Normal,Soporte Impresoras HP,02-02-2025 13:20,03-02-2025 11:58,Farmacia 358,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-295151,"SE TERMINO TINTA M, Y NO TENGO REPUESTO.",Solucionado,0,Normal,Soporte Impresoras HP,03-02-2025 13:54,03-02-2025 14:43,Farmacia 699,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-295193,Tintas agotadas,Solucionado,0,Normal,Soporte Impresoras HP,03-02-2025 17:09,03-02-2025 18:09,Farmacia 462,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-295379,Reposicion de tintas,Solucionado,0,Normal,Soporte Impresoras HP,05-02-2025 11:23,05-02-2025 14:42,Farmacia 686,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-295381,tintas a punto de agotar,Solucionado,0,Normal,Soporte Impresoras HP,05-02-2025 11:29,05-02-2025 14:21,Susana Wen,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-295531,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,06-02-2025 13:15,06-02-2025 16:19,Farmacia 695,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-295548,Problemas con impresora HP,Solucionado,0,Normal,Soporte Impresoras HP,06-02-2025 15:18,06-02-2025 16:21,Farmacia 695,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-295122,Problemas para escanear,Solucionado,0,Normal,Soporte Impresoras HP,03-02-2025 11:25,03-02-2025 11:25,Farmacia 232,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-295261,Hp impresora imagen descuadrada,Solucionado,0,Normal,Soporte Impresoras HP,04-02-2025 11:33,04-02-2025 11:33,Farmacia 469,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-295400,Problemas para escanear,Solucionado,0,Normal,Soporte Impresoras HP,05-02-2025 13:20,05-02-2025 13:20,Farmacia 585,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-295492,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,06-02-2025 09:35,06-02-2025 09:35,Farmacia 511,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-295566,Impresora HP no imprime,Solucionado,0,Normal,Soporte Impresoras HP,06-02-2025 17:14,06-02-2025 17:14,Farmacia 351,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-294790,Tinta agotada,Cerrado,0,Normal,Soporte Impresoras HP,31-01-2025 10:15,31-01-2025 11:01,Farmacia 462,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-294867,Impresora no imprime,Cerrado,0,Normal,Soporte Impresoras HP,31-01-2025 16:05,03-02-2025 16:09,Farmacia 33,Incidente,Sistemas\Hardware\Impresora - HP\Cambio por Falla
+IM-294942,imprime en negro toda una hoja cada vez que se envia a imprimir,Cerrado,0,Normal,Soporte Impresoras HP,01-02-2025 10:46,04-02-2025 17:30,Farmacia 326,Incidente,Sistemas\Hardware\Impresora - HP\Cambio por Falla
