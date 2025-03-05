@@ -100,7 +100,7 @@ def set_final_mda_report_array(mda_array):
 
     for x in mda_array[1:]:
 
-        f_start_date, f_end_date = set_formatted_dates(x[6], x[7])
+        f_start_date, f_end_date = set_formatted_dates(x[5], x[6])
 
         ticket = x[0]
         title = x[1]
@@ -109,15 +109,15 @@ def set_final_mda_report_array(mda_array):
         group = x[4]
         start_date = f_start_date
         end_date = f_end_date
-        affected_user = x[8]
+        affected_user = x[7]
         # print(affected_user)
         try:
             site = Site.get(Site.name == affected_user.replace('Farmacia', 'Local').strip())
             region = city_region_dict[site.city]
         except:
             region = None
-        type = x[9]
-        category = x[10]
+        type = x[8]
+        category = x[9]
 
         final_array.append([ticket, title, status, sla, group, start_date, end_date, affected_user, region, type, category])
 
