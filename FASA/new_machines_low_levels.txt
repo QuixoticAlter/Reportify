@@ -1,5 +1,5 @@
-TH36TH61V8 None None M None
 TH36TH61W9 None None M None
 TH356F612G None None M None
-TH39LH61VR None None M None
+TH39LH61VR None None M Y
+TH39LH61V4 None None M Y
 TH356F6129 None None M Y
