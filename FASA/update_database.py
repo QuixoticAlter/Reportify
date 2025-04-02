@@ -273,22 +273,20 @@ def update_supply_orders():
 
 def update_nrd():
 
-    nrd_array = csv_to_array(nrd_export_csv)
-
-    for x in nrd_array[1:]:
-        print("NRD Serial: %s" % x[2])
-        rows = NRD.select().where(NRD.machine_associated == Machine.get(Machine.serial == x[2]))
-        if len(rows) == 0:
-            nrd = NRD()
-            try: nrd.machine_associated = Machine.get(Machine.serial == x[2])
-            except Machine.DoesNotExist: continue
-            nrd.last_collection_date = x[4]
-            nrd.save()
-        
-    nrd_serials = [x[2] for x in nrd_array]
+    nrd_array = csv_to_array(nrd_export_csv)         
+    nrd_array_serials = [x[2] for x in nrd_array]
     # print("NRD Serials: %s" % nrd_serials)
     db_nrds = NRD.select()
-    removed_nrds = [nrd for nrd in db_nrds if not nrd.machine_associated.serial in nrd_serials]
+    db_nrds_serials = [nrd.serial for nrd in db_nrds]
+
+    new_nrds_serials = [x for x in nrd_array_serials if not x in db_nrds_serials]
+    for x in new_nrds_serials:
+        nrd = NRD()
+        nrd.machine_associated = Machine.get()
+
+
+    removed_nrds = [nrd for nrd in db_nrds if not nrd.machine_associated.serial in nrd_array_serials]
+    
     for nrd in removed_nrds: print(nrd.id)
     for nrd in removed_nrds: NRD.delete_by_id(nrd.id)
 

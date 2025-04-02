@@ -1,9 +1,4 @@
-total number of supplies below threshold: 107
-TH356F617G B None None None
-TH92P261PT B None None None
-TH39LH61WN B None None None
-TH39LH61W0 None None M None
-TH32RF6028 None C None None
-TH97646013 None C None None
-TH356F613X None None M None
-TH944460SP None None M None
+total number of supplies below threshold: 89
+TH32RF608P B None None None
+TH92P261FD None None M None
+TH36TH61T5 None None M None

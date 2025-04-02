@@ -46,7 +46,9 @@ def make_nrd_report():
     machine_changes = ["%s %s" % (mc.old_serial, mc.new_serial) for mc in machine_changed_nrds]
     with open('machine_changes.txt', 'w') as f: f.write('\n'.join(machine_changes))
 
-    no_conectivity_machines = [MachineChange.get(MachineChange.)]
+    no_conectivity_machines_obj = NRD.select().where(NRD.has_conectivity == False)
+    no_conectivity_machines_array = [nrd.serial for nrd in no_conectivity_machines_obj]
+    with open("no_conectivity_machines.txt", 'w') as f: f.write('\n'.join(no_conectivity_machines_array))
 
 if __name__ == "__main__":
 
