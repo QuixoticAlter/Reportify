@@ -1,18 +1,18 @@
 import os
 
 Account_Name = "Fasa Chile"
-Threshold = 10
+Threshold = 30
 Threshold_10 = 10
 exceptional_threshold = 50
 
 sites_high_consume_machines = ['Local 58']
-sites_with_no_trigger = [
+sites_with_no_trigger_fails = [
     'Local 688', 
     'Local 58', 
     'Local 397', 
     'Local 715',
     'TH356F614K',
-    'Local 701', 
+    'Local 701',
     'Local 404', 
     'Local 681',
     'Local 679',
@@ -33,7 +33,9 @@ sites_with_no_trigger = [
     'Local 395',
     'Local 414',
     'Local 423',
-    'Local 441'
+    'Local 441',
+    'TH0686600M',
+    'TH356F616K'
 ]
 
 SOH_Report_Name = Account_Name + " Supply Order History.xlsx"

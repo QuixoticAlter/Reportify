@@ -273,7 +273,7 @@ def update_supply_orders():
 
 def update_nrd():
 
-    nrd_array = csv_to_array(nrd_export_csv)         
+    nrd_array = csv_to_array(nrd_export_csv)
     nrd_array_serials = [x[2] for x in nrd_array]
     # print("NRD Serials: %s" % nrd_serials)
     db_nrds = NRD.select()
