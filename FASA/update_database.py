@@ -209,6 +209,10 @@ def update_local_supply_orders():
                 supplyorder.close_date = None
                 supplyorder.save()
             else:
+
+                try: SupplyOrder.update(machine = Machine.get(Machine.serial == x[2])).where(SupplyOrder.n_order == x[0])
+                except: pass
+
                 if x[4] == "3JA54AL":
                     query = SupplyOrder.update(cyan_cartridge = "3JA54AL").where(SupplyOrder.n_order == x[0])
                     query.execute()
@@ -258,6 +262,10 @@ def update_supply_orders():
             supplyorder.close_date = None
             supplyorder.save()
         else:
+
+            try: SupplyOrder.update(machine = Machine.get(Machine.serial == x[11])).where(SupplyOrder.n_order == x[0])
+            except: pass
+
             if x[14] == "3JA54AL":
                 query = SupplyOrder.update(cyan_cartridge = "3JA54AL").where(SupplyOrder.n_order == x[0])
                 query.execute()
