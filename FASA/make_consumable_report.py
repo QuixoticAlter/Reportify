@@ -215,7 +215,9 @@ def get_last_arc_order_date(serial, color):
     arc_order_selected = [x for x in arc_orders_processed if x[2] == serial]
     print('Size of arc order selected: %s' % len(arc_order_selected))
     if len(arc_order_selected) > 0:
-        arc_order_selected.sort()
+        arc_order_selected.sort(reverse=True)
+        if serial == 'TH36TH61W9':
+            with open('arc_orders_array.txt', 'w') as f: f.write(str(arc_order_selected))
         return datetime.strptime(arc_order_selected[0][1], '%d-%m-%Y')
     
     return datetime.strptime('01-01-2000', '%d-%m-%Y')

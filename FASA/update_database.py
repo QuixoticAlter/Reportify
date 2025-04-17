@@ -7,6 +7,8 @@ from datetime import datetime, timedelta
 from config import *
 from database import *
 
+from playwright.sync_api import sync_playwright
+
 def array_replace_char(x):
 
     processed_x = [a.replace(" ", "") for a in x]
@@ -54,6 +56,53 @@ def convert_excel_exports_to_csv():
     convert_excel_to_csv(mda_export_excel, 'Datos', mda_export_csv)
     convert_excel_to_csv(nrd_export_excel, 'Report', nrd_export_csv)
 
+def get_supply_levels(ip_addr):
+    
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch()
+        page = browser.new_page(ignore_https_errors=True)
+
+        black_level = None
+        cyan_level = None
+        yellow_level = None
+        magenta_level = None
+
+        try:
+            print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
+            page.goto("https://%s/#hId-pgConsumables" % ip_addr)
+
+            cyan_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[2]')
+            cyan_level_element.wait_for(timeout=120000)
+            cyan_level_text = cyan_level_element.inner_text()
+
+            magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
+            magenta_level_element.wait_for(timeout=120000)
+            magenta_level_text = magenta_level_element.inner_text()
+
+            yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
+            yellow_level_element.wait_for(timeout=120000)
+            yellow_level_text = yellow_level_element.inner_text()
+
+            black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
+            black_level_element.wait_for(timeout=120000)
+            black_level_text = black_level_element.inner_text()
+        
+        except Exception as e:
+            print (e)
+            print("Error getting the supply levels!")
+            return None
+
+    cl_values = []
+    for cl in [black_level_text, cyan_level_text, magenta_level_text, yellow_level_text]:
+
+        cl_value = cl.replace("> ", "").strip()
+        try: cl_value = int(cl)*100/2000
+        except: cl_value = 0
+
+        cl_values.append(cl_value)
+
+    return cl_values
+
 def update_inventory():
 
     inventory_array = csv_to_array(inventory_csv)
@@ -100,6 +149,10 @@ def update_inventory():
                 status = x[13],
                 collection_method = x[14]
             ).where(Machine.serial == x[0])
+            query.execute()
+
+        if x[17] == 'No es visible para el OSA en DCC, presuntamente por permisos':
+            query = Machine.update(no_dcc=True).where(Machine.serial == x[0])
             query.execute()
 
 def update_new_machines():
@@ -174,6 +227,26 @@ def update_consumable_levels():
             consumable_level.black_level = 0 if x[10] == "out" else x[10]
             consumable_level.save()
 
+    consumable_level_serials = [x[8] for x in consumable_levels_array[3:]]
+    all_invetory_serials = [m.serial for m in Machine.select()]
+    isnicl = [x for x in all_invetory_serials if not x in consumable_level_serials] # -> Inventory serials not in consumbale levels
+
+    for s in isnicl:
+        print(s)
+        try: m = Machine.get(Machine.serial == s)
+        except: continue
+        cls = get_supply_levels(m.ip_addr) if m.ip_addr != "0.0.0.0" else None
+        if cls == None: continue
+        print(cls)
+        consumable_level = ConsumableLevel()
+        consumable_level.machine = m
+        consumable_level.detection_date = datetime.now()
+        consumable_level.black_level = cls[0]
+        consumable_level.cyan_level = cls[1]
+        consumable_level.magenta_level = cls[2]
+        consumable_level.yellow_level = cls[3]
+        consumable_level.save()
+
 def update_local_supply_orders():
 
     supply_orders_array = csv_to_array(automatic_orders_csv)
@@ -210,7 +283,10 @@ def update_local_supply_orders():
                 supplyorder.save()
             else:
 
-                try: SupplyOrder.update(machine = Machine.get(Machine.serial == x[2])).where(SupplyOrder.n_order == x[0])
+                try:
+                    m = Machine.get(Machine.serial == x[11])
+                    query = SupplyOrder.update(machine_id = m.id).where(SupplyOrder.n_order == x[0])
+                    query.execute()
                 except: pass
 
                 if x[4] == "3JA54AL":
@@ -263,7 +339,10 @@ def update_supply_orders():
             supplyorder.save()
         else:
 
-            try: SupplyOrder.update(machine = Machine.get(Machine.serial == x[11])).where(SupplyOrder.n_order == x[0])
+            try:
+                m = Machine.get(Machine.serial == x[11])
+                query = SupplyOrder.update(machine_id = m.id).where(SupplyOrder.n_order == x[0])
+                query.execute()
             except: pass
 
             if x[14] == "3JA54AL":

@@ -34,6 +34,7 @@ class Machine(Base):
     contact = ForeignKeyField(model=Contact, null=True, backref='machines')
     status = CharField()
     collection_method = CharField()
+    no_dcc = BooleanField(null=True) # Not added/visible in DCC
 
 class NewMachine(Base): # Used for new machines not added to DCC yet
 

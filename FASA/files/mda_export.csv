@@ -1,16 +1,12 @@
 Ticket,Titulo,Estado,SLA,Grupo,Fecha Inicio,Fecha Solucion,Usuario Afectado,Tipo,Categorias
-IM-302634,TINTAS GASTADAS,Solucionado,Normal,Soporte Impresoras HP,29-03-2025 18:04,31-03-2025 09:59,Farmacia 187,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-302654,problemas reiterados con impresora,Solucionado,Normal,Soporte Impresoras HP,29-03-2025 20:14,31-03-2025 12:52,Farmacia 355,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-302684,TINTA GASTADA,Solucionado,Normal,Soporte Impresoras HP,30-03-2025 09:50,31-03-2025 09:55,Farmacia 187,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-302781,falta tinta negra,Solucionado,Normal,Soporte Impresoras HP,31-03-2025 10:48,31-03-2025 11:22,Farmacia 681,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-302865,tinta urgente,Solucionado,Normal,Soporte Impresoras HP,31-03-2025 16:31,31-03-2025 17:02,Farmacia 515,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-303061,impresora HP sin conexion,Solucionado,Normal,Soporte Impresoras HP,01-04-2025 18:04,02-04-2025 12:20,Farmacia 35,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-303071,TINTAS HP FALTANTES  FARMCIA NUEVA,Solucionado,Normal,Soporte Impresoras HP,01-04-2025 18:50,02-04-2025 12:25,Farmacia 753,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-303106,Impresora HP no imprime,Solucionado,Normal,Soporte Impresoras HP,02-04-2025 09:20,02-04-2025 12:59,Farmacia 385,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-303137,Solicitud de impresora,Solucionado,Normal,Soporte Impresoras HP,02-04-2025 12:45,02-04-2025 15:43,Farmacia 792,Incidente,Sistemas\Hardware\Impresora - HP\Cambio por Falla
-IM-303157,del dia 26/03/2025 estamos sin impresora por falta de tintas,Solucionado,Normal,Soporte Impresoras HP,02-04-2025 15:00,02-04-2025 16:57,Farmacia 512,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-303275,sin tinta de respuesta,Solucionado,Normal,Soporte Impresoras HP,03-04-2025 13:07,03-04-2025 13:18,Farmacia 285,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-303126,Impresora HP no imprime porque esta en estado &quot;sin conexión&quot;,Solucionado,Normal,Soporte Impresoras HP,02-04-2025 11:22,02-04-2025 11:22,Farmacia 11,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-303300,Impresora HP no imprime,Solucionado,Normal,Soporte Impresoras HP,03-04-2025 15:26,03-04-2025 15:26,Farmacia 625,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-302434,TINTA  HP,Cerrado,Normal,Soporte Impresoras HP,28-03-2025 11:19,28-03-2025 11:53,Farmacia 351,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-303298,tintas gastadas,Cerrado,Normal,Soporte Impresoras HP,03-04-2025 15:22,03-04-2025 18:01,Farmacia 320,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-303414,Estimados .- Se  requiere urgente reposicion de 2 cartuchos de tinta  rosada,Solucionado,Normal,Soporte Impresoras HP,04-04-2025 12:58,08-04-2025 12:43,Farmacia 630,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-303667,problemas con impreso,Solucionado,Normal,Soporte Impresoras HP,07-04-2025 10:17,07-04-2025 12:17,Farmacia 385,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-303791,impresora se atasca,Solucionado,Normal,Soporte Impresoras HP,07-04-2025 20:48,08-04-2025 12:51,Farmacia 553,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-303877,Solicitud tinta impresora,Solucionado,Normal,Soporte Impresoras HP,08-04-2025 15:05,08-04-2025 18:04,Nicole Zagal,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-303917,Local sin  cartuchos de tinta negra,Solucionado,Normal,Soporte Impresoras HP,08-04-2025 17:43,08-04-2025 18:16,Farmacia 791,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-304037,Impresora HP sin conexión,Solucionado,Normal,Soporte Impresoras HP,09-04-2025 18:02,10-04-2025 14:14,Farmacia 605,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-304108,Impresora no escanea,Solucionado,Normal,Soporte Impresoras HP,10-04-2025 11:03,10-04-2025 14:14,Farmacia 605,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-304127,SOLICITUD DE UNA IMPRESORA LOCAL 910 COPIAPO,Solucionado,Normal,Soporte Impresoras HP,10-04-2025 13:00,10-04-2025 13:59,Farmacia 910,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-304130,"Solicitud de Cartucho 964 XL, amarillo",Solucionado,Normal,Soporte Impresoras HP,10-04-2025 13:03,10-04-2025 14:45,Farmacia 136,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
+IM-303374,hp no imprime,Cerrado,Alarmado,Soporte Impresoras HP,04-04-2025 09:56,08-04-2025 12:53,Farmacia 636,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-303637,"Impresora sin tinta negra, no se puede imprimir. Por favor solucionar URGENTE",Cerrado,Normal,Soporte Impresoras HP,06-04-2025 19:53,07-04-2025 12:16,Farmacia 320,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada

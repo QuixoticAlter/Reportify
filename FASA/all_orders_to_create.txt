@@ -1,14 +1,37 @@
-total number of supplies below threshold: 270
-TH356F616K None None M Y
-TH32RF608P B None None None
-TH32RF606G B None None None
-TH92P261H9 B None None None
-TH93D2602X None C None None
-TH93D2603C None C None None
-TH36TH61VV None C None Y
+total number of supplies below threshold: 341
+TH36TH61V6 B C None None checked
+TH22SF61F3 None None M None checked
+TH22FF6043 None None None Y 
+TH22FF603Y None None None Y
+TH39LH61WN B None None None
+TH92P261DN B None M None
+TH22FF603W None None M None
+TH0937620N None None M None
+TH36TH61W9 None None None Y
+TH356F6129 None None M None
+TH2B4F60VM None None M None
+TH93D2608S None C None Y
+TH36TH61T5 None C None None
+TH927260C9 None C M Y
+TH92P261J5 None C None None
+TH356F617W None C None None
+TH22SF61MG None None None Y
+TH92P261PB None C M None
+TH22FF604D None C None Y
+TH39LH61VR None C None None
+TH2B4F60V1 None C None None
+TH22SF61MF None None M None
+TH356F612D None None M Y
+TH22FF603Z None None None Y
+TH93D2607H None None M None
 TH92P261PT None None M None
-TH06866005 None None M Y
-TH93D2607G None None M Y
-TH39LH61WW None None M Y
-TH356F614J None None M None
+TH92P2616H None None M None
+TH356F6111 None None M None
+TH92P261KJ None None M None
+TH32RF602Q None None M None
+TH36TH61W6 None None M Y
+TH32RF603S None None M Y
+TH39LH61WW None None None Y
+TH356F614J None None None Y
 TH944460TX None None None Y
+TH92P261KR None None None Y
