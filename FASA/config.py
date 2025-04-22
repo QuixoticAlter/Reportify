@@ -1,7 +1,7 @@
 import os
 
 Account_Name = "Fasa Chile"
-Threshold = 30
+Threshold = 10
 Threshold_10 = 10
 exceptional_threshold = 50
 
@@ -36,6 +36,7 @@ sites_with_no_trigger_fails = [
     'Local 441',
     'TH0686600M',
     'TH356F616K',
+    'Local 396'
 ]
 
 SOH_Report_Name = Account_Name + " Supply Order History.xlsx"
@@ -68,6 +69,8 @@ mda_export_excel = "files\\mda_export.xlsx"
 mda_export_csv = "files\\mda_export.csv"
 nrd_export_excel = "files\\nrd_export.xlsx"
 nrd_export_csv = "files\\nrd_export.csv"
+
+all_orders_to_create_file = 'all_orders_to_create.txt'
 
 city_region_dict =  {
     "Antofagasta": "II",

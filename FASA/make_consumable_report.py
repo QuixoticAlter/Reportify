@@ -8,7 +8,7 @@
 # 2. Download the consumable levels report from DCC.
 # 3. Check if there is another file called "FASA Chile Global MS Supply Order History.xlsx", if it's the case remove it.
 # 4. Check if there is another file called "FASA Chile Global MS Consumable Levels.xlsx", if it's the case remove it.
-# 3. Excute this program through the command python make_consumable_report.py -d %d/%m/%Y
+# 3. Excute this program through the command python make_consumable_report.py -i
 # 4. Enjoy It!
 
 import requests
@@ -305,6 +305,14 @@ def get_last_20d_supply_orders():
 
     return l20dbo, last20dco, l20dmo, l20dyo
 
+def get_old_orders_to_create():
+
+    old_orders_to_create = []
+    with open(all_orders_to_create_file) as f:
+        old_orders_to_create = f.readlines()
+
+    return old_orders_to_create
+
 def get_standard_machines_orders(consumable_web, installation_date):
 
     blbt, clbt, mlbt, ylbt = get_last_24h_consumamble_levels()
@@ -396,6 +404,8 @@ def get_standard_machines_orders(consumable_web, installation_date):
                 except: pass
 
     all_orders_to_create = [order for order in all_orders_to_create if not (order[1] == None and order[2] == None and order[3] == None and order[4] == None)]
+
+    old_all_orders_to_create = get_old_orders_to_create()
 
     try: os.remove('all_orders_to_create.txt')
     except: pass
