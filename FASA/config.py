@@ -1,7 +1,7 @@
 import os
 
 Account_Name = "Fasa Chile"
-Threshold = 10
+Threshold = 30
 Threshold_10 = 10
 exceptional_threshold = 50
 
@@ -70,7 +70,7 @@ mda_export_csv = "files\\mda_export.csv"
 nrd_export_excel = "files\\nrd_export.xlsx"
 nrd_export_csv = "files\\nrd_export.csv"
 
-all_orders_to_create_file = 'all_orders_to_create.txt'
+final_orders_to_create_file = 'final_orders_to_create.txt'
 
 city_region_dict =  {
     "Antofagasta": "II",

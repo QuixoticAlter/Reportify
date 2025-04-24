@@ -267,7 +267,7 @@ def get_new_machines_orders():
         for order in orders_to_create:
             f.write("%s %s %s %s %s\n" % (order[0], order[1], order[2], order[3], order[4]))
 
-def get_last_24h_consumamble_levels():
+def get_last_24h_consumamble_levels(Threshold=30):
 
     blbt = ConsumableLevel.select().where(
          (ConsumableLevel.detection_date >= (datetime.now() - timedelta(hours=24))) & (ConsumableLevel.black_level <= Threshold) 
@@ -308,22 +308,25 @@ def get_last_20d_supply_orders():
 def get_old_orders_to_create():
 
     old_orders_to_create = []
-    with open(all_orders_to_create_file) as f:
+    with open(final_orders_to_create_file) as f:
         old_orders_to_create = f.readlines()
 
-    return old_orders_to_create
+    check_old_orders_to_create = [x.split(' ')[0:-2] for x in old_orders_to_create if 'check' in x]
+
+    return check_old_orders_to_create
 
 def get_standard_machines_orders(consumable_web, installation_date):
 
     blbt, clbt, mlbt, ylbt = get_last_24h_consumamble_levels()
+    blbt_10, clbt_10, mlbt_10, ylbt_10 = get_last_24h_consumamble_levels(Threshold_10)
     l20dbo, last20dco, l20dmo, l20dyo = get_last_20d_supply_orders()
+
+    total_supplies_below_10 = sum([len(blbt_10), len(clbt_10), len(mlbt_10), len(ylbt_10)])
 
     black_levels_below_threshold_serials = [x.machine.serial for x in blbt]
     cyan_levels_below_threshold_serials = [x.machine.serial for x in clbt]
     magenta_levels_below_threshold_serials = [x.machine.serial for x in mlbt]
     yellow_levels_below_threshold_serials = [x.machine.serial for x in ylbt]
-    levels_below_threshold_array = [len(blbt), len(clbt), len(mlbt), len(ylbt),]
-    n_levels_below_threshold = sum(levels_below_threshold_array)
 
     last_30_days_black_supply_orders_serials = [x.machine.serial for x in l20dbo]
     last_30_days_cyan_supply_orders_serials = [x.machine.serial for x in last20dco]
@@ -405,13 +408,14 @@ def get_standard_machines_orders(consumable_web, installation_date):
 
     all_orders_to_create = [order for order in all_orders_to_create if not (order[1] == None and order[2] == None and order[3] == None and order[4] == None)]
 
-    old_all_orders_to_create = get_old_orders_to_create()
+    old_orders_to_create = get_old_orders_to_create()
+    final_orders_to_create = [order for order in all_orders_to_create if not order in old_orders_to_create]
 
-    try: os.remove('all_orders_to_create.txt')
+    try: os.remove('final_orders_to_create.txt')
     except: pass
 
-    with open('all_orders_to_create.txt', 'a') as f:
-        f.write('total number of supplies below threshold: %s\n' % n_levels_below_threshold)
+    with open('final_orders_to_create.txt', 'a') as f:
+        f.write('total number of supplies below threshold_10: %s\n' % total_supplies_below_10)
         for x in all_orders_to_create:
             f.write("%s %s %s %s %s\n" % (x[0], x[1], x[2], x[3], x[4]))
 
@@ -434,4 +438,4 @@ if __name__ == "__main__":
 
     get_standard_machines_orders(consumable_web, installation_date)
     # check_high_consume_machines()
-    get_new_machines_orders()
+    # get_new_machines_orders()

@@ -133,6 +133,30 @@ class ConsumableLevel(Base):
     cyan_level = IntegerField()
     yellow_level = IntegerField()
     black_level = IntegerField()
+
+class OrderToCreate(Base):
+
+    machine = ForeignKeyField(model=Machine, null=True, backref='orders_to_creates')
+    magenta_needed = BooleanField()
+    cyan_neeeded = BooleanField()
+    yellow_needed = BooleanField()
+    black_needed = BooleanField()
+    perception_date = DateTimeField()
+    pending_of_creation = BooleanField()
+
+class LowLevelMachineRecentOrder(Base):
+
+    machine = ForeignKeyField(model=Machine, null=True)
+    recent_black_order = ForeignKeyField(model=SupplyOrder, null=True)
+    recent_cyan_order = ForeignKeyField(model=SupplyOrder, null=True)
+    recent_magenta_order = ForeignKeyField(model=SupplyOrder, null=True)
+    recent_yellow_order = ForeignKeyField(model=SupplyOrder, null=True)
+    black_level = ForeignKeyField(model=ConsumableLevel, null=True)
+    cyan_level = ForeignKeyField(model=ConsumableLevel, null=True)
+    magenta_level = ForeignKeyField(model=ConsumableLevel, null=True)
+    yellow_level = ForeignKeyField(model=ConsumableLevel, null=True)
+    perception_date = DateTimeField()
+    pending_of_verification = BooleanField()
     
 db.connect()
 db.create_tables([

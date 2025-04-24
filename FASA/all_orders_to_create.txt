@@ -1,53 +1,36 @@
-total number of supplies below threshold: 344
-TH92P261H9 B None None None Check
-TH356F613Z B None None None Check
+total number of supplies below threshold: 162
+TH91E16117 B None None None Check
+TH32RF606G None None M None Check
+TH36TH61V6 B C None None Check
 TH96T46078 B None None None Check
-TH92P261KJ None None M None
-TH22SF61MG None C None Y
-TH39LH61WD B None None None
-TH36TH61V6 B C None None
-TH927260G1 B None None None
-TH91E16117 B None None None
-TH944460V1 None None M None
-TH22SF61GM B None None None
-TH92P2619D B None None None
-TH22FF6043 None None None Y
-TH36TH61ST B C M Y
-TH22FF603W None None M None
-TH92P261DN None C None None
-TH944460T2 None None M None
-TH0937620N None None M Y
-TH36TH61W9 None None None Y
-TH356F6129 None None M None
-TH2B4F60VM None None M None
-TH356F613T B None None None
-TH05M660T5 None None M None
-TH356F614D None None M None
-TH356F616D None C None None
-TH92P261KR None None None Y
-TH356F617W None C None None
-TH92P261J5 None C None None
-TH22FF604D None C None Y
-TH92P261GM None None None Y
-TH93D2608S None C None Y
-TH32RF608P None C M None
-TH36TH61T5 None C None None
-TH92P261C8 None C None None
-TH39LH61VR None C None None
-TH2B4F60V1 None C None None
-TH22FF603Z None None M Y
-TH93D2608Q None None M None
-TH97646013 None None M Y
-TH92P2616H None None M None
-TH06866005 None None M Y
-TH356F617M None None M None
-TH356F6111 None None M None
-TH356F612D None None M None
-TH93D2607H None None M None
-TH92P261ND None None M None
-TH92P261PT None None M None
-TH36TH61W6 None None None Y
-TH944460TX None None None Y
-TH927260BN None None None Y
-TH356F614J None None None Y
-TH92P261P0 None None None Y
+TH22FF603W None None M None Check
+TH356F613Z B None None None Check
+TH927260G1 B None None None Check
+TH36TH61W9 None None None Y Check
+TH2B4F60VM None None M None Check
+TH356F613T B None None None Check
+TH05M660T5 None None M None Check
+TH92P261J5 None C None None Check
+TH92P261KR None None None Y Check
+TH36TH61T5 None C None None Check
+TH22SF61MG None C None Y Check
+TH22FF604D None C None None Check
+TH32RF608P None C M None Check
+TH39LH61VR None C None None Check
+TH2B4F60V1 None C None None Check
+TH0937620N None C M Y Check
+TH93D26074 None C None None Check
+TH356F6111 None None M None Check
+TH93D260CM None None M None Check
+TH93D2608Q None None M None Check
+TH92P261PT None None M None Check
+TH32RF602Q None None M None Check
+TH93D2607H None None M None Check
+TH36TH61W6 None None None Y Check
+TH356F6129 None None M None Check
+TH356F614J None None None Y Check
+TH22FF603Z None None None Y Check
+TH927260BN None None None Y Check
+TH92P261P0 None None None Y Check
+TH22FF6043 None None None Y Check
+TH944460TX None None None Y Check
