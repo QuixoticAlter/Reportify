@@ -205,7 +205,7 @@ def update_consumable_levels():
 
     consumable_levels_array = csv_to_array(consumable_levels_export_csv)
 
-    for x in consumable_levels_array[3:]:
+    for x in consumable_levels_array[4:]:
         rows = ConsumableLevel.select().where(ConsumableLevel.detection_date == datetime.strptime(x[9], '%m/%d/%Y %H:%M:%S'))
         if len(rows) == 0:
             consumable_level = ConsumableLevel()

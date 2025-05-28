@@ -136,14 +136,15 @@ class ConsumableLevel(Base):
 
 class OrderToCreate(Base):
 
-    machine = ForeignKeyField(model=Machine, null=True, backref='orders_to_creates')
+    machine = ForeignKeyField(model=Machine, null=True, backref='orders_to_create')
     magenta_needed = BooleanField()
-    cyan_neeeded = BooleanField()
+    cyan_needed = BooleanField()
     yellow_needed = BooleanField()
     black_needed = BooleanField()
     perception_date = DateTimeField()
-    pending_of_creation = BooleanField()
+    pending_of_creation = BooleanField(default=True)
 
+# Machines with low levels that has a supply order, but it stills maintain low levels
 class LowLevelMachineRecentOrder(Base):
 
     machine = ForeignKeyField(model=Machine, null=True)
@@ -155,11 +156,11 @@ class LowLevelMachineRecentOrder(Base):
     cyan_level = ForeignKeyField(model=ConsumableLevel, null=True)
     magenta_level = ForeignKeyField(model=ConsumableLevel, null=True)
     yellow_level = ForeignKeyField(model=ConsumableLevel, null=True)
-    perception_date = DateTimeField()
-    pending_of_verification = BooleanField()
+    has_delivery_guide = BooleanField()
+    last_verification = DateTimeField(null=True)
     
 db.connect()
 db.create_tables([
     Machine, NewMachine, RemovedMachine, Site, Contact, ChannelCase, MachineChange, 
-    HelpDeskCase, OSATASK, OSARR, OSAFOV, SupplyOrder, ConsumableLevel, NRD
+    HelpDeskCase, OSATASK, OSARR, OSAFOV, SupplyOrder, ConsumableLevel, NRD, OrderToCreate
 ])

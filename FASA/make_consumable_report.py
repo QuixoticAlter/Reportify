@@ -14,6 +14,8 @@
 import requests
 import openpyxl
 import re
+import numpy as np
+import pprint
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -310,10 +312,73 @@ def get_old_orders_to_create():
     old_orders_to_create = []
     with open(final_orders_to_create_file) as f:
         old_orders_to_create = f.readlines()
+        print(old_orders_to_create)
 
-    check_old_orders_to_create = [x.split(' ')[0:-2] for x in old_orders_to_create if 'check' in x]
+    check_old_orders_to_create = [x.split(' ')[0:-1] for x in old_orders_to_create if 'Check' in x]
 
-    return check_old_orders_to_create
+    old_orders_to_create_db = OrderToCreate.select().where(OrderToCreate.perception_date >= datetime.now() - timedelta(days=20))
+    old_orders_to_create_db_array = [
+        [x.machine.serial, 
+        'B' if x.black_needed else None,
+        'C' if x.cyan_needed else None,
+        'M' if x.magenta_needed else None,
+        'Y' if x.yellow_needed else None]
+        for x in old_orders_to_create_db
+    ]
+
+    total_old_orders_to_create = old_orders_to_create_db_array + check_old_orders_to_create
+
+    with open('total_old_orders_to_create.txt', 'w') as f:
+        pprint.pprint(total_old_orders_to_create, f)
+
+    return total_old_orders_to_create
+
+def save_old_orders_to_create(old_orders):
+
+    orders_array = []
+    for order in old_orders:
+        order_dict = {
+            'machine': Machine.get(Machine.serial == order[0]),
+            'black_needed': order[1] == 'B',
+            'cyan_needed': order[2] == 'C',
+            'magenta_needed': order[3] == 'M',
+            'yellow_needed': order[4] == 'Y',
+            'perception_date': datetime.now(),
+            'pending_of_creation': False
+        }
+        
+        order_db = OrderToCreate.select().where(
+            (OrderToCreate.machine == order_dict['machine']) &
+            (OrderToCreate.black_needed == order_dict['black_needed']) & (OrderToCreate.cyan_needed == order_dict['cyan_needed']) &
+            (OrderToCreate.magenta_needed == order_dict['magenta_needed']) & (OrderToCreate.yellow_needed == order_dict['yellow_needed']) & 
+            (OrderToCreate.perception_date >= datetime.now() - timedelta(days=20))
+        )
+
+        if len(order_db) == 0: orders_array.append(order_dict)
+
+    OrderToCreate.insert_many(orders_array).execute()
+
+def get_row_avg(row):
+
+    row_l = [row.black_level, row.magenta_level, row.cyan_level, row.yellow_level]
+    return sum(row_l)/4
+
+def order_final_orders_to_create(array):
+
+    avg_array = []
+    for i in range(0, len(array)):
+        machine = Machine.get(Machine.serial == array[i][0])
+        cl = ConsumableLevel.get(ConsumableLevel.machine == machine)
+        avg_array.append((i, get_row_avg(cl)))
+
+    avg_array.sort(key=lambda array:array[1])
+
+    sorted_array = []
+
+    for i in range(0, len(avg_array)):
+        sorted_array.append(array[avg_array[i][0]])
+
+    return sorted_array
 
 def get_standard_machines_orders(consumable_web, installation_date):
 
@@ -408,8 +473,22 @@ def get_standard_machines_orders(consumable_web, installation_date):
 
     all_orders_to_create = [order for order in all_orders_to_create if not (order[1] == None and order[2] == None and order[3] == None and order[4] == None)]
 
+    with open('all_orders_to_create.txt', 'w') as f:
+        pprint.pprint(all_orders_to_create, f)
+
     old_orders_to_create = get_old_orders_to_create()
-    final_orders_to_create = [order for order in all_orders_to_create if not order in old_orders_to_create]
+    save_old_orders_to_create(old_orders_to_create)
+
+    types_order = []
+
+    for order in old_orders_to_create:
+        types_order.append(order)
+
+    for t_order in types_order:
+        print(t_order)
+
+    final_orders_to_create = [order for order in all_orders_to_create if order not in old_orders_to_create]
+    final_orders_to_create = order_final_orders_to_create(final_orders_to_create)
 
     try: os.remove('final_orders_to_create.txt')
     except: pass

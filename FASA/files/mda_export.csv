@@ -1,15 +1,22 @@
 Ticket,Titulo,Estado,SLA,Grupo,Fecha Inicio,Fecha Solucion,Usuario Afectado,Tipo,Categorias
-IM-304309,Impreso HP sin conexión con servidor,Solucionado,Normal,Soporte Impresoras HP,11-04-2025 15:37,14-04-2025 10:53,Farmacia 11,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-304352,SOLICITUD CARTUCHOS DE TINTA,Solucionado,Normal,Soporte Impresoras HP,11-04-2025 18:54,14-04-2025 10:54,Farmacia 736,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-304369,SOLICITUD TINTAS,Solucionado,Normal,Soporte Impresoras HP,11-04-2025 21:57,14-04-2025 11:03,Farmacia 715,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-304581,IMPRESORA PRESENTA CONTINUAS FALLAS,Solucionado,Normal,Soporte Impresoras HP,14-04-2025 11:09,14-04-2025 13:02,Farmacia 385,Incidente,Sistemas\Hardware\Impresora - HP\Cambio por Falla
-IM-304676,impresora HP sin conexion,Solucionado,Normal,Soporte Impresoras HP,14-04-2025 17:50,15-04-2025 12:03,Farmacia 84,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-304738,carpeta de red no configurada,Solucionado,Normal,Soporte Impresoras HP,15-04-2025 10:31,15-04-2025 12:16,Farmacia 515,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
-IM-304998,Problemas con impresora HP,Solucionado,Normal,Soporte Impresoras HP,17-04-2025 10:02,17-04-2025 11:26,Farmacia 722,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-305144,impresora pegada,Solucionado,Normal,Soporte Impresoras HP,18-04-2025 21:08,18-04-2025 21:08,Farmacia 272,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-304263,Error en pantalla,Cerrado,Normal,Soporte Impresoras HP,11-04-2025 12:04,11-04-2025 15:14,Farmacia 67,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
-IM-304286,tinta gastada en impresora hp catrige K,Cerrado,Normal,Soporte Impresoras HP,11-04-2025 14:01,11-04-2025 14:28,Farmacia 784,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-304329,SOLICITUD TINTAS COLOR,Cerrado,Normal,Soporte Impresoras HP,11-04-2025 16:26,11-04-2025 17:52,Farmacia 722,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-304474,tintas gastadas,Cerrado,Normal,Soporte Impresoras HP,13-04-2025 11:29,14-04-2025 11:09,Farmacia 320,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-304672,revision para reposicion de tintas,Cerrado,Normal,Soporte Impresoras HP,14-04-2025 17:22,15-04-2025 10:30,Farmacia 701,Incidente,Sistemas\Hardware\Impresora - HP\Tinta gastada
-IM-305041,Impresora imprime en negro toda la hoja que se envía,Cerrado,Normal,Soporte Impresoras HP,17-04-2025 15:03,17-04-2025 16:55,Farmacia 326,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-308765,Impresora HP nueva no scanea,Solucionado,Normal,Soporte Impresoras HP,16-05-2025 18:37,19-05-2025 12:18,Farmacia 589,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-308790,impresora hp no escanea,Solucionado,Normal,Soporte Impresoras HP,16-05-2025 22:07,19-05-2025 11:13,Farmacia 589,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-308914,problema con scanner impresora,Solucionado,Normal,Soporte Impresoras HP,17-05-2025 21:15,20-05-2025 12:07,Farmacia 80,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-308930,No scanea,Solucionado,Normal,Soporte Impresoras HP,18-05-2025 12:20,19-05-2025 12:18,Farmacia 589,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-309055,Impresora no escanea,Solucionado,Normal,Soporte Impresoras HP,19-05-2025 14:29,19-05-2025 15:00,Farmacia 26,Incidente,Sistemas\Hardware\Impresora - HP\No scanea
+IM-309227,Impresora ho mal configurada,Solucionado,Normal,Soporte Impresoras HP,20-05-2025 19:50,22-05-2025 12:14,Farmacia 26,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309291,impresora HP se aprecia desconectada de la red,Solucionado,Normal,Soporte Impresoras HP,21-05-2025 13:26,22-05-2025 12:52,Farmacia 73,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309294,Reemplazo URGENTE de cable de impresora HP.,Solucionado,Normal,Soporte Impresoras HP,21-05-2025 14:01,22-05-2025 12:53,Farmacia 73,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309403,Impresora HP no imprime,Solucionado,Alarmado,Soporte Impresoras HP,22-05-2025 11:58,23-05-2025 14:41,Farmacia 764,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309523,No se imprime hoja completa,Solucionado,Normal,Soporte Impresoras HP,23-05-2025 09:01,23-05-2025 12:18,Farmacia 26,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309558,Impresora HP no imprime,Solucionado,Normal,Soporte Impresoras HP,23-05-2025 11:41,23-05-2025 12:09,Farmacia 80,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309566,impresora hp con problemas  en color negro,Solucionado,Normal,Soporte Impresoras HP,23-05-2025 12:51,23-05-2025 16:39,Farmacia 26,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309052,impresora HP no imprime,Solucionado,Normal,Soporte Impresoras HP,19-05-2025 14:12,19-05-2025 14:12,Farmacia 26,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309113,impresora hp no imprime,Solucionado,Normal,Soporte Impresoras HP,19-05-2025 20:49,19-05-2025 20:49,Farmacia 67,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309235,impresora no imprime,Solucionado,Normal,Soporte Impresoras HP,20-05-2025 21:10,20-05-2025 21:10,Farmacia 512,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309239,impresora pegada,Solucionado,Normal,Soporte Impresoras HP,20-05-2025 21:14,20-05-2025 21:14,Farmacia 26,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-308693,Solicito Impresora HP  - local NO cuenta con Impresora,Cerrado,Normal,Soporte Impresoras HP,16-05-2025 13:21,16-05-2025 17:41,Farmacia 917,Incidente,Sistemas\Hardware\Impresora - HP\Cambio por Falla
+IM-309109,Impresora HP no imprime,Cerrado,Normal,Soporte Impresoras HP,19-05-2025 20:19,20-05-2025 12:20,Farmacia 593,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309223,Impresora HP no imprime,Cerrado,Alarmado,Soporte Impresoras HP,20-05-2025 18:58,23-05-2025 11:33,Farmacia 776,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309255,No imrpime,Cerrado,Normal,Soporte Impresoras HP,21-05-2025 10:01,22-05-2025 13:27,Farmacia 593,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
+IM-309270,no hay conexión entre impresora y servidor.,Cerrado,Normal,Soporte Impresoras HP,21-05-2025 11:45,22-05-2025 12:36,Farmacia 593,Incidente,Sistemas\Hardware\Impresora - HP\No Imprime
