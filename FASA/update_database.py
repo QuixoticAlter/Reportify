@@ -32,7 +32,7 @@ def csv_to_array(input_csv):
     with open(input_csv, encoding='utf-8') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',')
         for row in spamreader:
-            array.append(row)
+            if row != '\n': array.append(row)
 
     array = [x for x in array if x != []]
 
@@ -225,6 +225,12 @@ def update_consumable_levels():
             consumable_level.cyan_level = 0 if x[11] == "out" else x[11]
             consumable_level.yellow_level = 0 if x[13] == "out" else x[13]
             consumable_level.black_level = 0 if x[10] == "out" else x[10]
+
+            if consumable_level.magenta_level == 'unknown': consumable_level.magenta_level = 0
+            if consumable_level.cyan_level == 'unknown': consumable_level.cyan_level = 0
+            if consumable_level.yellow_level == 'unknown': consumable_level.yellow_level = 0
+            if consumable_level.black_level == 'unknown': consumable_level.black_level = 0
+
             consumable_level.save()
 
     consumable_level_serials = [x[8] for x in consumable_levels_array[3:]]
@@ -305,6 +311,7 @@ def update_local_supply_orders():
 def update_supply_orders():
 
     supply_orders_array = csv_to_array(supply_export_csv)
+    supply_orders_array_filt = [x for x in supply_orders_array if x[2] != None and x[2] != '' and x[2] != '\n']
 
     cartridge_parts = {
         "cyan": "3JA54AL",
@@ -313,7 +320,7 @@ def update_supply_orders():
         "black": "3JA57AL"
     }
 
-    for x in supply_orders_array[4:]:
+    for x in supply_orders_array_filt[4:]:
         rows = SupplyOrder.select().where(SupplyOrder.n_order == x[0])
         if len(rows) == 0:
             supplyorder = SupplyOrder()
@@ -333,7 +340,7 @@ def update_supply_orders():
             supplyorder.magenta_cartridge =  "3JA55AL" if x[14] == "3JA55AL" else None
             supplyorder.yellow_cartridge = "3JA56AL" if x[14] == "3JA56AL" else None
             supplyorder.black_cartridge = "3JA57AL" if x[14] == "3JA57AL" else None
-            supplyorder.creation_date = datetime.strptime(x[2], '%Y-%m-%d %H:%M:%S')
+            supplyorder.creation_date = datetime.strptime(x[2], '%d-%m-%Y')
             supplyorder.arrival_date = None
             supplyorder.close_date = None
             supplyorder.save()

@@ -87,7 +87,7 @@ def get_n_guide_from_ingram_web(order_id):
 
         return n_guide_text
     
-def get_cartridges_install_date(ip_addr):
+def get_cartridges_install_date(ip_addr, model):
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -119,7 +119,7 @@ def get_cartridges_install_date(ip_addr):
 
     return black_install_date_text, cyan_install_date_text, magenta_install_date_text, yellow_install_date_text
 
-def get_supply_levels(ip_addr):
+def get_supply_levels(ip_addr, model):
     
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -131,24 +131,49 @@ def get_supply_levels(ip_addr):
         magenta_level = None
 
         try:
-            print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
-            page.goto("https://%s/#hId-pgConsumables" % ip_addr)
 
-            cyan_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[2]')
-            cyan_level_element.wait_for(timeout=120000)
-            cyan_level_text = cyan_level_element.inner_text()
+            if model == "HP OfficeJet Pro 9020":
 
-            magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
-            magenta_level_element.wait_for(timeout=120000)
-            magenta_level_text = magenta_level_element.inner_text()
+                print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
+                page.goto("https://%s/#hId-pgConsumables" % ip_addr)
 
-            yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
-            yellow_level_element.wait_for(timeout=120000)
-            yellow_level_text = yellow_level_element.inner_text()
+                cyan_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[2]')
+                cyan_level_element.wait_for(timeout=120000)
+                cyan_level_text = cyan_level_element.inner_text()
 
-            black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
-            black_level_element.wait_for(timeout=120000)
-            black_level_text = black_level_element.inner_text()
+                magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
+                magenta_level_element.wait_for(timeout=120000)
+                magenta_level_text = magenta_level_element.inner_text()
+
+                yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
+                yellow_level_element.wait_for(timeout=120000)
+                yellow_level_text = yellow_level_element.inner_text()
+
+                black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
+                black_level_element.wait_for(timeout=120000)
+                black_level_text = black_level_element.inner_text()
+
+            elif model == "HP OfficeJet Pro 9130": return None # USE A SIMPLE CV FUNCTION TO DETECT THE LEVELS THROUGH A SCREESHOT
+
+                # print("Getting supply levels on https://%s" % ip_addr)
+
+                # page.
+
+                # cyan_level_element = page.locator('gauge-container-instanceId_40')
+                # cyan_level_element.wait_for(timeout=120000)
+                # cyan_level_text = cyan_level_element.inner_text()
+
+                # magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
+                # magenta_level_element.wait_for(timeout=120000)
+                # magenta_level_text = magenta_level_element.inner_text()
+
+                # yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
+                # yellow_level_element.wait_for(timeout=120000)
+                # yellow_level_text = yellow_level_element.inner_text()
+
+                # black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
+                # black_level_element.wait_for(timeout=120000)
+                # black_level_text = black_level_element.inner_text()
         
         except Exception as e:
             print (e)
@@ -178,8 +203,8 @@ def check_high_consume_machines():
         m = Machine.get(Machine.id == site.machines.id)
 
         order = [m.serial, None, None, None, None]
-        supply_levels = get_supply_levels(m.ip_addr)
-        cartridge_install_date = get_cartridges_install_date(m.ip_addr)
+        supply_levels = get_supply_levels(m.ip_addr, m.model)
+        cartridge_install_date = get_cartridges_install_date(m.ip_addr, m.model, m.model)
 
         if supply_levels == None or cartridge_install_date == None: continue
 
@@ -233,8 +258,8 @@ def get_new_machines_orders():
 
         order = [m.serial, None, None, None, None]
 
-        supply_levels = get_supply_levels(m.ip_addr)
-        cartridge_install_dates = get_cartridges_install_date(m.ip_addr)
+        supply_levels = get_supply_levels(m.ip_addr, m.model)
+        cartridge_install_dates = get_cartridges_install_date(m.ip_addr, m.model)
 
         print(m.serial)
         print(supply_levels)
@@ -426,8 +451,8 @@ def get_standard_machines_orders(consumable_web, installation_date):
 
         for order in all_orders_to_create:
             machine = Machine.get(Machine.serial == order[0])
-            cartridges_install_date = get_cartridges_install_date(machine.ip_addr)
-            supply_levels = get_supply_levels(machine.ip_addr)
+            cartridges_install_date = get_cartridges_install_date(machine.ip_addr, machine.model)
+            supply_levels = get_supply_levels(machine.ip_addr, machine.model)
             # print(cartridges_install_date)
             # print(supply_levels)
             if cartridges_install_date == None and supply_levels == None: continue

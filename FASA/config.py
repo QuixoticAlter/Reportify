@@ -5,7 +5,7 @@ Threshold = 30
 Threshold_10 = 10
 exceptional_threshold = 50
 
-sites_high_consume_machines = ['Local 58']
+sites_high_consume_machines = ['Local 58', 'Local 285']
 sites_with_no_trigger_fails = [
     'Local 688', 
     'Local 58', 
@@ -47,7 +47,7 @@ MDA_Report_Name = Account_Name + " Informe MDA.xlsx"
 NRD_Report_Name = Account_Name + " NRD Devices.xlsx"
 
 DCC_Reports_Route = "C:\\Users\\HP\\Documents\\Reportes"
-Inventory_Route = "C:\\Users\\HP\\Documents\\Inventario Fasa 2024.xlsx"
+Inventory_Route = "C:\\Users\\HP\\OneDrive - Manpower Chile\\FASA\\Inventario Fasa 2025.xlsx"
 SOH_Report_Route = os.path.join(DCC_Reports_Route, SOH_Report_Name)
 CL_Report_Route = os.path.join(DCC_Reports_Route, CL_Report_Name)
 SR_Report_Route = os.path.join(DCC_Reports_Route, SR_Report_Name)
