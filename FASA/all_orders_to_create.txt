@@ -1,8 +1,10 @@
-[['TH32RF604Y', None, None, None, 'Y'],
- ['TH2B4F60V1', 'B', None, None, None],
- ['TH2B4F60VM', 'B', None, None, 'Y'],
- ['TH93D2608S', 'B', None, None, None],
- ['TH0937620N', None, 'C', None, None],
- ['TH92P261F4', None, 'C', 'M', 'Y'],
- ['TH92P261FD', None, 'C', 'M', None],
- ['TH93D2607K', None, None, None, 'Y']]
+[['TH92P261DN', 'B', 'C', None, None],
+ ['TH39LH61VR', None, None, 'M', None],
+ ['TH2B4F60VM', 'B', None, None, None],
+ ['TH39LH61Z1', None, 'C', None, None],
+ ['TH944460SM', None, 'C', None, None],
+ ['TH39LH61XR', None, 'C', 'M', 'Y'],
+ ['TH356F6113', None, 'C', 'M', 'Y'],
+ ['TH92P261PT', None, None, 'M', None],
+ ['TH39LH61X1', None, None, 'M', None],
+ ['TH32RF6050', None, None, None, 'Y']]

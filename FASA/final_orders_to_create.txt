@@ -1,9 +1,11 @@
-total number of supplies below threshold_10: 188
-TH32RF604Y None None None Y Check
-TH2B4F60V1 B None None None Check
-TH2B4F60VM B None None Y Check
-TH93D2608S B None None None Check
-TH0937620N None C None None Check
-TH92P261F4 None C M Y Check
-TH92P261FD None C M None Check
-TH93D2607K None None None Y Check
+total number of supplies below threshold_10: 119
+TH92P261DN B C None None Check
+TH39LH61VR None None M None Check
+TH2B4F60VM B None None None - Enviar correo de seguimiento. No guía de despacho.
+TH39LH61Z1 None C None None Check
+TH944460SM None C None None Check
+TH39LH61XR None C M Y Check
+TH356F6113 None C M Y Check
+TH92P261PT None None M None Check
+TH39LH61X1 None None M None Check
+TH32RF6050 None None None Y Check

@@ -153,28 +153,28 @@ def get_supply_levels(ip_addr, model):
                 black_level_element.wait_for(timeout=120000)
                 black_level_text = black_level_element.inner_text()
 
-            elif model == "HP OfficeJet Pro 9130": return None # USE A SIMPLE CV FUNCTION TO DETECT THE LEVELS THROUGH A SCREESHOT
+            elif model == "HP OfficeJet Pro 9130": return None # USE A SIMPLE CV FUNCTION TO DETECT THE LEVELS THROUGH A SCREENSHOT
 
                 # print("Getting supply levels on https://%s" % ip_addr)
 
-                # page.
+                #         page.
 
-                # cyan_level_element = page.locator('gauge-container-instanceId_40')
-                # cyan_level_element.wait_for(timeout=120000)
-                # cyan_level_text = cyan_level_element.inner_text()
+                #         cyan_level_element = page.locator('gauge-container-instanceId_40')
+                #         cyan_level_element.wait_for(timeout=120000)
+                #         cyan_level_text = cyan_level_element.inner_text()
 
-                # magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
-                # magenta_level_element.wait_for(timeout=120000)
-                # magenta_level_text = magenta_level_element.inner_text()
+                #         magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
+                #         magenta_level_element.wait_for(timeout=120000)
+                #         magenta_level_text = magenta_level_element.inner_text()
 
-                # yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
-                # yellow_level_element.wait_for(timeout=120000)
-                # yellow_level_text = yellow_level_element.inner_text()
+                #         yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
+                #         yellow_level_element.wait_for(timeout=120000)
+                #         yellow_level_text = yellow_level_element.inner_text()
 
-                # black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
-                # black_level_element.wait_for(timeout=120000)
-                # black_level_text = black_level_element.inner_text()
-        
+                #         black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
+                #         black_level_element.wait_for(timeout=120000)
+                #         black_level_text = black_level_element.inner_text()
+                
         except Exception as e:
             print (e)
             print("Error getting the supply levels!")
@@ -409,9 +409,11 @@ def get_standard_machines_orders(consumable_web, installation_date):
 
     blbt, clbt, mlbt, ylbt = get_last_24h_consumamble_levels()
     blbt_10, clbt_10, mlbt_10, ylbt_10 = get_last_24h_consumamble_levels(Threshold_10)
+    blbt_0, clbt_0, mlbt_0, ylbt_0 = get_last_24h_consumamble_levels(Threshold_0)
     l20dbo, last20dco, l20dmo, l20dyo = get_last_20d_supply_orders()
 
     total_supplies_below_10 = sum([len(blbt_10), len(clbt_10), len(mlbt_10), len(ylbt_10)])
+    total_supplies_on_0 = sum([len(blbt_0), len(clbt_0), len(mlbt_0), len(ylbt_0)])
 
     black_levels_below_threshold_serials = [x.machine.serial for x in blbt]
     cyan_levels_below_threshold_serials = [x.machine.serial for x in clbt]

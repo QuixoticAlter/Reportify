@@ -3,6 +3,7 @@ import os
 Account_Name = "Fasa Chile"
 Threshold = 30
 Threshold_10 = 10
+Threshold_0 = 0
 exceptional_threshold = 50
 
 sites_high_consume_machines = ['Local 58', 'Local 285']
