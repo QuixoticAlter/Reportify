@@ -35,6 +35,7 @@ import traceback
 import csv
 
 from playwright.sync_api import sync_playwright
+from pypdf import PdfReader
 
 def get_n_guide_from_ingram_web(order_id):
 
@@ -119,7 +120,7 @@ def get_cartridges_install_date(ip_addr, model):
 
     return black_install_date_text, cyan_install_date_text, magenta_install_date_text, yellow_install_date_text
 
-def get_supply_levels(ip_addr, model):
+def get_supply_levels(ip_addr, model, pin):
     
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -132,7 +133,7 @@ def get_supply_levels(ip_addr, model):
 
         try:
 
-            if model == "HP OfficeJet Pro 9020":
+            if model == "HP OfficeJet Pro 9020" or model == "HP OfficeJet Pro 9010 AiO Printer":
 
                 print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
                 page.goto("https://%s/#hId-pgConsumables" % ip_addr)
@@ -153,30 +154,39 @@ def get_supply_levels(ip_addr, model):
                 black_level_element.wait_for(timeout=120000)
                 black_level_text = black_level_element.inner_text()
 
-            elif model == "HP OfficeJet Pro 9130": return None # USE A SIMPLE CV FUNCTION TO DETECT THE LEVELS THROUGH A SCREENSHOT
+            elif model == "HP OfficeJet Pro 9130":
 
-                # print("Getting supply levels on https://%s" % ip_addr)
+                page.goto("%s" % ip_addr)
+                support_tools_item = page.locator('//span[@role="menuitem" and contains(text(),"Herramientas de soporte")]')
+                support_tools_item.wait_for(timeout=5000)
+                support_tools_item.click()
 
-                #         page.
+                reports_item = page.locator('//span[@class="mat-list-text" and contains(text(), "Informes y páginas")]')
+                reports_item.wait_for(timeout=5000)
+                reports_item.click()
 
-                #         cyan_level_element = page.locator('gauge-container-instanceId_40')
-                #         cyan_level_element.wait_for(timeout=120000)
-                #         cyan_level_text = cyan_level_element.inner_text()
+                pin_input = page.locator('//input[@id="pin"]')
+                pin_input.wait_for(timeout=5000)
+                pin_input.type("%s" % pin)
 
-                #         magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
-                #         magenta_level_element.wait_for(timeout=120000)
-                #         magenta_level_text = magenta_level_element.inner_text()
+                download_tab = page.locator('//div[@class="mat-tab-label-content" and contains(text(), "Descargar")]')
+                download_tab.wait_for(timeout=5000)
+                download_tab.click()
 
-                #         yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
-                #         yellow_level_element.wait_for(timeout=120000)
-                #         yellow_level_text = yellow_level_element.inner_text()
+                menu_item = page.locator('//input[@id="printerStatusReport-input"]')
+                menu_item.wait_for(timeout=5000)
+                menu_item.click()
 
-                #         black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
-                #         black_level_element.wait_for(timeout=120000)
-                #         black_level_text = black_level_element.inner_text()
-                
-        except Exception as e:
-            print (e)
+                with page.expect_download as download_info:
+
+                    download_button = page.locator('//button[@id="reports-download-footer"]')
+                    download_button.wait_for(timeout=5000)
+                    download_button.click()
+
+                download = download_info.value
+                download.save_as("files/status_report.pdf" + download.suggested_filename)
+        
+        except:
             print("Error getting the supply levels!")
             return None
 
@@ -203,7 +213,7 @@ def check_high_consume_machines():
         m = Machine.get(Machine.id == site.machines.id)
 
         order = [m.serial, None, None, None, None]
-        supply_levels = get_supply_levels(m.ip_addr, m.model)
+        supply_levels = get_supply_levels(m.ip_addr, m.model, m.pin)
         cartridge_install_date = get_cartridges_install_date(m.ip_addr, m.model, m.model)
 
         if supply_levels == None or cartridge_install_date == None: continue
@@ -454,7 +464,7 @@ def get_standard_machines_orders(consumable_web, installation_date):
         for order in all_orders_to_create:
             machine = Machine.get(Machine.serial == order[0])
             cartridges_install_date = get_cartridges_install_date(machine.ip_addr, machine.model)
-            supply_levels = get_supply_levels(machine.ip_addr, machine.model)
+            supply_levels = get_supply_levels(machine.ip_addr, machine.model, machine.pin)
             # print(cartridges_install_date)
             # print(supply_levels)
             if cartridges_install_date == None and supply_levels == None: continue

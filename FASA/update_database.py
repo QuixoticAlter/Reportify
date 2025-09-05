@@ -56,7 +56,7 @@ def convert_excel_exports_to_csv():
     convert_excel_to_csv(mda_export_excel, 'Datos', mda_export_csv)
     convert_excel_to_csv(nrd_export_excel, 'Report', nrd_export_csv)
 
-def get_supply_levels(ip_addr):
+def get_supply_levels(ip_addr, model, pin):
     
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -68,27 +68,61 @@ def get_supply_levels(ip_addr):
         magenta_level = None
 
         try:
-            print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
-            page.goto("https://%s/#hId-pgConsumables" % ip_addr)
 
-            cyan_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[2]')
-            cyan_level_element.wait_for(timeout=120000)
-            cyan_level_text = cyan_level_element.inner_text()
+            if model == "HP OfficeJet Pro 9020" or model == "HP OfficeJet Pro 9010 AiO Printer":
 
-            magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
-            magenta_level_element.wait_for(timeout=120000)
-            magenta_level_text = magenta_level_element.inner_text()
+                print("Getting supply levels on https://%s/#hId-pgConsumables" % ip_addr)
+                page.goto("https://%s/#hId-pgConsumables" % ip_addr)
 
-            yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
-            yellow_level_element.wait_for(timeout=120000)
-            yellow_level_text = yellow_level_element.inner_text()
+                cyan_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[2]')
+                cyan_level_element.wait_for(timeout=120000)
+                cyan_level_text = cyan_level_element.inner_text()
 
-            black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
-            black_level_element.wait_for(timeout=120000)
-            black_level_text = black_level_element.inner_text()
+                magenta_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[3]')
+                magenta_level_element.wait_for(timeout=120000)
+                magenta_level_text = magenta_level_element.inner_text()
+
+                yellow_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[4]')
+                yellow_level_element.wait_for(timeout=120000)
+                yellow_level_text = yellow_level_element.inner_text()
+
+                black_level_element = page.locator('//table[@id="appConsumable-inkCart-tbl-Tbl"]/tbody/tr[9]/td[5]')
+                black_level_element.wait_for(timeout=120000)
+                black_level_text = black_level_element.inner_text()
+
+            elif model == "HP OfficeJet Pro 9130": pass
+
+                # page.goto("%s" % ip_addr)
+                # support_tools_item = page.locator('//span[@role="menuitem" and contains(text(),"Herramientas de soporte")]')
+                # support_tools_item.wait_for(timeout=5000)
+                # support_tools_item.click()
+
+                # reports_item = page.locator('//span[@class="mat-list-text" and contains(text(), "Informes y páginas")]')
+                # reports_item.wait_for(timeout=5000)
+                # reports_item.click()
+
+                # pin_input = page.locator('//input[@id="pin"]')
+                # pin_input.wait_for(timeout=5000)
+                # pin_input.type("%s" % pin)
+
+                # download_tab = page.locator('//div[@class="mat-tab-label-content" and contains(text(), "Descargar")]')
+                # download_tab.wait_for(timeout=5000)
+                # download_tab.click()
+
+                # menu_item = page.locator('//input[@id="printerStatusReport-input"]')
+                # menu_item.wait_for(timeout=5000)
+                # menu_item.click()
+
+                # with page.expect_download as download_info:
+
+                #     download_button = page.locator('//button[@id="reports-download-footer"]')
+                #     download_button.wait_for(timeout=5000)
+                #     download_button.click()
+
+                # download = download_info.value
+                # download.save_as("files/status_report.pdf" + download.suggested_filename)
         
-        except Exception as e:
-            print (e)
+        except:
             print("Error getting the supply levels!")
             return None
 
@@ -134,6 +168,7 @@ def update_inventory():
             machine.model = x[3]
             machine.ip_addr = x[4]
             machine.hostname = x[5]
+            machine.pin = x[6]
             machine.site = Site.get(Site.name == x[7])
             machine.status = x[13]
             machine.collection_method = x[14]
@@ -145,6 +180,7 @@ def update_inventory():
                 model = x[3],
                 ip_addr = x[4],
                 hostname = x[5],
+                pin = x[6],
                 site = Site.get(Site.name == x[7]),
                 status = x[13],
                 collection_method = x[14]
@@ -241,7 +277,7 @@ def update_consumable_levels():
         print(s)
         try: m = Machine.get(Machine.serial == s)
         except: continue
-        cls = get_supply_levels(m.ip_addr) if m.ip_addr != "0.0.0.0" else None
+        cls = get_supply_levels(m.ip_addr, m.model, m.pin) if m.ip_addr != "0.0.0.0" and m.model != "HP OfficeJet Pro 9130" else None
         if cls == None: continue
         print(cls)
         consumable_level = ConsumableLevel()
@@ -336,10 +372,12 @@ def update_supply_orders():
                     rmachine.serial = x[11]
                     rmachine.save()
                     supplyorder.removed_machine = rmachine
-            supplyorder.cyan_cartridge = "3JA54AL" if x[14] == "3JA54AL" else None
-            supplyorder.magenta_cartridge =  "3JA55AL" if x[14] == "3JA55AL" else None
-            supplyorder.yellow_cartridge = "3JA56AL" if x[14] == "3JA56AL" else None
-            supplyorder.black_cartridge = "3JA57AL" if x[14] == "3JA57AL" else None
+
+            if x[14] == "3JA54AL" or x[14] == "4S6X9PL" or x[14] == "4S6X5PL": supplyorder.cyan_cartridge = x[14]
+            if x[14] == "3JA55AL" or x[14] == "4S6Y0PL" or x[14] == "4S6X6PL": supplyorder.magenta_cartridge = x[14]
+            if x[14] == "3JA56AL" or x[14] == "4S6Y1PL" or x[14] == "4S6X7PL": supplyorder.yellow_cartridge = x[14]
+            if x[14] == "3JA57AL" or x[14] == "4S6Y2PL" or x[14] == "4S6X8PL": supplyorder.black_cartridge = x[14]
+
             supplyorder.creation_date = datetime.strptime(x[2], '%d-%m-%Y')
             supplyorder.arrival_date = None
             supplyorder.close_date = None
@@ -352,18 +390,16 @@ def update_supply_orders():
                 query.execute()
             except: pass
 
-            if x[14] == "3JA54AL":
-                query = SupplyOrder.update(cyan_cartridge = "3JA54AL").where(SupplyOrder.n_order == x[0])
-                query.execute()
-            elif x[14] == "3JA55AL":
-                query = SupplyOrder.update(magenta_cartridge = "3JA55AL").where(SupplyOrder.n_order == x[0])
-                query.execute()
-            elif x[14] == "3JA56AL":
-                query = SupplyOrder.update(yellow_cartridge = "3JA56AL").where(SupplyOrder.n_order == x[0])
-                query.execute()
-            elif x[14] == "3JA57AL":
-                query = SupplyOrder.update(black_cartridge = "3JA57AL").where(SupplyOrder.n_order == x[0])
-                query.execute()
+            if x[14] == "3JA54AL" or x[14] == "4S6X9PL" or x[14] == "4S6X5PL":
+                query = SupplyOrder.update(cyan_cartridge = x[14]).where(SupplyOrder.n_order == x[0])
+            elif x[14] == "3JA55AL" or x[14] == "4S6Y0PL" or x[14] == "4S6X6PL":
+                query = SupplyOrder.update(magenta_cartridge = x[14]).where(SupplyOrder.n_order == x[0])
+            elif x[14] == "3JA56AL" or x[14] == "4S6Y1PL" or x[14] == "4S6X7PL":
+                query = SupplyOrder.update(yellow_cartridge = x[14]).where(SupplyOrder.n_order == x[0])
+            elif x[14] == "3JA57AL" or x[14] == "4S6Y2PL" or x[14] == "4S6X8PL":
+                query = SupplyOrder.update(black_cartridge = x[14]).where(SupplyOrder.n_order == x[0])
+            
+            query.execute()
 
 def update_nrd():
 
@@ -455,13 +491,13 @@ if __name__ == "__main__":
     copy_reports()
     convert_excel_exports_to_csv()
     update_inventory()
-    update_new_machines()
+    # update_new_machines()
     update_consumable_levels()
     update_supply_orders()
-    update_local_supply_orders()
+    # update_local_supply_orders()
     # update_nrd()
     # update_helpdesk_cases()
-    update_service_requests()
+    # update_service_requests()
 
     machine_serial = "TH9B46604M"
     machineObj = Machine.get(Machine.serial == machine_serial)

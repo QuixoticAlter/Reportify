@@ -30,6 +30,7 @@ class Machine(Base):
     subnet_mask = CharField(null=True)
     gateway = CharField(null=True)
     mac_addr = CharField(null=True)
+    pin = IntegerField(null=True)
     site = ForeignKeyField(model=Site, null=True, backref='machines')
     contact = ForeignKeyField(model=Contact, null=True, backref='machines')
     status = CharField()

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#027aae"/>
+    <title>HP Embedded Web Server</title>
+    <base href="/">
+
+    <script src="browser-check.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" crossorigin="use-credentials" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.dfe9c61f01ec5c39.css" crossorigin="anonymous" integrity="sha384-XFBjpXJkxkw1MXW9ZNvSfUK5M60R01prVnpttJrC7J27czfP66NY7+JMnHY0EBmO"></head>
+
+<body class="mat-app-background">
+    <app-root></app-root>
+<script src="runtime.ff05af4f18c5582f.js" type="module" crossorigin="anonymous" integrity="sha384-VcdHY2hpewnuYResKYxco9z0lpB4/87nVfmkj4HXKPQQEmc4U3QETp/8e4Y6fZuD"></script><script src="polyfills.dbd20297319269b8.js" type="module" crossorigin="anonymous" integrity="sha384-wkhCPkR90KgjdYHqymcpPJCqbQVroWIa4czASVrbeaubx8e3+n7c8BYnpty6fGzv"></script><script src="scripts.ac77b255b6b1b490.js" defer crossorigin="anonymous" integrity="sha384-wHw+7Wmhcm44qpd/EiGl0WgG6xL5oLPn2XBHm6PYHIim0SF/fqPleX3NUTv7oMuL"></script><script src="main.00030e1c62e097c4.js" type="module" crossorigin="anonymous" integrity="sha384-zHJOLU0N2CHgtSwQ0eFpFvK91E9cnF5vIAzZQE4caBbd9Brf9lLVLXque95QaPc9"></script></body>
+
+</html>
