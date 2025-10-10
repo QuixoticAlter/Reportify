@@ -90,33 +90,37 @@ def get_n_guide_from_ingram_web(order_id):
     
 def get_cartridges_install_date(ip_addr, model):
 
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch()
-        page = browser.new_page(ignore_https_errors=True)
+    if model == "HP OfficeJet Pro 9020" or model == "HP OfficeJet Pro 9010 AiO Printer":
 
-        try:
-            print("Getting cartridges install date on https://%s/#hId-pgConsumables" % ip_addr)
-            page.goto("https://%s/#hId-pgConsumables" % ip_addr)
+        with sync_playwright() as pw:
+            browser = pw.chromium.launch()
+            page = browser.new_page(ignore_https_errors=True)
 
-            cyan_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[2]')
-            cyan_install_date.wait_for(timeout=120000)
-            cyan_install_date_text = cyan_install_date.inner_text()
+            try:
+                print("Getting cartridges install date on https://%s/#hId-pgConsumables" % ip_addr)
+                page.goto("https://%s/#hId-pgConsumables" % ip_addr)
 
-            magenta_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[3]')
-            magenta_install_date.wait_for(timeout=120000)
-            magenta_install_date_text = magenta_install_date.inner_text()
+                cyan_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[2]')
+                cyan_install_date.wait_for(timeout=120000)
+                cyan_install_date_text = cyan_install_date.inner_text()
 
-            yellow_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[4]')
-            yellow_install_date.wait_for(timeout=120000)
-            yellow_install_date_text = yellow_install_date.inner_text()
+                magenta_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[3]')
+                magenta_install_date.wait_for(timeout=120000)
+                magenta_install_date_text = magenta_install_date.inner_text()
 
-            black_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[5]')
-            black_install_date.wait_for(timeout=120000)
-            black_install_date_text = black_install_date.inner_text()
-        
-        except:
-            print("Error getting the cartridges install date!")
-            return None
+                yellow_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[4]')
+                yellow_install_date.wait_for(timeout=120000)
+                yellow_install_date_text = yellow_install_date.inner_text()
+
+                black_install_date = page.locator('//tr[@class="gui-list-tbl-even-row"][3]/td[5]')
+                black_install_date.wait_for(timeout=120000)
+                black_install_date_text = black_install_date.inner_text()
+            
+            except:
+                print("Error getting the cartridges install date!")
+                return None
+            
+    else: pass
 
     return black_install_date_text, cyan_install_date_text, magenta_install_date_text, yellow_install_date_text
 
@@ -154,37 +158,37 @@ def get_supply_levels(ip_addr, model, pin):
                 black_level_element.wait_for(timeout=120000)
                 black_level_text = black_level_element.inner_text()
 
-            elif model == "HP OfficeJet Pro 9130":
+            elif model == "HP OfficeJet Pro 9130": pass
 
-                page.goto("%s" % ip_addr)
-                support_tools_item = page.locator('//span[@role="menuitem" and contains(text(),"Herramientas de soporte")]')
-                support_tools_item.wait_for(timeout=5000)
-                support_tools_item.click()
+                # page.goto("%s" % ip_addr)
+                # support_tools_item = page.locator('//span[@role="menuitem" and contains(text(),"Herramientas de soporte")]')
+                # support_tools_item.wait_for(timeout=5000)
+                # support_tools_item.click()
 
-                reports_item = page.locator('//span[@class="mat-list-text" and contains(text(), "Informes y páginas")]')
-                reports_item.wait_for(timeout=5000)
-                reports_item.click()
+                # reports_item = page.locator('//span[@class="mat-list-text" and contains(text(), "Informes y páginas")]')
+                # reports_item.wait_for(timeout=5000)
+                # reports_item.click()
 
-                pin_input = page.locator('//input[@id="pin"]')
-                pin_input.wait_for(timeout=5000)
-                pin_input.type("%s" % pin)
+                # pin_input = page.locator('//input[@id="pin"]')
+                # pin_input.wait_for(timeout=5000)
+                # pin_input.type("%s" % pin)
 
-                download_tab = page.locator('//div[@class="mat-tab-label-content" and contains(text(), "Descargar")]')
-                download_tab.wait_for(timeout=5000)
-                download_tab.click()
+                # download_tab = page.locator('//div[@class="mat-tab-label-content" and contains(text(), "Descargar")]')
+                # download_tab.wait_for(timeout=5000)
+                # download_tab.click()
 
-                menu_item = page.locator('//input[@id="printerStatusReport-input"]')
-                menu_item.wait_for(timeout=5000)
-                menu_item.click()
+                # menu_item = page.locator('//input[@id="printerStatusReport-input"]')
+                # menu_item.wait_for(timeout=5000)
+                # menu_item.click()
 
-                with page.expect_download as download_info:
+                # with page.expect_download as download_info:
 
-                    download_button = page.locator('//button[@id="reports-download-footer"]')
-                    download_button.wait_for(timeout=5000)
-                    download_button.click()
+                #     download_button = page.locator('//button[@id="reports-download-footer"]')
+                #     download_button.wait_for(timeout=5000)
+                #     download_button.click()
 
-                download = download_info.value
-                download.save_as("files/status_report.pdf" + download.suggested_filename)
+                # download = download_info.value
+                # download.save_as("files/status_report.pdf" + download.suggested_filename)
         
         except:
             print("Error getting the supply levels!")
@@ -463,8 +467,8 @@ def get_standard_machines_orders(consumable_web, installation_date):
 
         for order in all_orders_to_create:
             machine = Machine.get(Machine.serial == order[0])
-            cartridges_install_date = get_cartridges_install_date(machine.ip_addr, machine.model)
-            supply_levels = get_supply_levels(machine.ip_addr, machine.model, machine.pin)
+            cartridges_install_date = get_cartridges_install_date(machine.ip_addr, machine.model) if machine.model != "HP OfficeJet Pro 9130" else None
+            supply_levels = get_supply_levels(machine.ip_addr, machine.model, machine.pin) if machine.model != "HP OfficeJet Pro 9130" else None
             # print(cartridges_install_date)
             # print(supply_levels)
             if cartridges_install_date == None and supply_levels == None: continue

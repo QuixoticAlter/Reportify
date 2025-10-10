@@ -66,7 +66,7 @@ def get_supply_orders():
 
     no_guides = []
 
-    orders = SupplyOrder.select().where(SupplyOrder.creation_date >= datetime.strptime('01-08-2025', '%d-%m-%Y'))
+    orders = SupplyOrder.select().where(SupplyOrder.creation_date >= datetime.strptime('01-09-2025', '%d-%m-%Y'))
     for order in orders:
         no_info_ingram, no_dg_link = get_n_guide_from_ingram_web(order.n_order)
 
@@ -116,6 +116,6 @@ def get_supply_orders():
 
 no_guides = get_supply_orders()
 with open("no_guides.txt", 'w') as f:
-    for no_g in no_guides: f.write("%s,%s,%s,%s,%s,%s\n" % (
+    for no_g in no_guides: f.write("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n" % (
         no_g[0], no_g[1], no_g[2], no_g[3], no_g[4], no_g[5], no_g[6], no_g[7], no_g[8], no_g[9]
     ))

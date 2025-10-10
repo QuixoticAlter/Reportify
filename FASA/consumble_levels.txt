@@ -1,0 +1,422 @@
+TH944460VC|Local 393|Gran Avenida No 6150|San Miguel|58|51|91|60
+TH92P261QC|Local 593|Av. Portales N° 3698, local 1236|San Bernardo|8|51|27|88
+TH356F616K|Local 285|Av. La Dehesa Nº 457 / El Roble|Lo Barnechea|57|73|30|28
+TH39LH61XC|Local 455|Av Santa Teresita 683 L18|Los Andes|88|87|88|74
+TH22SF61MG|Local 549|Av. Ramón Freire 2414 - L 1082|Quilpué|97|54|64|14
+TH39LH61VX|Local 373|Sargento Aldea 1089|Puerto Aysen|81|80|55|0
+TH92P2616X|Local 546|Av. Americo Vespucio 33 L26 - Esq. Gran Avenida|Santiago|37|28|34|59
+TH356F614P|Local 76|Avda. Concha y Toro Nº 1149 |Puente Alto|25|75|57|10
+TH36TH61W1|Local 715|Libertad 825|Viña del Mar|57|15|42|46
+TH92P261P7|Local 624|Avenida del Parque N° 4722 local|Santiago|87|84|84|71
+TH93D26069|Local 141|Av. Valparaíso N°505/ Etchevers|Viña del Mar|71|51|21|50
+TH93D26048|Local 120|Latorre N°1979|Regiones|79|39|43|11
+TH356F617C|Local 698|Av. gastón hamel nieto n°527 lote 6|Viña del Mar|21|94|95|95
+TH92P261P6|Local 659|Avda. Vespucio N°1737 Local H-104 Huechuraba|Santiago|90|17|64|88
+TH93D2601V|Local 357|18 de Septiembre 1402|Arica|72|87|70|41
+TH356F6168|Local 328|Av. Simón Bolívar Nº 3756 |Ñuñoa|36|78|18|63
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|60|55|60|75
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|30
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|60|60|0|65
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|25|25|50
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|5|5|5
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|50|40|45|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|0|60|0|15
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH93D26049|Local 367|Manuel Bulnes  599|Puerto Natales|84|45|74|37
+TH93D2603N|Local 360|Av. Ramon Freire 7001|Santiago|73|88|15|0
+TH32RF608P|Local 243|Avda. El Rodeo N 12.850  Local 45 al 47|Santiago|61|63|82|0
+TH92P261P0|Local 219|Diego Portales N 802 Loc. 3 Mall Plaza El Sol|Quilpue|49|33|88|29
+TH92P261DB|Local 572|Consistorial 2100 L119 y L120|Santiago|0|58|19|0
+TH927260G1|Local 8|Avda. Kennedy Nº 9001 Loc.1072 |Las Condes|89|9|5|67
+TH92P261FD|Local 383|Paul Harris 10.287 - L1|Las Condes|6|73|0|64
+TH93D2603B|Local 480|Independencia 611|Linares|25|24|51|67
+TH36TH61RH|Local 98|Av. Pedro de Valdivia Nº 2523 / Diagonal Oriente|Santiago|32|0|55|26
+TH36TH61SH|Local 683|Los Mañios 4455|San Pedro de la Paz|58|11|26|67
+TH944460V1|Local 638|Vicuña Mackenna 1 - Esquina Ariztia Poniente  L12|Ovalle|51|30|40|21
+TH36TH61RQ|Local 685|Av. Apoquindo #2730, local S-309, Las Condes|Santiago|40|95|43|39
+TH93D2602J|Local 416|Autopista Concepcion Talcahuano N° 9000|Concepcion|47|15|47|66
+TH22FF603Z|Local 191|Av. Colón N° 8961 / Nueva Imperial|Talcahuano|0|85|12|16
+TH36TH61VY|Local 706|Ahumada N°2, Santiago.|Santiago|12|2|30|72
+TH93D2609F|Local 170|1 Sur nº 1399|Talca|45|8|45|4
+TH92P2616Y|Local 331|Lautaro 84 - Plaza de Armas|Temuco|61|98|77|43
+TH93D26060|Local 149|Arturo Prat Nº 798|San Felipe|26|92|91|6
+TH93D2603M|Local 578|Caparrosa 355|Antofagasta|97|76|98|30
+TH356F610P|Local 289|Barros Arana 501|Concepcion|59|97|48|62
+TH356F6111|Local 24|Manquehue Sur N 31 Local 232 194 196   Apumanque|Santiago|16|15|98|4
+TH92P261H3|Local 349|Jesus Pons 409|Curico|85|27|96|38
+TH356F616D|Local 450|San Francisco 350|Puerto Varas|73|26|33|77
+TH92P261HD|Local 290|Av. Vicuña Mackenna N° 6100|La Florida|91|72|72|68
+TH32RF606G|Local 690|Ramon Picarte 422 Local 001 Mall Paseo Valdivia|Valdivia|26|25|81|92
+TH36TH61T0|Local 710|Ahumada N°355, Santiago.|Santiago|60|29|60|77
+TH1BOD61KM|Local 555|Guillermo Buhler 1799 - Lider|Osorno|14|68|37|73
+TH93D2608J|Local 654|Av. Presidente Ibañez N° 1433|Puerto Montt|67|10|78|70
+TH22FF604M|Local 451|Av Las Condes 10295|Santiago|19|98|0|17
+TH93D26069|Local 141|Av. Valparaíso N°505/ Etchevers|Viña del Mar|68|47|17|46
+TH93D2605N|Local 159|Av.Valparaíso nº 702|Villa Alemana|70|10|46|71
+TH39LH61TT|Local 205|Av. Francisco Bilbao 7391 (Urgencia)|Santiago|18|53|55|25
+TH93D2608S|Local 389|Av. Recoleta 3501|Recoleta|52|83|49|30
+TH39LH61ZZ|Local 713|Caupolican 575|Los Vilos|84|74|78|81
+TH356F614K|Magistral Principal|Av. Vicuña Mackenna 4114, Macul,|Santiago|54|61|73|4
+TH11J8604F|Magistral Principal|Av. Vicuña Mackenna 4114, Macul,|Santiago|58|65|64|79
+TH0686600R|Local 73|Apoquindo 4831|Las Condes|42|61|75|39
+TH92P261HG|Local 171|Independencia 535|Linares|23|19|43|32
+TH32RF6028|Local 679|Miraflores 8702  local 01 comuna de Renca|Renca|34|14|43|0
+TH1AK860ZP|Local 323|Calle Pudeto 289 - 295 - Ancud|Ancud|54|47|58|8
+TH93D2601T|Local 339|Av. Concha y Toro 26 - L2 - Super Economax|Puente Alto|20|49|62|40
+TH93D2607J|Local 473|Manuel Montt 2328|Coronel|43|95|19|83
+TH944460V9|Local 274|Condell n 100|Rengo|45|2|10|88
+TH92P261KK|Local 124|Zenteno N° 21 Local 1, Megamercado Líder|Antofagasta|26|15|89|89
+TH944460SM|Local 111|Vivar nº 723|Iquique|57|19|90|90
+TH97646013|Local 399|Riquelme 69 - Interior Super Lider|El Bosque|9|90|12|71
+TH96T46078|Local 413|Camino El Alba 11865|Santiago|50|35|51|78
+TH356F613T|Local 748|Vitacura 3619|Vitacura|27|22|40|39
+TH39LH61WD|Local 511|Calle Esmeralda 327|Los Andes|92|31|55|62
+TH36TH61W1|Local 715|Libertad 825|Viña del Mar|55|13|40|44
+TH92P261JM|Local 517|Camino el Alba No11969 Local 301 - Interior|Santiago|96|39|9|18
+TH92P261GD|Local 466|Colon 468|Los Angeles|89|62|97|77
+TH39LH61XC|Local 455|Av Santa Teresita 683 L18|Los Andes|86|85|86|72
+TH32RF6058|Local 410|Av. 21 de Mayo S-N - Lider|Quillota|79|62|63|92
+TH92P261D9|Local 15|Irarrázaval 4221 - Esq. Juan Moya|Santiago|43|0|24|62
+TH95T46028|Local 596|Av. Camilo Henriquez 3682 L148 -  Mall Plaza Tobalaba|Puente Alto|33|26|2|64
+TH1AK8611X|Local 346|Av. Angamos 745, Local 2040|Antofagasta|0|38|53|39
+TH22SF61F3|Local 436|Avenida Diego Portales N°2291, Arica|Arica|86|67|87|82
+TH36TH61V8|Local 716|Avda. Bosque Norte 124|Las Condes|58|49|55|69
+TH92P261GM|Local 77|Bilbao 3785 / Shell|Santiago|52|18|28|5
+TH36TH61VV|Local 703|Avda. San Martin 604|Viña del Mar|87|60|87|72
+TH36TH61M4|Local 551|Av. Américo Vespucio N° 1501, Cerrillos|Santiago|90|39|68|56
+TH22SF61M5|Local 384|Matucana 1202 L1|Quinta Normal|96|48|87|68
+TH93D26062|Local 496|Copayapu 2296 - Jumbo|Copiapo|0|59|83|0
+TH9764607G|Local 467|Neptuno  720|Santiago|13|35|85|22
+TH944460VC|Local 393|Gran Avenida No 6150|San Miguel|56|49|89|58
+TH356F6113|Local 193|Antonio Varas N° 651|Puerto Montt|89|89|90|1
+TH356F6123|Local 374 Magistral|Av Vicuna Mackenna 4114 - Macul|Santiago|42|60|27|60
+TH944460T2|Local 650|Isidro Gaete  N°475 Local 2 Puchuncaví|Puchuncaví|34|90|0|1
+TH39LH61ZJ|Local 791|Avenida Concha y Toro 640|Puente Alto|65|45|58|0
+TH36TH61RZ|Local 726|Los Carrera 301, Bio Bio, Local BE-114|Concepción|9|62|98|10
+TH356F6106|Local 446|Av Pdte Eduardo Frei Montalva 1110 - Lider|Punta Arenas|72|31|25|0
+TH39LH61W8|Local 717|Av. Andrés Bello 2425, piso 1 Local 1121|Providencia|10|57|93|80
+TH93D2608G|Local 235|Pedro de Valdivia N1010  Local 2|Concepcion|90|88|6|83
+TH39LH61Y6|Local 512|Calle Juan Bosco 2084 L6 y L7 - Lider|Concepcion|50|53|74|13
+TH39LH61XN|Local 361|Av. Anibal Pinto 640|Parral|11|91|5|54
+TH356F612D|Local 240|Barros Arana nº 724 - 734|Concepcion|16|95|30|75
+TH11J86047|Local 123|Av. Argentina N° 1105|Antofagasta|80|64|54|79
+TH39LH61VW|Local 622|Los Pablos  N° 1880 local 9|Temuco|38|58|35|30
+TH36TH61T5|Local 701|Avda. Blanca Estela N°1560 local 5 y 6|Concón|50|11|43|89
+TH944460TK|Local 134|Cordovez 631-651|La Serena|43|78|41|42
+TH149861W0|Edificio Corporativo|Santa Clara 684|Huechuraba|85|63|12|87
+TH93D26065|Local 535|Av. San Juan 113 B - 113 C - 113 D|Rancagua|26|55|66|59
+TH36TH61V6|Local 131|O'Higgins nº 561|Copiapo|29|22|58|40
+TH36TH61NT|Local 668|Las Industrias N° 15560 Local 2 y 3 Maipú|Santiago|20|39|81|71
+TH92P261J9|Local 390|Av. O Higgins 314|Santiago|54|10|38|4
+TH39LH61Z5|Local 469|Paseo Colina Sur 14500 L8 - Mall Piedra|Santiago|55|11|53|24
+TH92P261PT|Local 426|Av. Americo Vespucio 2500 - Interior Super Lider|Cerrillos|3|20|92|12
+TH22SF61MG|Local 549|Av. Ramón Freire 2414 - L 1082|Quilpué|91|50|61|11
+TH356F6164|Local 647|Teresa Wilms Montt N° 2263 locales 1168-1172 y 1176|Iquique|55|42|39|87
+TH92P261PZ|Local 89|Ruta 68 Kilometro 18,5 Lo Aguirre / Shell|Pudahuel|34|27|69|37
+TH39LH61VR|Local 751|Vitacura 8400|Vitacura|14|64|68|46
+TH92P261P6|Local 659|Avda. Vespucio N°1737 Local H-104 Huechuraba|Santiago|87|15|62|85
+TH93D26063|Local 539|Calle Valparaiso 1070 Local 2116|Viña del Mar|0|7|79|79
+TH36TH61RB|Local 721|Av. de los Poetas 249|Temuco|83|42|21|90
+TH36TH61V7|Local 696|Av. Cristobal Colón N° 6809, Las condes|Santiago|20|63|34|63
+TH356F611Z|Local 670|Americo Vespucio 7110 Local 108-112 La Florida|Santiago|54|95|98|99
+TH36TH61VR|Local 712|Avenida Colin 0240, local 3, Talca|Talca|28|86|16|0
+TH93D2603C|Local 398|Av. Jose Pedro Alessandri 2127 - Interior Super Líder|Macul|95|41|67|28
+TH93D2607H|Local 621|Av Los Carrera 3791 - Esq El Inca L07|Copiapó|90|72|28|29
+TH92P261QW|Local 64|Av. Américo Vespucio Nº 1001 Local 1029 / Jumbo Maipu|Santiago|71|45|65|56
+TH36TH61PK|Local 684|Lautaro #78 locales 1 y 2, La Calera|Valparaiso|6|60|33|47
+TH92P261QZ|Local 201|Av.Vicuña Mackena 9587 - Santa Amalia|La Florida|52|31|34|51
+TH356F614D|Local 136|Av. Vicuña Mackenna N° 72 y 90|Ovalle|0|82|24|68
+TH32RF602S|Local 69|Ahumada 226|Santiago|18|73|25|41
+TH39LH620X|Local 304|Avenida San Martín 321|Castro|28|15|27|88
+TH22SF61PF|Local 330|Bilbao 317|Coyhaique|71|64|61|49
+TH92P2616X|Local 546|Av. Americo Vespucio 33 L26 - Esq. Gran Avenida|Santiago|36|24|32|56
+TH39LH61YW|Local 351|Av. Vitacura N°6345|Vitacura|97|97|97|25
+TH32RF6074|Local 241|Av. España 01377 - Loc. Antiguo Blockbuster|Punta Arenas|79|0|38|94
+TH92P261FX|Local 625|Estrella de Chile 191 - L1 L3|Quintero|34|33|42|68
+TH36TH61QK|Local 720|Ruta 5 norte Esquina Regimiento Arica|La Serena|87|42|55|79
+TH356F6131|Local 699|Av. Pedro Montt 1998, Valparaíso.|Valparaiso|10|15|84|37
+TH36TH61QF|Local 388|Av. Irarrazaval 2928|Santiago|68|71|61|7
+TH92P2618X|Local 362|Carretera General San Martín  19000 - Colina|Colina|24|27|6|52
+TH92P261JX|Local 620|Chicureo 130 Strip Center Puertas de Chicureo|Colina|0|0|37|47
+TH1BPD607W|Local 283|Av.Apoquindo 3449-Enrique Foster-Frente Municipalidad |Las Condes|66|95|34|13
+TH356F617W|Local 695|Av. Concón Reñaca 3850 local 1004, Concón|Valparaiso|75|93|36|45
+TH356F616J|Local 92|Carretera General San Martín n°68 L.3 y 4|Santiago|44|41|90|28
+TH92P261J5|Local 221|Juan Soler Manfredini 51  Local 114|Puerto Montt|34|99|55|0
+TH93D2608Z|Local 312|Esmeralda 723|Valdivia|57|25|60|42
+TH22FF602Y|Local 145|Av. Libertad N°335|Viña del Mar|62|48|0|12
+TH39LH61Y1|Local 758|José Santiago Aldunate 1308|Coquimbo|93|47|72|8
+TH944460S0|Local 669|Camino Troncal N°1561 Local 1 Peñablanca|Villa Alemana|88|31|14|26
+TH93D2605J|Local 490|O Higgins 116|Quillota|14|68|0|67
+TH92P2618N|Local 428|Av. Bernardo O Higgins 807|Talagante|3|93|0|0
+TH92P261H9|Local 453|Av Las Condes 12916|Santiago|0|78|1|73
+TH92P261M5|Local 32|Luis Carrera 2215 - Esq. Candelaria Goyenechea|Vitacura|89|79|91|0
+TH36TH61VC|Local 707|Huérfanos N°1153, Santiago.|Santiago|38|22|55|43
+TH356F616K|Local 285|Av. La Dehesa Nº 457 / El Roble|Lo Barnechea|54|70|27|24
+TH22SF61M8|Local 686|Independencia N° 565 - Local Nº TM-101 (mall)|Independencia|57|52|33|33
+TH927260C9|Local 462|Av. Portugal  480|Santiago|38|11|23|0
+TH36TH61W9|Local 719|Avenida Lo Espejo N°943|Maipú|33|16|47|8
+TH944460V2|Local 267|Tarapaca 599   Ramirez|Iquique|96|36|6|18
+TH92P261CS|Local 607|Huérfanos N°811|Santiago|8|30|17|14
+TH944460SN|Local 258|Mall Calama (Av. Balmaceda N 3242   Loc. 116)|Calama|9|5|43|64
+TH9B466008|Local 584|Marcoleta 328 Torre 9- local 5|Santiago|60|88|80|35
+TH93D26022|Local 424|San Jose 69 - Interior Super Líder|San Bernardo|33|50|15|27
+TH944460S1|Local 359|Av. Dos Lote 8 Bilbao - P. Hurtado|Iquique|97|0|23|66
+TH36TH61S1|Local 231|Camilo Henriquez N555|Villarrica|93|54|65|73
+TH22FF603B|Local 385|Av. Rancagua 180|Santiago|24|70|2|57
+TH39LH61WC|Piloto|Av. Los Vientos 19867 Ciudad de los Valles|Pudahuel|31|5|79|65
+TH93D2605C|Local 132|Prat 1100|Vallenar|39|8|27|44
+TH356F6168|Local 328|Av. Simón Bolívar Nº 3756 |Ñuñoa|33|77|17|60
+TH92P261KR|Local 2|Bilbao 4144, L200 - Jumbo Bilbao|Santiago|48|38|14|81
+TH39LH621B|Local 550|Avenida Walker Martinez 3600|La Florida|76|54|6|87
+TH36TH61SQ|Local 711|Huérfanos N°1033, Santiago.|Santiago|30|7|68|98
+TH356F617C|Local 698|Av. gastón hamel nieto n°527 lote 6|Viña del Mar|17|91|93|92
+TH96T46052|Local 33|Av. El Bosque 164 - Esq. Lota|Santiago|44|50|73|76
+TH39LH61XT|Local 195|Juan Bosco N° 501 (Urgencia)|Concepción|22|12|20|26
+TH22SF61FH|Local 448|Av Gabriela Mistral N° 2621 |Temuco|3|29|0|37
+TH93D2604G|Local 392|Independencia 4142|Conchalí|41|50|17|21
+TH356F6156|Local 300|Av. Los Trapenses 3515 L302 - Mall Paseo Los Trapenses|Santiago|11|25|65|76
+TH356F6179|Local 682|Ochagavía 13115, local 1, San Bernardo.San Bernardo|Santiago|81|85|85|83
+TH92P261QC|Local 593|Av. Portales N° 3698, local 1236|San Bernardo|7|50|26|87
+TH22SF61ND|Local 567|Av. Guillermo Ulriksen 3128 L2|La Serena|65|18|32|18
+TH92P261F4|Local 414|Av. Tomas Moro 1149 - Interiror Lider|Las Condes|66|50|66|34
+TH39LH61VX|Local 373|Sargento Aldea 1089|Puerto Aysen|79|78|53|0
+TH92P261N1|Local 326|Emilia Tellez 5593|Santiago|19|26|66|60
+TH22FF603X|Local 422|Av. Concha y Toro N 1149 Local 42-44 Puente Alto|Santiago|5|86|71|79
+TH93D2607G|Local 435|Balmaceda 3242 - Interior Super Líder|Calama|54|59|63|17
+TH39LH61WW|Local 397|Américo Vespucio 6325 - Super Lider|La Florida|70|96|13|28
+TH1AK86117|Local 348|Alfredo Silva Carvallo 1415|Santiago|41|35|29|89
+TH95T4601Q|Local 583|Caletera 1502 - L3 - Ruta 68 Placilla|Valparaíso|48|78|80|50
+TH36TH61SF|Local 727|Calle Valdivia 440, Local BH-140|Los Angeles|41|7|20|63
+TH91E160ZC|Local 540|Ercilla N°190 local 1005 (Jumbo Los Angeles)|Los Angeles|92|24|34|82
+TH356F617M|Local 337|Los Militares 6872 L9|Santiago|29|24|63|82
+TH92P261KJ|Local 350|Nataniel Cox 620- Locales 1-2-3|Santiago|44|63|91|43
+TH92P26176|Local 581|El Arenal 411 Local 1027|Talca|98|62|92|99
+TH39LH61WN|Local 58|Avda. Cristobal Colon 5090 - Sebastián El Cano|Las Condes|49|46|54|84
+TH92P261K2|Local 465|Av Americo Vespucio 7310 L6  - Supermercado|Santiago|10|0|12|88
+TH92P261PB|Local 525|Calle Bernardino Bravo 0115|Santiago|52|43|46|13
+TH0686600M|Local 285|Av. La Dehesa Nº 457 / El Roble|Lo Barnechea|62|0|11|0
+TH93D260BZ|Local 478|Av Collin 698 - Lider|Chillan|70|11|0|50
+TH39LH61W1|Local 153|Rafael Sotomayor 230, Reñaca|Viña del Mar|11|85|15|68
+TH944460V0|Local 430|Av. Jorge Alessandri 1131 - Interior Super Lider|La Reina|62|4|8|99
+TH36TH61VW|Local 604|Barros Arana N° 308, Local N° 3|Temuco|16|38|47|51
+TH22SF61MF|Local 336|Gran Avenida, N° 5001|San Miguel|96|33|51|7
+TH93D2606B|Local 460|Av Pedro de Valdivia 3774|Santiago|52|77|76|60
+TH1BPD6027|Local 387|Av.Gral. Velásquez 060 - Int Super Lider|Estacion Central|56|19|79|96
+TH22SF61PT|Local 688|Ignacio Serrano N° 574, Local 101C, Castro|Castro|43|98|66|83
+TH92P261P7|Local 624|Avenida del Parque N° 4722 local|Santiago|86|84|84|71
+TH36TH61VN|Local 709|Estado N°359, Santiago.|Santiago|35|74|93|95
+TH93D26048|Local 120|Latorre N°1979|Regiones|78|38|42|9
+TH356F614P|Local 76|Avda. Concha y Toro Nº 1149 |Puente Alto|23|71|54|8
+TH93D26075|Local 137|Av. Balmaceda 3463|La Serena|26|16|41|28
+TH39LH6209|Local 386|Av. Grecia 245 L3 - Lider|Santiago|42|98|2|32
+TH944460TG|Local 431|Av. Pedro de Valdivia 1885|Santiago|15|22|89|73
+TH927260BN|Local 70|Plaza de Armas de Melipilla Nº 537|Melipilla|98|42|84|76
+TH356F616M|Local 492|General Lagos Nº 567|Victoria|16|18|30|61
+TH93D2608N|Local 112|21 de Mayo 359|Arica|80|39|47|14
+TH93D2609R|Local 56|Av. Salvador 89 L3|Santiago|26|0|14|4
+TH32RF602Q|Local 623|Avenida Manantiales 955, L104|Concón|77|91|35|76
+TH36TH61M8|Local 694|Av. Errazuriz 629, Valparaiso|Valparaiso|94|79|90|52
+TH92P2616Z|Local 86|San Martín N°174 Buin (supermercado Tottus)|Santiago|55|87|92|66
+TH92P261JG|Local 470|German Riesco N° 698|San Vicente de T.T.|82|6|38|25
+TH36TH61ST|Local 443|Av. Parque Industrial 400 - Lider|Puerto Montt|6|5|8|70
+TH39LH61ZW|Local 564|Av. Apoquindo 4411 L170 L172 y L174 Metro Esc|Santiago|60|66|98|16
+TH39LH61VG|Local 541|Calle Rojas Magallanes N° 3638|La Florida|26|5|6|86
+TH92P261NT|Local 500|Av Las Torres 450|Santiago|85|39|4|10
+TH39LH61WQ|Local 784|Avda. 5 de Abril 775|Chillán|53|17|22|95
+TH92P26181|Local 400|Av. Eduardo Frei Montalva 190 - Lider|Rancagua|11|75|59|61
+TH356F616H|Local 368|Hochstetter N° 890|Temuco|88|56|81|68
+TH22FF603W|Local 239|Avda. Francisco Bilbao N8750 (Jumbo Padre Hurtado)|Santiago|43|67|5|83
+TH356F612G|Local 724|Avenida Diego Portales 640, Local BS-1048|Arica|26|61|67|76
+TH36TH61W0|Local 702|Calle Arauco 561 local 144, Valdivia.|Valdivia|48|89|95|65
+TH32RF6050|Local 689|Errázuriz 1040 Valdivia los Ríos|Valdivia|60|5|27|37
+TH39LH61XD|Local 526|Av. Alcalde Jose Luis Infante Larrain 1541|Maipú|3|94|4|31
+TH93D2601V|Local 357|18 de Septiembre 1402|Arica|71|85|68|39
+TH356F617R|Local 34|Av. Isabel La Catolica 6072 - Esq. Manquehue Sur|Santiago|71|45|51|10
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|60|55|60|75
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|60|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|25|25|50
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|5|5|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|45|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|45|25|45|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|25|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH39LH61ZO|Local 320|Av. Alemania 671 - Portal Temuco Lc. 2086 |Temuco|55|50|55|70
+TH2B4F60V1|Local 732|Avenida Larrain 5862, Local BF-129|La Reina|0|0|55|20
+TH0937620N|Local 704|Avda. Undécima 1605, Local 12|Valparaíso|55|55|60|60
+TH93D26015|Local 553|Av Salvador 1866 L 1 - Esquina Sucre|Ñuñoa|25|20|25|45
+TH32RF604F|Local 731|Avenida Américo Vespucio 1737, Local BE-1133|Huechuraba|0|55|0|0
+TH39LH61XM|Local 961|Avenida Bernardo O’Higgins 701, local 2100|San Fernando|10|0|0|0
+TH32RF603S|Local 531|Calle Los Clarines 59 - Santa Isabel|Coquimbo|45|40|40|60
+TH32RF604C|Local 317|Av. Americo Vespucio Norte N° 2515|Vitacura|40|20|40|0
+TH356F612K|Local 945|Avda. Plaza 1250, Local A.|Las Condes|0|0|0|20
+TH48RF61JX|Local 183|5 de Abril 702 - Mall Arauco Chillán|Chillán|90|90|80|90
+TH48GF60DR|Local 802|Avenida Vicente Mendez 1545, Local 1305|Chillán|40|20|30|60
+TH48GF60DM|Local 787|Cerro Tronador 4981, Valle Los Volcanes, Local 1824|Puerto Montt|60|50|60|80
+TH48GF60JC|Local 917|Av. Isabel Riquelme Sur 1446 local 1|Maipú|70|60|60|100
+TH541K80Y6|Local 518|Las Barrancas 2491 L3 y L4 - Santa Isabel Los Pinos|Quilpué|40|40|20|80
+TH48RF61PS|Local 916|Prolongación Benavente 1075, local 1240|Coquimbo|70|20|20|60
+TH48RF61K8|Magistral Principal|Av. Vicuña Mackenna 4114, Macul,|Santiago|40|40|50|50
+TH48GF60D4|Local 605|Avda. Jorge AlessandriN° 3177, L-6 |Talcahuano|50|40|50|70
+TH48GF60HV|Local 936|Avenida Vitacura 6562|Vitacura|80|70|70|90
+TH48GF60J9|Local 919|Pedro Fontova 7455, local 3|Huechuraba|70|60|70|100
+TH48GF60BR|Local 912|Avenida Granaderos 3651, local 1020|Calama|90|70|90|20
+TH48RF61JT|Local 782|Las Caballerizas 133|Colina|80|20|30|20
+TH48RF61JQ|Local 617|Avda. Edmundo Pérez Zujovic 5470 LF4 - Lote F|Antofagasta|70|70|60|80
+TH48RF618Q|Local 589|Pedro Aguirre Cerda 9400|Antofagasta|20|20|20|50
+TH48GF60G5|Local 778|Av.lo Marcoleta 351, Local 1004|Quilicura|40|30|40|80
+TH48GF60J5|Local 783|Av. Nueva Einstein, 287, Local 77|Rancagua|90|100|100|20
+TH48RF61B5|Local 236|Rafael Casanova N 104|Santa Cruz|0|40|20|60
+TH541K80ZM|Local 482|Gran Avenida José Miguel Carrera 4293|San Miguel|90|80|90|80
+TH48RF61QV|Local 920|Avda. Apoquindo 4554|Las Condes|50|40|40|60
+TH48RF61BV|Local 747|Av. Providencia 2208 local 4|Providencia|90|90|90|100
+TH48RF61BW|Local 276|J. Alessandri  3177 (Mall El Trebol)|Talcahuano|30|0|20|50
+TH48GF60G6|Local 737|Avenida Vicuña Mackenna Oriente 7110, Local E-9109|La Florida|90|90|90|90
+TH48GF60GX|Local 162|Carr. El Cobre pdte. Frei N° 750 local 102 (Jumbo)|Rancagua|70|70|70|90
+TH541K8107|Local 611|Circunvalación Oriente N° 1055|Talca|90|90|90|100
+TH48GF60FK|Local 792|Avenida Las Perdices 2990 Local 5|Peñalolen|90|90|90|100
+TH48RF61JS|Local 288|Avda. Jose Miguel Carrera 5919|Santiago|50|90|50|70
+TH48RF61KS|Local 597|Av. Larraín 5862 L1092 al L1096|Santiago|90|50|20|70
+TH48RF61CP|Local 910|Calle Chacabuco 120, Local 5|Copiapó|40|50|50|90
+TH48RF61N3|Local 418|Av. Ricardo Vicuña 284 - Interior Super Lider|Los Angeles|100|90|90|20
+TH48RF61PZ|Local 908|Avda. El Santo 1646|La Serena|50|40|40|70
+TH541K813B|Local 785|Avenida chorrillos 1759, local 1023|Calama|70|70|60|80
+TH48RF61PJ|Local 334|Arturo Prat 2405|San Javier|70|20|30|100
+TH48RF61PQ|Local 933|Caupolicán 958, local K P1 103|Quilpué|80|80|80|80
+TH48RF61K0|Local 931|Concha y Toro 260|Puente Alto|90|90|90|90
+TH48RF61MR|Local 84|Príncipe de Gales N° 7230|Santiago|80|50|80|50
+TH48RF619Y|Local 355|Av. Balmaceda 2408|Antofagasta|40|20|20|100
+TH48GF60C8|Local 759|Ricardo Lyon 3154|Ñuñoa|70|50|50|90
+TH48RF61PK|Local 35|Av. Larrain 6563 - Super Sta. Isabel Exterior|La Reina|80|70|80|90
+TH48RF61Q5|Local 786|Av. Concha y Toro 3854 Local 1039|Puente Alto|90|90|90|100
+TH48GF60FW|Local 764|García Reyes 261, local 8|Chimbarongo|90|90|90|90
+TH48GF60G4|Local 757|Gran Av. José Miguel Carrera 10375|El Bosque|90|60|60|50
+TH48RF61J6|Local 642|AVDA BERNARDO OHIGGINS 555 LOCAL 1 (INTERIOR LIDER)|Santiago|90|80|90|20
+TH48RF61KH|Local 793|José Miguel Carrera 7390|La Cisterna|70|100|80|20
+TH48GF60JB|Local 932|calle Camino apacible 635, local 4-A|Pudahuel|80|70|70|100
+TH48RF6197|Local 905|Calle El Picadero Poniente 1800 Lote 58|Rancagua|50|20|20|20
+TH48RF61MJ|Local 281|Calle Quillota 441|Local|90|90|90|20
+TH48RF61DF|Local 753|Avda. Chamisero 10370, Lote A|Colina|50|30|50|20
+TH541K810P|Local 394|Av. Froilan Roa 7107 L103|La Florida|20|20|20|50
+TH48RF619N|Local 26|Avenida Pajaritos Nº 1790 |Maipú|20|0|20|20
+TH48GF60FJ|Local 718|Avda. Consistorial 2701|Peñalolen|100|50|60|100
+TH48GF60J3|Local 943|Avenida Irarrázaval 3107|Ñuñoa|70|60|70|70
+TH541K810G|Local 343|Camino Chicureo esquina Los Ingleses L1|Colina|0|0|0|30
+TH48GF60H7|Local 774|Av. Argentina 51, Local 2031|Valparaíso|90|90|90|90
+TH48GF60HX|Local 918|Av. Valparaiso 670|Viña del Mar|60|50|60|80
+TH48GF60FV|Local 801|San Miguel 781, Local 1|Cartagena|80|60|80|60
+TH48GF60HR|Local 922|Avda. Manuel Montt 1056|Tomé|90|80|80|90
+TH48RF61N9|Local 722|Repubica 342|Limache|20|50|60|80
+TH48GF60JW|Local 921|Barros Arana 699|Concepción|80|70|80|20
+TH48RF61BF|Local 80|Av.Sucre 3250|Santiago|90|60|60|50
+TH48GF60JK|Local 958|Avenida Libertador General Bernardo O'Higgins 3750, Local 1|Estacion Central|90|80|90|90
+TH48GF6013|Local 527|Pasaje 2 207 Localidad Las Monjas|Concepcion|50|0|30|50
+TH48GF60JN|Local 914|Avenida Santa María 2985, local 3|Arica|90|80|90|20
+TH48GF60NV|Local 723|Avenida Padre Hurtado Sur 785, Local DC-1001|Las Condes|100|100|100|20
+TH48GF60F5|Local 67|11 de Septiembre 1313 - Manuel Montt|Providencia|20|60|80|100
+TH48RF617T|Local 476|Carretera El Cobre 1002|Rancagua|70|60|60|90
+TH541K811W|Local 280|Michimalonco N1120  locales 1 y 2|San Pedro de la Paz|0|0|20|40
+TH541K80Z0|Local 585|Av. Regimiento Arica 6145 Local # 5|La Serena|40|20|20|70
+TH48RF61CM|Local 776|Costanera Norte 9781 Local 1006|Hualpen|80|50|70|20

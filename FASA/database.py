@@ -135,6 +135,10 @@ class ConsumableLevel(Base):
     yellow_level = IntegerField()
     black_level = IntegerField()
 
+# class CartridgeInstallDate(Base):
+
+
+
 class OrderToCreate(Base):
 
     machine = ForeignKeyField(model=Machine, null=True, backref='orders_to_create')

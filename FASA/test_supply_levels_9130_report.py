@@ -44,7 +44,7 @@ def get_supply_levels_9130(ip_addr, pin):
     reports_and_pages.click()
 
     input_pin = WebDriverWait(driver, 120).until(
-        EC.presence_of_element_located((By.ID, 'pin'))    
+        EC.presence_of_element_located((By.ID, 'pin'))
     )
     input_pin.send_keys(pin)
 

@@ -52,6 +52,7 @@ CL_Report_Name = Account_Name + " Consumable Levels.xlsx"
 SR_Report_Name = Account_Name + " - Service Visit History.xlsx"
 MDA_Report_Name = Account_Name + " Informe MDA.xlsx"
 NRD_Report_Name = Account_Name + " NRD Devices.xlsx"
+supply_levels_9130 = "9130 Supply Levels.xlsx"
 
 DCC_Reports_Route = "C:\\Users\\HP\\Documents\\Reportes"
 Inventory_Route = "C:\\Users\\HP\\OneDrive - Manpower Chile\\FASA\\Inventario Fasa 2025.xlsx"
@@ -60,6 +61,7 @@ CL_Report_Route = os.path.join(DCC_Reports_Route, CL_Report_Name)
 SR_Report_Route = os.path.join(DCC_Reports_Route, SR_Report_Name)
 MDA_Report_Route = os.path.join(DCC_Reports_Route, MDA_Report_Name)
 NRD_Report_Route = os.path.join(DCC_Reports_Route, NRD_Report_Name)
+SL_9130_Route = os.path.join(DCC_Reports_Route, supply_levels_9130)
 
 supply_export_csv = "files\\supply_order_history.csv"
 supply_export_excel = "files\\supply_order_history.xlsx"
@@ -77,6 +79,8 @@ mda_export_excel = "files\\mda_export.xlsx"
 mda_export_csv = "files\\mda_export.csv"
 nrd_export_excel = "files\\nrd_export.xlsx"
 nrd_export_csv = "files\\nrd_export.csv"
+sl_9130_csv = "files\\9130_supply_levels.csv"
+sl_9130_excel = "files\\9130_supply_levels.xlsx"
 
 final_orders_to_create_file = 'final_orders_to_create.txt'
 

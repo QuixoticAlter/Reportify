@@ -46,6 +46,7 @@ def copy_reports():
     shutil.copy(SR_Report_Route, service_requests_export_excel)
     shutil.copy(MDA_Report_Route, mda_export_excel)
     shutil.copy(NRD_Report_Route, nrd_export_excel)
+    shutil.copy(SL_9130_Route, sl_9130_excel)
 
 def convert_excel_exports_to_csv():
 
@@ -55,6 +56,7 @@ def convert_excel_exports_to_csv():
     convert_excel_to_csv(service_requests_export_excel, 'Report', service_requests_export_csv)
     convert_excel_to_csv(mda_export_excel, 'Datos', mda_export_csv)
     convert_excel_to_csv(nrd_export_excel, 'Report', nrd_export_csv)
+    convert_excel_to_csv(sl_9130_excel, 'Datos', sl_9130_csv)
 
 def get_supply_levels(ip_addr, model, pin):
     
@@ -274,7 +276,7 @@ def update_consumable_levels():
     isnicl = [x for x in all_invetory_serials if not x in consumable_level_serials] # -> Inventory serials not in consumbale levels
 
     for s in isnicl:
-        print(s)
+        # print(s)
         try: m = Machine.get(Machine.serial == s)
         except: continue
         cls = get_supply_levels(m.ip_addr, m.model, m.pin) if m.ip_addr != "0.0.0.0" and m.model != "HP OfficeJet Pro 9130" else None
@@ -289,72 +291,63 @@ def update_consumable_levels():
         consumable_level.yellow_level = cls[3]
         consumable_level.save()
 
-def update_local_supply_orders():
+def update_9130_consumable_levels():
 
-    supply_orders_array = csv_to_array(automatic_orders_csv)
-    supply_orders_array += csv_to_array(manual_orders_csv)
-    supply_orders_array += csv_to_array(arc_orders_csv)
+    consumable_levels_array = csv_to_array(sl_9130_csv)
 
-    processed_supply_orders = list(map(lambda x: array_replace_char(x), supply_orders_array))
+    for x in consumable_levels_array[1:]:
+            
+        consumable_level = ConsumableLevel()
+        try:
+            consumable_level.machine = Machine.get(Machine.serial == x[0])
+        except Exception as e:
+            try:
+                rmachine = RemovedMachine.get(RemovedMachine.serial == x[0])
+                consumable_level.removed_machine = rmachine
+            except:
+                rmachine = RemovedMachine()
+                rmachine.serial = x[0]
+                rmachine.save()
+                consumable_level.removed_machine = rmachine
+        consumable_level.detection_date = datetime.now()
+        consumable_level.yellow_level = 0 if x[3] == "out" else x[3]
+        consumable_level.cyan_level = 0 if x[4] == "out" else x[4]
+        consumable_level.magenta_level = 0 if x[5] == "out" else x[5]
+        consumable_level.black_level = 0 if x[6] == "out" else x[6]
 
-    for x in processed_supply_orders:
-        if x[0] != "n_order":
-            rows = SupplyOrder.select().where(SupplyOrder.n_order == x[0])
-            if len(rows) == 0:
-                supplyorder = SupplyOrder()
-                supplyorder.n_order = x[0]
-                try:
-                    supplyorder.machine = Machine.get(Machine.serial == x[2])
-                except Exception as e:
-                    try:
-                        rmachine = RemovedMachine.get(RemovedMachine.serial == x[2])
-                        supplyorder.removed_machine = rmachine
-                    except:
-                        rmachine = RemovedMachine()
-                        rmachine.serial = x[2]
-                        rmachine.save()
-                        supplyorder.removed_machine = rmachine
-                supplyorder.cyan_cartridge = "3JA54AL" if x[4] == "3JA54AL" else None
-                supplyorder.magenta_cartridge =  "3JA55AL" if x[5] == "3JA55AL" else None
-                supplyorder.yellow_cartridge = "3JA56AL" if x[6] == "3JA56AL" else None
-                supplyorder.black_cartridge = "3JA57AL" if x[3] == "3JA57AL" else None
-                print("Creation Date: %s" % str(x[1]))
-                supplyorder.creation_date = datetime.strptime(x[1], '%d-%m-%Y')
-                supplyorder.arrival_date = None
-                supplyorder.close_date = None
-                supplyorder.save()
-            else:
+        if consumable_level.magenta_level == 'unknown': consumable_level.magenta_level = 0
+        if consumable_level.cyan_level == 'unknown': consumable_level.cyan_level = 0
+        if consumable_level.yellow_level == 'unknown': consumable_level.yellow_level = 0
+        if consumable_level.black_level == 'unknown': consumable_level.black_level = 0
 
-                try:
-                    m = Machine.get(Machine.serial == x[11])
-                    query = SupplyOrder.update(machine_id = m.id).where(SupplyOrder.n_order == x[0])
-                    query.execute()
-                except: pass
+        print(consumable_level)
 
-                if x[4] == "3JA54AL":
-                    query = SupplyOrder.update(cyan_cartridge = "3JA54AL").where(SupplyOrder.n_order == x[0])
-                    query.execute()
-                elif x[5] == "3JA55AL":
-                    query = SupplyOrder.update(magenta_cartridge = "3JA55AL").where(SupplyOrder.n_order == x[0])
-                    query.execute()
-                elif x[6] == "3JA56AL":
-                    query = SupplyOrder.update(yellow_cartridge = "3JA56AL").where(SupplyOrder.n_order == x[0])
-                    query.execute()
-                elif x[3] == "3JA57AL":
-                    query = SupplyOrder.update(black_cartridge = "3JA57AL").where(SupplyOrder.n_order == x[0])
-                    query.execute()
+        consumable_level.save()
+
+    # consumable_level_serials = [x[0] for x in consumable_levels_array[1:]]
+    # all_invetory_serials = [m.serial for m in Machine.select()]
+    # isnicl = [x for x in all_invetory_serials if not x in consumable_level_serials] # -> Inventory serials not in consumbale levels
+
+    # for s in isnicl:
+    #     print(s)
+    #     try: m = Machine.get(Machine.serial == s)
+    #     except: continue
+    #     cls = get_supply_levels(m.ip_addr, m.model, m.pin) if m.ip_addr != "0.0.0.0" and m.model != "HP OfficeJet Pro 9130" else None
+    #     if cls == None: continue
+    #     print(cls)
+    #     consumable_level = ConsumableLevel()
+    #     consumable_level.machine = m
+    #     consumable_level.detection_date = datetime.now()
+    #     consumable_level.black_level = cls[0]
+    #     consumable_level.cyan_level = cls[1]
+    #     consumable_level.magenta_level = cls[2]
+    #     consumable_level.yellow_level = cls[3]
+    #     consumable_level.save()
 
 def update_supply_orders():
 
     supply_orders_array = csv_to_array(supply_export_csv)
     supply_orders_array_filt = [x for x in supply_orders_array if x[2] != None and x[2] != '' and x[2] != '\n']
-
-    cartridge_parts = {
-        "cyan": "3JA54AL",
-        "magenta": "3JA55AL",
-        "yellow": "3JA56AL",
-        "black": "3JA57AL"
-    }
 
     for x in supply_orders_array_filt[4:]:
         rows = SupplyOrder.select().where(SupplyOrder.n_order == x[0])
@@ -493,16 +486,17 @@ if __name__ == "__main__":
     update_inventory()
     # update_new_machines()
     update_consumable_levels()
+    update_9130_consumable_levels()
     update_supply_orders()
     # update_local_supply_orders()
     # update_nrd()
     # update_helpdesk_cases()
     # update_service_requests()
 
-    machine_serial = "TH9B46604M"
-    machineObj = Machine.get(Machine.serial == machine_serial)
-    site_name = machineObj.site.name
-    print("Site Name: %s" % site_name)
+    # machine_serial = "TH9B46604M"
+    # machineObj = Machine.get(Machine.serial == machine_serial)
+    # site_name = machineObj.site.name
+    # print("Site Name: %s" % site_name)
 
-    levels = [(x.black_level, x.cyan_level, x.magenta_level, x.yellow_level) for x in machineObj.consumable_levels][0]
-    print(levels)
+    # levels = [(x.black_level, x.cyan_level, x.magenta_level, x.yellow_level) for x in machineObj.consumable_levels][0]
+    # print(levels)
